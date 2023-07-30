@@ -4561,7 +4561,16 @@ function create_fragment$5(ctx) {
 							"size": null
 						},
 						"title": "Laborum ad incididunt",
-						"social_links": []
+						"social_links": [
+							{
+								"icon": "sss",
+								"link": { "url": "/", "label": "consectetur" }
+							},
+							{
+								"icon": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690707934702fotozony-2x.webp",
+								"link": { "url": "/about", "label": "Some" }
+							}
+						]
 					},
 					{
 						"name": "Sit consectetur eiusmod",
