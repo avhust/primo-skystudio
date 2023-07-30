@@ -1936,7 +1936,7 @@ function create_fragment$1(ctx) {
 			attr(header, "class", "svelte-5fxekz");
 			toggle_class(header, "scrolled", /*scrollY*/ ctx[1] > scrollTrigger);
 			attr(div6, "class", "section");
-			attr(div6, "id", "section-86f12157");
+			attr(div6, "id", "section-d2e0b991");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div6, anchor);
@@ -2515,7 +2515,7 @@ function create_fragment$2(ctx) {
 			attr(div5, "class", "texts svelte-xt9fw9");
 			attr(section, "class", "svelte-xt9fw9");
 			attr(div6, "class", "section");
-			attr(div6, "id", "section-a0a741e8");
+			attr(div6, "id", "section-80316739");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div6, anchor);
@@ -2808,7 +2808,7 @@ function create_fragment$3(ctx) {
 			attr(div0, "class", "section-container");
 			attr(div0, "id", "mainContent");
 			attr(div1, "class", "section");
-			attr(div1, "id", "section-4cec6e6f");
+			attr(div1, "id", "section-f93d8656");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -2915,7 +2915,7 @@ function create_fragment$4(ctx) {
 			attr(div2, "class", "infoLine toRight svelte-1p505uh");
 			attr(div3, "class", "section-container");
 			attr(div4, "class", "section");
-			attr(div4, "id", "section-e63ef93d");
+			attr(div4, "id", "section-6ac3a884");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div4, anchor);
@@ -3584,7 +3584,7 @@ function create_fragment$6(ctx) {
 			attr(div7, "class", "block2Columns svelte-kwgaw5");
 			attr(div8, "class", "section-container");
 			attr(div9, "class", "section");
-			attr(div9, "id", "section-d2e87603");
+			attr(div9, "id", "section-432b303e");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div9, anchor);
@@ -3815,7 +3815,7 @@ function create_fragment$7(ctx) {
 			attr(div3, "class", "blockWithImageAndButton svelte-wwjqoz");
 			attr(div4, "class", "section-container");
 			attr(div5, "class", "section");
-			attr(div5, "id", "section-21e44ccf");
+			attr(div5, "id", "section-05292821");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div5, anchor);
@@ -3930,7 +3930,7 @@ function create_fragment$8(ctx) {
 			attr(iframe, "class", "svelte-fkbfxf");
 			attr(div0, "class", "section-container");
 			attr(div1, "class", "section");
-			attr(div1, "id", "section-fe6920b8");
+			attr(div1, "id", "section-f61b7893");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div1, anchor);
@@ -4092,7 +4092,7 @@ function create_fragment$9(ctx) {
 			attr(div2, "class", "contactUsLine svelte-sabpsk");
 			attr(div3, "class", "section-container");
 			attr(div4, "class", "section");
-			attr(div4, "id", "section-8029bd1a");
+			attr(div4, "id", "section-647dd1a5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div4, anchor);
@@ -4315,7 +4315,7 @@ function create_fragment$a(ctx) {
 			attr(div3, "class", "container svelte-b63oz0");
 			attr(footer, "class", "svelte-b63oz0");
 			attr(div4, "class", "section");
-			attr(div4, "id", "section-11d6b08b");
+			attr(div4, "id", "section-051b42c3");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div4, anchor);
@@ -4489,7 +4489,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0"
+				slide_number: "1"
 			}
 		});
 
@@ -4503,7 +4503,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0",
+				slide_number: "1",
 				links: [
 					{
 						"item": { "url": "/", "label": "Головна" }
@@ -4533,7 +4533,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0"
+				slide_number: "1"
 			}
 		});
 
@@ -4547,7 +4547,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0"
+				slide_number: "1"
 			}
 		});
 
@@ -4561,7 +4561,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0",
+				slide_number: "1",
 				heading: "Переглянути&nbsp;фотозони",
 				button: {
 					"url": "/fotozony#mainContent",
@@ -4580,7 +4580,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0",
+				slide_number: "1",
 				news: [
 					{
 						"date": "22.07.2023",
@@ -4618,7 +4618,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0",
+				slide_number: "1",
 				heading: "Правила оренди студії",
 				text: {
 					"html": "<ol>\n<li>Оренда студії відбувається без передоплати. Будь ласка, про зміни попереджуйте заздалегідь.</li>\n<li>У студії є змінне взуття на 6 людей. Якщо людей буде більше, вам треба подбати про своє змінне взуття. У нас на підлозі коврове покриття, тому спокійно можна бути в шкарпетках.</li>\n<li>Якщо ви будете фотографуватись у взутті, воно обовʼязково має бути чистим!</li>\n<li>Вся студія бронюється за вами лише за умови роботи одного фотографа. Якщо працює два фотографа паралельно на різних зонах, оплата подвоюється.</li>\n<li>Чай, кава - безкоштовні. Капучино - за наявності молока :)</li>\n<li>В разі пошкодження майна вам необхідно повністю компенсувати збитки. Витрати оплачуються вами відразу. Шукаємо ринкову ціну пошкодженої речі при вас.</li>\n<li>Якщо ви плануєте зйомку з тваринами чи просто приходите з ними, попереджуйте про їх наявність завчасно та узгоджуйте це питання з нами.</li>\n<li>Відверті зйомки — це добре, але категорично заборонені зйомки порнографічного характеру.</li>\n</ol>\n<h3 id=\"skystudio\">Дякуємо за розуміння! З радістю чекаємо вас в Sky Studio.</h3>",
@@ -4637,7 +4637,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0"
+				slide_number: "1"
 			}
 		});
 
@@ -4651,7 +4651,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0"
+				slide_number: "1"
 			}
 		});
 
@@ -4665,7 +4665,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Sky Studio – Фотостудія з крилами в Ужгороді",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0",
+				slide_number: "1",
 				email: "contact@skystudio.uz.ua",
 				links: [
 					{
@@ -4696,7 +4696,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slide_number: "0"
+				slide_number: "1"
 			}
 		});
 
