@@ -1113,18 +1113,20 @@ function create_fragment(ctx) {
 
 function instance($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
+		if ('slied' in $$props) $$invalidate(3, slied = $$props.slied);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
 		if ('description' in $$props) $$invalidate(2, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
+		if ('slidenumber' in $$props) $$invalidate(4, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description, slidenumber];
+	return [favicon, title, description, slied, slidenumber];
 }
 
 class Component extends SvelteComponent {
@@ -1133,9 +1135,10 @@ class Component extends SvelteComponent {
 
 		init(this, options, instance, create_fragment, safe_not_equal, {
 			favicon: 0,
+			slied: 3,
 			title: 1,
 			description: 2,
-			slidenumber: 3
+			slidenumber: 4
 		});
 	}
 }
@@ -1172,17 +1175,17 @@ function fly(node, { delay = 0, duration = 400, easing = cubicOut$1, x = 0, y = 
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[13] = list[i].item;
+	child_ctx[14] = list[i].item;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[13] = list[i].item;
+	child_ctx[14] = list[i].item;
 	return child_ctx;
 }
 
-// (348:0) {#if openMenu}
+// (349:0) {#if openMenu}
 function create_if_block_1(ctx) {
 	let div6;
 	let div0;
@@ -1470,9 +1473,9 @@ function create_if_block_1(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(button, "click", /*click_handler*/ ctx[10]),
+					listen(button, "click", /*click_handler*/ ctx[11]),
 					action_destroyer(swipeToClose_action = /*swipeToClose*/ ctx[3].call(null, div6)),
-					listen(div6, "swiperight", /*swiperight_handler*/ ctx[11])
+					listen(div6, "swiperight", /*swiperight_handler*/ ctx[12])
 				];
 
 				mounted = true;
@@ -1538,11 +1541,11 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (364:7) {#each links as {item}}
+// (365:7) {#each links as {item}}
 function create_each_block_1(ctx) {
 	let li;
 	let a;
-	let t_value = /*item*/ ctx[13].label + "";
+	let t_value = /*item*/ ctx[14].label + "";
 	let t;
 	let a_href_value;
 	let a_title_value;
@@ -1565,8 +1568,8 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*item*/ ctx[13].url);
-			attr(a, "title", a_title_value = /*item*/ ctx[13].label);
+			attr(a, "href", a_href_value = /*item*/ ctx[14].url);
+			attr(a, "title", a_title_value = /*item*/ ctx[14].label);
 			attr(a, "class", "svelte-5fxekz");
 			attr(li, "class", "svelte-5fxekz");
 		},
@@ -1576,13 +1579,13 @@ function create_each_block_1(ctx) {
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[13].label + "")) set_data(t, t_value);
+			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[14].label + "")) set_data(t, t_value);
 
-			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[13].url)) {
+			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[14].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[13].label)) {
+			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[14].label)) {
 				attr(a, "title", a_title_value);
 			}
 		},
@@ -1592,7 +1595,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (404:4) {:else}
+// (405:4) {:else}
 function create_else_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1620,7 +1623,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (398:4) {#if scrollY > scrollTrigger}
+// (399:4) {#if scrollY > scrollTrigger}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1648,10 +1651,10 @@ function create_if_block(ctx) {
 	};
 }
 
-// (410:13) {#each links as {item}}
+// (411:13) {#each links as {item}}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*item*/ ctx[13].label + "";
+	let t_value = /*item*/ ctx[14].label + "";
 	let t;
 	let a_href_value;
 	let a_title_value;
@@ -1670,8 +1673,8 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*item*/ ctx[13].url);
-			attr(a, "title", a_title_value = /*item*/ ctx[13].label);
+			attr(a, "href", a_href_value = /*item*/ ctx[14].url);
+			attr(a, "title", a_title_value = /*item*/ ctx[14].label);
 			attr(a, "class", "svelte-5fxekz");
 		},
 		m(target, anchor) {
@@ -1679,13 +1682,13 @@ function create_each_block(ctx) {
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[13].label + "")) set_data(t, t_value);
+			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[14].label + "")) set_data(t, t_value);
 
-			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[13].url)) {
+			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[14].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[13].label)) {
+			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[14].label)) {
 				attr(a, "title", a_title_value);
 			}
 		},
@@ -1738,7 +1741,7 @@ function create_fragment$1(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	add_render_callback(/*onwindowscroll*/ ctx[9]);
+	add_render_callback(/*onwindowscroll*/ ctx[10]);
 	let if_block0 = /*openMenu*/ ctx[2] && create_if_block_1(ctx);
 
 	function select_block_type(ctx, dirty) {
@@ -1970,9 +1973,9 @@ function create_fragment$1(ctx) {
 						scrolling = true;
 						clearTimeout(scrolling_timeout);
 						scrolling_timeout = setTimeout(clear_scrolling, 100);
-						/*onwindowscroll*/ ctx[9]();
+						/*onwindowscroll*/ ctx[10]();
 					}),
-					listen(button, "click", /*click_handler_1*/ ctx[12])
+					listen(button, "click", /*click_handler_1*/ ctx[13])
 				];
 
 				mounted = true;
@@ -2070,6 +2073,7 @@ const scrollTrigger = 200;
 
 function instance$1($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
@@ -2155,9 +2159,10 @@ function instance$1($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(5, title = $$props.title);
-		if ('description' in $$props) $$invalidate(6, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(7, slidenumber = $$props.slidenumber);
+		if ('slied' in $$props) $$invalidate(5, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(6, title = $$props.title);
+		if ('description' in $$props) $$invalidate(7, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(8, slidenumber = $$props.slidenumber);
 		if ('links' in $$props) $$invalidate(0, links = $$props.links);
 	};
 
@@ -2167,6 +2172,7 @@ function instance$1($$self, $$props, $$invalidate) {
 		openMenu,
 		swipeToClose,
 		favicon,
+		slied,
 		title,
 		description,
 		slidenumber,
@@ -2184,16 +2190,17 @@ class Component$1 extends SvelteComponent {
 
 		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
 			favicon: 4,
-			title: 5,
-			description: 6,
-			slidenumber: 7,
+			slied: 5,
+			title: 6,
+			description: 7,
+			slidenumber: 8,
 			links: 0,
-			swipable: 8
+			swipable: 9
 		});
 	}
 
 	get swipable() {
-		return this.$$.ctx[8];
+		return this.$$.ctx[9];
 	}
 }
 
@@ -2654,10 +2661,10 @@ function scale(
 
 function instance$2($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
-	let { select_slide } = $$props;
 
 	const slides = [
 		{
@@ -2744,13 +2751,13 @@ function instance$2($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(4, title = $$props.title);
-		if ('description' in $$props) $$invalidate(5, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(6, slidenumber = $$props.slidenumber);
-		if ('select_slide' in $$props) $$invalidate(7, select_slide = $$props.select_slide);
+		if ('slied' in $$props) $$invalidate(4, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(5, title = $$props.title);
+		if ('description' in $$props) $$invalidate(6, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(7, slidenumber = $$props.slidenumber);
 	};
 
-	return [slides, texts, slideno, favicon, title, description, slidenumber, select_slide];
+	return [slides, texts, slideno, favicon, slied, title, description, slidenumber];
 }
 
 class Component$2 extends SvelteComponent {
@@ -2759,10 +2766,10 @@ class Component$2 extends SvelteComponent {
 
 		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
 			favicon: 3,
-			title: 4,
-			description: 5,
-			slidenumber: 6,
-			select_slide: 7
+			slied: 4,
+			title: 5,
+			description: 6,
+			slidenumber: 7
 		});
 	}
 }
@@ -2809,18 +2816,20 @@ function create_fragment$3(ctx) {
 
 function instance$3($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-		if ('description' in $$props) $$invalidate(2, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
+		if ('slied' in $$props) $$invalidate(1, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(2, title = $$props.title);
+		if ('description' in $$props) $$invalidate(3, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(4, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description, slidenumber];
+	return [favicon, slied, title, description, slidenumber];
 }
 
 class Component$3 extends SvelteComponent {
@@ -2829,9 +2838,10 @@ class Component$3 extends SvelteComponent {
 
 		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
 			favicon: 0,
-			title: 1,
-			description: 2,
-			slidenumber: 3
+			slied: 1,
+			title: 2,
+			description: 3,
+			slidenumber: 4
 		});
 	}
 }
@@ -2930,6 +2940,7 @@ function create_fragment$4(ctx) {
 
 function instance$4($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
@@ -2938,14 +2949,15 @@ function instance$4($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(3, title = $$props.title);
-		if ('description' in $$props) $$invalidate(4, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(5, slidenumber = $$props.slidenumber);
+		if ('slied' in $$props) $$invalidate(3, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('description' in $$props) $$invalidate(5, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(6, slidenumber = $$props.slidenumber);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('button' in $$props) $$invalidate(1, button = $$props.button);
 	};
 
-	return [heading, button, favicon, title, description, slidenumber];
+	return [heading, button, favicon, slied, title, description, slidenumber];
 }
 
 class Component$4 extends SvelteComponent {
@@ -2954,9 +2966,10 @@ class Component$4 extends SvelteComponent {
 
 		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
 			favicon: 2,
-			title: 3,
-			description: 4,
-			slidenumber: 5,
+			slied: 3,
+			title: 4,
+			description: 5,
+			slidenumber: 6,
 			heading: 0,
 			button: 1
 		});
@@ -3314,12 +3327,12 @@ function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
 	child_ctx[1] = list[i].title;
 	child_ctx[2] = list[i].text;
-	child_ctx[6] = list[i].picture;
-	child_ctx[7] = list[i].date;
+	child_ctx[7] = list[i].picture;
+	child_ctx[8] = list[i].date;
 	return child_ctx;
 }
 
-// (261:2) {#each news as { title, text, picture, date }}
+// (262:2) {#each news as { title, text, picture, date }}
 function create_each_block$1(ctx) {
 	let div4;
 	let div0;
@@ -3327,7 +3340,7 @@ function create_each_block$1(ctx) {
 	let t0;
 	let t1;
 	let div1;
-	let t2_value = /*date*/ ctx[7] + "";
+	let t2_value = /*date*/ ctx[8] + "";
 	let t2;
 	let t3;
 	let div2;
@@ -3344,8 +3357,8 @@ function create_each_block$1(ctx) {
 				width: 960,
 				heigh: 1280,
 				loading: "eager",
-				path: "/i/news/" + /*date*/ ctx[7],
-				image: /*picture*/ ctx[6]
+				path: "/i/news/" + /*date*/ ctx[8],
+				image: /*picture*/ ctx[7]
 			}
 		});
 
@@ -3418,10 +3431,10 @@ function create_each_block$1(ctx) {
 		},
 		p(ctx, dirty) {
 			if ((!current || dirty & /*news*/ 1) && t0_value !== (t0_value = /*title*/ ctx[1] + "")) set_data(t0, t0_value);
-			if ((!current || dirty & /*news*/ 1) && t2_value !== (t2_value = /*date*/ ctx[7] + "")) set_data(t2, t2_value);
+			if ((!current || dirty & /*news*/ 1) && t2_value !== (t2_value = /*date*/ ctx[8] + "")) set_data(t2, t2_value);
 			if ((!current || dirty & /*news*/ 1) && raw_value !== (raw_value = /*text*/ ctx[2] + "")) div2.innerHTML = raw_value;			const picture_changes = {};
-			if (dirty & /*news*/ 1) picture_changes.path = "/i/news/" + /*date*/ ctx[7];
-			if (dirty & /*news*/ 1) picture_changes.image = /*picture*/ ctx[6];
+			if (dirty & /*news*/ 1) picture_changes.path = "/i/news/" + /*date*/ ctx[8];
+			if (dirty & /*news*/ 1) picture_changes.image = /*picture*/ ctx[7];
 			picture.$set(picture_changes);
 		},
 		i(local) {
@@ -3657,6 +3670,7 @@ function create_fragment$6(ctx) {
 
 function instance$6($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
@@ -3665,14 +3679,15 @@ function instance$6($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
+		if ('slied' in $$props) $$invalidate(4, slied = $$props.slied);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-		if ('description' in $$props) $$invalidate(4, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(5, slidenumber = $$props.slidenumber);
+		if ('description' in $$props) $$invalidate(5, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(6, slidenumber = $$props.slidenumber);
 		if ('news' in $$props) $$invalidate(0, news = $$props.news);
 		if ('text' in $$props) $$invalidate(2, text = $$props.text);
 	};
 
-	return [news, title, text, favicon, description, slidenumber];
+	return [news, title, text, favicon, slied, description, slidenumber];
 }
 
 class Component$6 extends SvelteComponent {
@@ -3681,9 +3696,10 @@ class Component$6 extends SvelteComponent {
 
 		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
 			favicon: 3,
+			slied: 4,
 			title: 1,
-			description: 4,
-			slidenumber: 5,
+			description: 5,
+			slidenumber: 6,
 			news: 0,
 			text: 2
 		});
@@ -3833,6 +3849,7 @@ function create_fragment$7(ctx) {
 
 function instance$7($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
@@ -3841,14 +3858,15 @@ function instance$7($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(3, title = $$props.title);
-		if ('description' in $$props) $$invalidate(4, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(5, slidenumber = $$props.slidenumber);
+		if ('slied' in $$props) $$invalidate(3, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('description' in $$props) $$invalidate(5, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(6, slidenumber = $$props.slidenumber);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('text' in $$props) $$invalidate(1, text = $$props.text);
 	};
 
-	return [heading, text, favicon, title, description, slidenumber];
+	return [heading, text, favicon, slied, title, description, slidenumber];
 }
 
 class Component$7 extends SvelteComponent {
@@ -3857,9 +3875,10 @@ class Component$7 extends SvelteComponent {
 
 		init(this, options, instance$7, create_fragment$7, safe_not_equal, {
 			favicon: 2,
-			title: 3,
-			description: 4,
-			slidenumber: 5,
+			slied: 3,
+			title: 4,
+			description: 5,
+			slidenumber: 6,
 			heading: 0,
 			text: 1
 		});
@@ -3932,18 +3951,20 @@ function create_fragment$8(ctx) {
 
 function instance$8($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-		if ('description' in $$props) $$invalidate(2, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
+		if ('slied' in $$props) $$invalidate(1, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(2, title = $$props.title);
+		if ('description' in $$props) $$invalidate(3, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(4, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description, slidenumber];
+	return [favicon, slied, title, description, slidenumber];
 }
 
 class Component$8 extends SvelteComponent {
@@ -3952,9 +3973,10 @@ class Component$8 extends SvelteComponent {
 
 		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
 			favicon: 0,
-			title: 1,
-			description: 2,
-			slidenumber: 3
+			slied: 1,
+			title: 2,
+			description: 3,
+			slidenumber: 4
 		});
 	}
 }
@@ -4106,18 +4128,20 @@ function create_fragment$9(ctx) {
 
 function instance$9($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-		if ('description' in $$props) $$invalidate(2, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
+		if ('slied' in $$props) $$invalidate(1, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(2, title = $$props.title);
+		if ('description' in $$props) $$invalidate(3, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(4, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description, slidenumber];
+	return [favicon, slied, title, description, slidenumber];
 }
 
 class Component$9 extends SvelteComponent {
@@ -4126,9 +4150,10 @@ class Component$9 extends SvelteComponent {
 
 		init(this, options, instance$9, create_fragment$9, safe_not_equal, {
 			favicon: 0,
-			title: 1,
-			description: 2,
-			slidenumber: 3
+			slied: 1,
+			title: 2,
+			description: 3,
+			slidenumber: 4
 		});
 	}
 }
@@ -4137,14 +4162,14 @@ class Component$9 extends SvelteComponent {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[6] = list[i].item;
+	child_ctx[7] = list[i].item;
 	return child_ctx;
 }
 
-// (107:3) {#each links as {item}}
+// (108:3) {#each links as {item}}
 function create_each_block$2(ctx) {
 	let a;
-	let t_value = /*item*/ ctx[6].label + "";
+	let t_value = /*item*/ ctx[7].label + "";
 	let t;
 	let a_href_value;
 	let a_title_value;
@@ -4164,21 +4189,21 @@ function create_each_block$2(ctx) {
 		},
 		h() {
 			attr(a, "class", "lighter svelte-b63oz0");
-			attr(a, "href", a_href_value = /*item*/ ctx[6].url);
-			attr(a, "title", a_title_value = /*item*/ ctx[6].label);
+			attr(a, "href", a_href_value = /*item*/ ctx[7].url);
+			attr(a, "title", a_title_value = /*item*/ ctx[7].label);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*links*/ 2 && t_value !== (t_value = /*item*/ ctx[6].label + "")) set_data(t, t_value);
+			if (dirty & /*links*/ 2 && t_value !== (t_value = /*item*/ ctx[7].label + "")) set_data(t, t_value);
 
-			if (dirty & /*links*/ 2 && a_href_value !== (a_href_value = /*item*/ ctx[6].url)) {
+			if (dirty & /*links*/ 2 && a_href_value !== (a_href_value = /*item*/ ctx[7].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (dirty & /*links*/ 2 && a_title_value !== (a_title_value = /*item*/ ctx[6].label)) {
+			if (dirty & /*links*/ 2 && a_title_value !== (a_title_value = /*item*/ ctx[7].label)) {
 				attr(a, "title", a_title_value);
 			}
 		},
@@ -4366,6 +4391,7 @@ function create_fragment$a(ctx) {
 
 function instance$a($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
@@ -4374,14 +4400,15 @@ function instance$a($$self, $$props, $$invalidate) {
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(3, title = $$props.title);
-		if ('description' in $$props) $$invalidate(4, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(5, slidenumber = $$props.slidenumber);
+		if ('slied' in $$props) $$invalidate(3, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(4, title = $$props.title);
+		if ('description' in $$props) $$invalidate(5, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(6, slidenumber = $$props.slidenumber);
 		if ('email' in $$props) $$invalidate(0, email = $$props.email);
 		if ('links' in $$props) $$invalidate(1, links = $$props.links);
 	};
 
-	return [email, links, favicon, title, description, slidenumber];
+	return [email, links, favicon, slied, title, description, slidenumber];
 }
 
 class Component$a extends SvelteComponent {
@@ -4390,9 +4417,10 @@ class Component$a extends SvelteComponent {
 
 		init(this, options, instance$a, create_fragment$a, safe_not_equal, {
 			favicon: 2,
-			title: 3,
-			description: 4,
-			slidenumber: 5,
+			slied: 3,
+			title: 4,
+			description: 5,
+			slidenumber: 6,
 			email: 0,
 			links: 1
 		});
@@ -4403,18 +4431,20 @@ class Component$a extends SvelteComponent {
 
 function instance$b($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
+	let { slied } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
 	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(1, title = $$props.title);
-		if ('description' in $$props) $$invalidate(2, description = $$props.description);
-		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
+		if ('slied' in $$props) $$invalidate(1, slied = $$props.slied);
+		if ('title' in $$props) $$invalidate(2, title = $$props.title);
+		if ('description' in $$props) $$invalidate(3, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(4, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description, slidenumber];
+	return [favicon, slied, title, description, slidenumber];
 }
 
 class Component$b extends SvelteComponent {
@@ -4423,9 +4453,10 @@ class Component$b extends SvelteComponent {
 
 		init(this, options, instance$b, null, safe_not_equal, {
 			favicon: 0,
-			title: 1,
-			description: 2,
-			slidenumber: 3
+			slied: 1,
+			title: 2,
+			description: 3,
+			slidenumber: 4
 		});
 	}
 }
@@ -4464,6 +4495,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0"
@@ -4478,6 +4510,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0",
@@ -4508,10 +4541,10 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
-				slidenumber: "0",
-				select_slide: "0"
+				slidenumber: "0"
 			}
 		});
 
@@ -4523,6 +4556,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0"
@@ -4537,6 +4571,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0",
@@ -4556,6 +4591,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0",
@@ -4594,6 +4630,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0",
@@ -4613,6 +4650,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0"
@@ -4627,6 +4665,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0"
@@ -4641,6 +4680,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Sky Studio – Фотостудія з крилами в Ужгороді",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0",
@@ -4672,6 +4712,7 @@ function create_fragment$b(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
+				slied: "",
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				slidenumber: "0"
