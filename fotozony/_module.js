@@ -4509,7 +4509,7 @@ function create_fragment$b(ctx) {
 						"item": { "url": "/", "label": "Головна" }
 					},
 					{
-						"item": { "url": "/", "label": "Фотозони" }
+						"item": { "url": "/fotozony", "label": "Фотозони" }
 					},
 					{
 						"item": { "url": "/", "label": "Техніка" }
@@ -4672,7 +4672,7 @@ function create_fragment$b(ctx) {
 						"item": { "url": "/", "label": "Головна" }
 					},
 					{
-						"item": { "url": "/", "label": "Фотозони" }
+						"item": { "url": "/fotozony", "label": "Фотозони" }
 					},
 					{
 						"item": { "url": "/", "label": "Техніка" }
