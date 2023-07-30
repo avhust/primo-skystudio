@@ -3,7 +3,7 @@
 
 <head>
     <meta name="generator" content="Primo" />
-    <title>Primo Skystudio</title><!-- HEAD_svelte-13vzyi1_START -->
+    <title>Primo Skystudio</title><!-- HEAD_svelte-4pwykj_START -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-60x60.png">
@@ -95,7 +95,9 @@
         }
 
         html,
-        body {}
+        body {
+            background-color: var(--darkColor);
+        }
 
 
         .noscroll {
@@ -118,8 +120,6 @@
             color: var(--color);
 
 
-            background: white;
-
             font-size: 16px;
             font-family: var(--font1);
             font-weight: 300;
@@ -136,7 +136,9 @@
         }
 
         /* Elements */
-        .section {}
+        .section {
+            background-color: white;
+        }
 
         .section-container {
             max-width: 1200px;
@@ -264,49 +266,48 @@
             margin-bottom: 1.5rem;
             border-left: 5px solid var(--color-accent);
         }
-    </style><!-- HEAD_svelte-13vzyi1_END -->
+    </style><!-- HEAD_svelte-4pwykj_END -->
     <style>
-        header.svelte-1h9irmg.svelte-1h9irmg {
-            background-color: #294c80;
+        header.svelte-58qo4l.svelte-58qo4l {
             color: white;
-            background-color: transparent;
+            background-color: var(--darkColor);
             transition: all 0.2s ease-in-out;
             width: 100%
         }
 
         @media screen and (min-width: 768px) {
-            header.svelte-1h9irmg.svelte-1h9irmg {
+            header.svelte-58qo4l.svelte-58qo4l {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
-                z-index: 10;
+                z-index: 5;
                 background-color: transparent;
                 background: unset
             }
 
-            header.scrolled.svelte-1h9irmg.svelte-1h9irmg {
+            header.scrolled.svelte-58qo4l.svelte-58qo4l {
                 background-color: #294c80;
                 background: radial-gradient(circle at 5vw 20vw, #2d8fc5, #294c80, #294c80, #294c80)
             }
 
-            header.scrolled.svelte-1h9irmg .container.svelte-1h9irmg {
+            header.scrolled.svelte-58qo4l .container.svelte-58qo4l {
                 height: 5rem
             }
 
-            header.scrolled.svelte-1h9irmg .logo a.svelte-1h9irmg {
+            header.scrolled.svelte-58qo4l .logo a.svelte-58qo4l {
                 align-items: end;
                 align-items: flex-end
             }
 
-            header.scrolled.svelte-1h9irmg .logo img.svelte-1h9irmg {
+            header.scrolled.svelte-58qo4l .logo img.svelte-58qo4l {
                 -o-object-position: 50% 100%;
                 object-position: 50% 100%;
                 transform: translate(0, 1px)
             }
         }
 
-        header.svelte-1h9irmg .container.svelte-1h9irmg {
+        header.svelte-58qo4l .container.svelte-58qo4l {
             display: grid;
             grid-template-columns: 2fr 5fr 2.7fr;
             margin: 0;
@@ -316,7 +317,7 @@
         }
 
         @media screen and (min-width: 768px) {
-            header.svelte-1h9irmg .container.svelte-1h9irmg {
+            header.svelte-58qo4l .container.svelte-58qo4l {
                 height: 8.5rem;
                 margin: 0 auto;
                 grid-template-columns: 2.2fr 5.5fr 2fr 0.05fr;
@@ -325,13 +326,13 @@
             }
         }
 
-        header.svelte-1h9irmg .logo a.svelte-1h9irmg {
+        header.svelte-58qo4l .logo a.svelte-58qo4l {
             display: flex;
             height: 100%;
             align-items: center
         }
 
-        header.svelte-1h9irmg .logo img.svelte-1h9irmg {
+        header.svelte-58qo4l .logo img.svelte-58qo4l {
             display: block;
             -o-object-fit: contain;
             object-fit: contain;
@@ -341,41 +342,41 @@
         }
 
         @media screen and (min-width: 768px) {
-            header.svelte-1h9irmg .logo img.svelte-1h9irmg {
+            header.svelte-58qo4l .logo img.svelte-58qo4l {
                 height: 4.05rem;
                 width: 15rem
             }
         }
 
-        header.svelte-1h9irmg .burger.svelte-1h9irmg {
+        header.svelte-58qo4l .burger.svelte-58qo4l {
             display: flex;
             justify-content: flex-end;
             align-items: center
         }
 
         @media screen and (min-width: 768px) {
-            header.svelte-1h9irmg .burger.svelte-1h9irmg {
+            header.svelte-58qo4l .burger.svelte-58qo4l {
                 display: none
             }
         }
 
-        header.svelte-1h9irmg .burger button.svelte-1h9irmg {
+        header.svelte-58qo4l .burger button.svelte-58qo4l {
             background: none;
             border: none
         }
 
-        header.svelte-1h9irmg .burger button img.svelte-1h9irmg {
+        header.svelte-58qo4l .burger button img.svelte-58qo4l {
             --size: clamp(3rem, 12vw, 4rem);
             height: var(--size);
             width: var(--size)
         }
 
-        header.svelte-1h9irmg .nav.svelte-1h9irmg {
+        header.svelte-58qo4l .nav.svelte-58qo4l {
             display: none
         }
 
         @media screen and (min-width: 768px) {
-            header.svelte-1h9irmg .nav.svelte-1h9irmg {
+            header.svelte-58qo4l .nav.svelte-58qo4l {
                 display: flex;
                 height: 100%;
                 align-items: center;
@@ -383,24 +384,24 @@
             }
         }
 
-        header.svelte-1h9irmg .nav a.svelte-1h9irmg {
+        header.svelte-58qo4l .nav a.svelte-58qo4l {
             color: white;
             font-size: 1.05rem;
             transition: color 0.3s ease-in-out
         }
 
         @media(hover: hover) and (pointer: fine) {
-            header.svelte-1h9irmg .nav a.svelte-1h9irmg:hover {
+            header.svelte-58qo4l .nav a.svelte-58qo4l:hover {
                 color: var(--accentColor)
             }
         }
 
-        header.svelte-1h9irmg .social.svelte-1h9irmg {
+        header.svelte-58qo4l .social.svelte-58qo4l {
             display: none
         }
 
         @media screen and (min-width: 768px) {
-            header.svelte-1h9irmg .social.svelte-1h9irmg {
+            header.svelte-58qo4l .social.svelte-58qo4l {
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
@@ -408,7 +409,7 @@
                 padding: 0 clamp(1.5rem, 3vw, 3rem)
             }
 
-            header.svelte-1h9irmg .social a.svelte-1h9irmg {
+            header.svelte-58qo4l .social a.svelte-58qo4l {
                 display: flex;
                 height: 2.7rem;
                 width: 2.7rem;
@@ -422,19 +423,19 @@
             }
 
             @media(hover: hover) and (pointer: fine) {
-                header.svelte-1h9irmg .social a.svelte-1h9irmg:hover {
+                header.svelte-58qo4l .social a.svelte-58qo4l:hover {
                     transform: scale(1.1)
                 }
             }
 
-            header.svelte-1h9irmg .social a img.svelte-1h9irmg {
+            header.svelte-58qo4l .social a img.svelte-58qo4l {
                 --size: 1.3rem;
                 height: var(--size);
                 width: var(--size)
             }
         }
 
-        header.svelte-1h9irmg .langs.svelte-1h9irmg {
+        header.svelte-58qo4l .langs.svelte-58qo4l {
             display: flex;
             visibility: hidden;
             align-items: center;
@@ -442,7 +443,7 @@
             justify-content: space-around
         }
 
-        header.svelte-1h9irmg .langs a.svelte-1h9irmg {
+        header.svelte-58qo4l .langs a.svelte-58qo4l {
             color: white;
             font-weight: normal;
             text-decoration: none;
@@ -450,15 +451,15 @@
         }
 
         @media(hover: hover) and (pointer: fine) {
-            header.svelte-1h9irmg .langs a.svelte-1h9irmg:hover {
+            header.svelte-58qo4l .langs a.svelte-58qo4l:hover {
                 color: var(--accentColor)
             }
         }
 
-        section.svelte-owgiis.svelte-owgiis {
+        section.svelte-xt9fw9.svelte-xt9fw9 {
             background: var(--darkColor);
             height: calc(100vh / var(--zoom));
-            max-height: 800px;
+            max-height: 900px;
             width: 100%;
             overflow: hidden;
             position: relative;
@@ -467,12 +468,12 @@
         }
 
         @media screen and (min-width: 768px) {
-            section.svelte-owgiis.svelte-owgiis {
+            section.svelte-xt9fw9.svelte-xt9fw9 {
                 min-height: 650px
             }
         }
 
-        section.svelte-owgiis picture.svelte-owgiis {
+        section.svelte-xt9fw9 picture.svelte-xt9fw9 {
             --brightness: 0.35;
             position: absolute;
             left: 0;
@@ -484,7 +485,7 @@
             filter: brightness(var(--brightness))
         }
 
-        section.svelte-owgiis picture img.svelte-owgiis {
+        section.svelte-xt9fw9 picture img.svelte-xt9fw9 {
             --scale: 1;
             display: block;
             width: 100%;
@@ -497,7 +498,7 @@
         }
 
         @media screen and (min-width: 768px) {
-            section.svelte-owgiis picture img.svelte-owgiis {
+            section.svelte-xt9fw9 picture img.svelte-xt9fw9 {
                 transform: scale(1);
                 -o-object-position: 50% 15%;
                 object-position: 50% 15%;
@@ -506,7 +507,7 @@
             }
         }
 
-        section.svelte-owgiis .texts.svelte-owgiis {
+        section.svelte-xt9fw9 .texts.svelte-xt9fw9 {
             z-index: 5;
             display: grid;
             grid-template-rows: 1.14fr 0.7fr 0.4fr 0.38fr 0.52fr;
@@ -523,13 +524,13 @@
         }
 
         @media screen and (min-width: 768px) {
-            section.svelte-owgiis .texts.svelte-owgiis {
+            section.svelte-xt9fw9 .texts.svelte-xt9fw9 {
                 width: calc(100% - 2rem);
                 padding: 0
             }
         }
 
-        section.svelte-owgiis .texts .first.svelte-owgiis {
+        section.svelte-xt9fw9 .texts .first.svelte-xt9fw9 {
             font-family: var(--font1);
             align-self: end;
             font-size: clamp(2.5rem, 11vw, 4.5rem);
@@ -539,12 +540,12 @@
         }
 
         @media screen and (min-width: 768px) {
-            section.svelte-owgiis .texts .first.svelte-owgiis {
+            section.svelte-xt9fw9 .texts .first.svelte-xt9fw9 {
                 font-size: 4.5rem
             }
         }
 
-        section.svelte-owgiis .texts .second.svelte-owgiis {
+        section.svelte-xt9fw9 .texts .second.svelte-xt9fw9 {
             --length: 5;
             overflow: hidden;
             font-size: clamp(2.7rem, calc(180vw / var(--length)), 8rem);
@@ -554,19 +555,19 @@
         }
 
         @media screen and (min-width: 768px) {
-            section.svelte-owgiis .texts .second.svelte-owgiis {
+            section.svelte-xt9fw9 .texts .second.svelte-xt9fw9 {
                 transform: translateX(-0.5rem);
                 letter-spacing: -0.55rem;
                 font-size: 8rem
             }
         }
 
-        section.svelte-owgiis .texts .buttonHero.svelte-owgiis {
+        section.svelte-xt9fw9 .texts .buttonHero.svelte-xt9fw9 {
             display: flex;
             align-items: center
         }
 
-        section.svelte-owgiis .texts .buttonHero a.svelte-owgiis {
+        section.svelte-xt9fw9 .texts .buttonHero a.svelte-xt9fw9 {
             font-family: var(--font1);
             padding: 1rem 3rem;
             color: var(--accentColor);
@@ -576,7 +577,7 @@
             border: 2px solid var(--accentColor)
         }
 
-        section.svelte-owgiis .texts .buttonHero a span.svelte-owgiis {
+        section.svelte-xt9fw9 .texts .buttonHero a span.svelte-xt9fw9 {
             transform: scale(1);
             transition: all 0.2s ease-in-out;
             transform-origin: center;
@@ -584,16 +585,16 @@
         }
 
         @media(hover: hover) and (pointer: fine) {
-            section.svelte-owgiis .texts .buttonHero a.svelte-owgiis:hover {
+            section.svelte-xt9fw9 .texts .buttonHero a.svelte-xt9fw9:hover {
                 background-color: var(--darkColor)
             }
 
-            section.svelte-owgiis .texts .buttonHero a:hover span.svelte-owgiis {
+            section.svelte-xt9fw9 .texts .buttonHero a:hover span.svelte-xt9fw9 {
                 transform: scale(1.1)
             }
         }
 
-        section.svelte-owgiis .texts .premenu.svelte-owgiis {
+        section.svelte-xt9fw9 .texts .premenu.svelte-xt9fw9 {
             color: var(--accentDarkerColor);
             font-family: var(--font1);
             line-height: 1;
@@ -603,14 +604,14 @@
         }
 
         @media screen and (min-width: 768px) {
-            section.svelte-owgiis .texts .premenu.svelte-owgiis {
+            section.svelte-xt9fw9 .texts .premenu.svelte-xt9fw9 {
                 padding-bottom: 1rem;
                 letter-spacing: -0.2rem;
                 font-size: 4.5rem
             }
         }
 
-        section.svelte-owgiis .texts .menu.svelte-owgiis {
+        section.svelte-xt9fw9 .texts .menu.svelte-xt9fw9 {
             font-family: var(--font1);
             position: relative;
             border-top: 2px solid white;
@@ -621,7 +622,7 @@
         }
 
         @media screen and (min-width: 768px) {
-            section.svelte-owgiis .texts .menu.svelte-owgiis {
+            section.svelte-xt9fw9 .texts .menu.svelte-xt9fw9 {
                 display: grid;
                 grid-auto-flow: column;
                 grid-template-columns: 1fr 1fr 0.8fr 1.2fr 1fr;
@@ -630,7 +631,7 @@
             }
         }
 
-        section.svelte-owgiis .texts .menu a.svelte-owgiis {
+        section.svelte-xt9fw9 .texts .menu a.svelte-xt9fw9 {
             width: 48%;
             color: rgba(255, 255, 255, 0.74);
             padding: 1rem 0 0;
@@ -642,7 +643,7 @@
         }
 
         @media screen and (min-width: 768px) {
-            section.svelte-owgiis .texts .menu a.svelte-owgiis {
+            section.svelte-xt9fw9 .texts .menu a.svelte-xt9fw9 {
                 position: relative;
                 color: rgba(255, 255, 255, 0.5);
                 width: 100%;
@@ -653,26 +654,26 @@
         }
 
         @media(hover: hover) and (pointer: fine) {
-            section.svelte-owgiis .texts .menu a.svelte-owgiis:hover {
+            section.svelte-xt9fw9 .texts .menu a.svelte-xt9fw9:hover {
                 color: white
             }
         }
 
-        section.svelte-owgiis .texts .menu a.active.svelte-owgiis,
-        section.svelte-owgiis .texts .menu a.active.svelte-owgiis:hover {
+        section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9,
+        section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:hover {
             color: var(--accentColor)
         }
 
         @media screen and (min-width: 768px) {
 
-            section.svelte-owgiis .texts .menu a.active.svelte-owgiis,
-            section.svelte-owgiis .texts .menu a.active.svelte-owgiis:hover {
+            section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9,
+            section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:hover {
                 color: white
             }
         }
 
-        section.svelte-owgiis .texts .menu a.active.svelte-owgiis:before,
-        section.svelte-owgiis .texts .menu a.active.svelte-owgiis:hover:before {
+        section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:before,
+        section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:hover:before {
             content: '';
             position: absolute;
             top: -3px;
@@ -685,8 +686,8 @@
 
         @media screen and (min-width: 768px) {
 
-            section.svelte-owgiis .texts .menu a.active.svelte-owgiis:before,
-            section.svelte-owgiis .texts .menu a.active.svelte-owgiis:hover:before {
+            section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:before,
+            section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:hover:before {
                 right: 7%
             }
         }
@@ -1325,23 +1326,23 @@
 <body id="page">
 
     <div class="section" id="section-86f12157">
-        <header class="svelte-1h9irmg">
-            <div class="container svelte-1h9irmg">
-                <div class="logo"><a href="/" class="svelte-1h9irmg"><img src="https://cdn.skystudio.uz.ua/old/skystudio_logo.svg" alt="Logo SkyStudio" class="svelte-1h9irmg"></a></div>
-                <div class="nav svelte-1h9irmg"><a href="/" title="Головна" class="svelte-1h9irmg">Головна</a><a href="/" title="Фотозони" class="svelte-1h9irmg">Фотозони</a><a href="/" title="Техніка" class="svelte-1h9irmg">Техніка</a><a href="/" title="Крила" class="svelte-1h9irmg">Крила</a><a href="/" title="Сукні" class="svelte-1h9irmg">Сукні</a><a href="/" title="Про нас" class="svelte-1h9irmg">Про нас</a></div>
-                <div class="social svelte-1h9irmg"><a rel="noreferrer" href="tel:+380950889787" class="svelte-1h9irmg"><img alt="fb icon" src="https://cdn.skystudio.uz.ua/old/icons/phone.svg" class="svelte-1h9irmg"></a>
-                    <a target="_blank" rel="noreferrer" href="https://www.instagram.com/sky_studio_uzh/" class="svelte-1h9irmg"><img alt="instagram icon" src="https://cdn.skystudio.uz.ua/old/icons/insta.svg" class="svelte-1h9irmg" style="--size: 1.5rem;"></a>
-                    <a target="_blank" rel="noreferrer" href="https://www.facebook.com/skystudio.uz" class="svelte-1h9irmg"><img alt="fb icon" src="https://cdn.skystudio.uz.ua/old/icons/fb.svg" class="svelte-1h9irmg"></a>
-                    <a target="_blank" rel="noreferrer" href="https://youtube.com/@sky_studio_uzh" class="svelte-1h9irmg"><img alt="youtube icon" src="https://cdn.skystudio.uz.ua/old/icons/youtube.svg" class="svelte-1h9irmg"></a>
+        <header class="svelte-58qo4l">
+            <div class="container svelte-58qo4l">
+                <div class="logo"><a href="/" class="svelte-58qo4l"><img src="https://cdn.skystudio.uz.ua/old/skystudio_logo.svg" alt="Logo SkyStudio" class="svelte-58qo4l"></a></div>
+                <div class="nav svelte-58qo4l"><a href="/" title="Головна" class="svelte-58qo4l">Головна</a><a href="/" title="Фотозони" class="svelte-58qo4l">Фотозони</a><a href="/" title="Техніка" class="svelte-58qo4l">Техніка</a><a href="/" title="Крила" class="svelte-58qo4l">Крила</a><a href="/" title="Сукні" class="svelte-58qo4l">Сукні</a><a href="/" title="Про нас" class="svelte-58qo4l">Про нас</a></div>
+                <div class="social svelte-58qo4l"><a rel="noreferrer" href="tel:+380950889787" class="svelte-58qo4l"><img alt="fb icon" src="https://cdn.skystudio.uz.ua/old/icons/phone.svg" class="svelte-58qo4l"></a>
+                    <a target="_blank" rel="noreferrer" href="https://www.instagram.com/sky_studio_uzh/" class="svelte-58qo4l"><img alt="instagram icon" src="https://cdn.skystudio.uz.ua/old/icons/insta.svg" class="svelte-58qo4l" style="--size: 1.5rem;"></a>
+                    <a target="_blank" rel="noreferrer" href="https://www.facebook.com/skystudio.uz" class="svelte-58qo4l"><img alt="fb icon" src="https://cdn.skystudio.uz.ua/old/icons/fb.svg" class="svelte-58qo4l"></a>
+                    <a target="_blank" rel="noreferrer" href="https://youtube.com/@sky_studio_uzh" class="svelte-58qo4l"><img alt="youtube icon" src="https://cdn.skystudio.uz.ua/old/icons/youtube.svg" class="svelte-58qo4l"></a>
                 </div>
-                <div class="langs svelte-1h9irmg"></div>
-                <div class="burger svelte-1h9irmg"><button class="svelte-1h9irmg"><img alt="burger icon" src="https://cdn.skystudio.uz.ua/old/icons/hamburger.svg" class="svelte-1h9irmg"></button></div>
+                <div class="langs svelte-58qo4l"></div>
+                <div class="burger svelte-58qo4l"><button class="svelte-58qo4l"><img alt="burger icon" src="https://cdn.skystudio.uz.ua/old/icons/hamburger.svg" class="svelte-58qo4l"></button></div>
             </div>
         </header>
     </div>
     <div class="section" id="section-a0a741e8">
-        <section class="svelte-owgiis">
-            <picture class="svelte-owgiis" style="--brightness: 0.35;">
+        <section class="svelte-xt9fw9">
+            <picture class="svelte-xt9fw9" style="--brightness: 0.35;">
                 <source type="image/avif" sizes="100vw" srcset="
 			  https://cdn.skystudio.uz.ua/old/hero/home-2x.avif 2128w, 
 			  https://cdn.skystudio.uz.ua/old/hero/home-1x.avif 1419w">
@@ -1350,18 +1351,18 @@
 			  https://cdn.skystudio.uz.ua/old/hero/home-1x.webp 1419w">
                 <img alt="hero" src="https://cdn.skystudio.uz.ua/old/hero/home-1x.jpg" srcset="
 			  https://cdn.skystudio.uz.ua/old/hero/home-2x.jpg 2128w, 
-			  https://cdn.skystudio.uz.ua/old/hero/home-1x.jpg 1419w" sizes="100vw" height="1061" width="2126" style="content-visibility: auto; --moveX: 88%; --scale: 1;" class="svelte-owgiis">
+			  https://cdn.skystudio.uz.ua/old/hero/home-1x.jpg 1419w" sizes="100vw" height="1061" width="2126" style="content-visibility: auto; --moveX: 88%; --scale: 1;" class="svelte-xt9fw9">
             </picture>
-            <div class="texts svelte-owgiis">
-                <div class="first svelte-owgiis"><!-- HTML_TAG_START -->фотостудія<br />з крилами<!-- HTML_TAG_END --></div>
-                <div class="second svelte-owgiis" style="--length: 10">в Ужгороді</div>
-                <div class="buttonHero svelte-owgiis"><a href="#mainContent" class="svelte-owgiis"><span class="svelte-owgiis">Детальніше</span></a></div>
-                <div class="premenu svelte-owgiis">вул. Залізнична 1А</div>
-                <div class="menu svelte-owgiis"><a href="/fotozony" class="svelte-owgiis">фотозони<br>Sky Studio</a>
-                    <a href="/tekhnika" class="svelte-owgiis">наша техніка<br>та обладнання</a>
-                    <a href="/kryla" class="svelte-owgiis">крила<br>в оренду</a>
-                    <a href="/sukni" class="svelte-owgiis">аксесуари та<br> сукні в оренду</a>
-                    <a href="/pro" class="svelte-owgiis">про<br>нашу студію</a>
+            <div class="texts svelte-xt9fw9">
+                <div class="first svelte-xt9fw9"><!-- HTML_TAG_START -->фотостудія<br />з крилами<!-- HTML_TAG_END --></div>
+                <div class="second svelte-xt9fw9" style="--length: 10">в Ужгороді</div>
+                <div class="buttonHero svelte-xt9fw9"><a href="#mainContent" class="svelte-xt9fw9"><span class="svelte-xt9fw9">Детальніше</span></a></div>
+                <div class="premenu svelte-xt9fw9">вул. Залізнична 1А</div>
+                <div class="menu svelte-xt9fw9"><a href="/fotozony" class="svelte-xt9fw9">фотозони<br>Sky Studio</a>
+                    <a href="/tekhnika" class="svelte-xt9fw9">наша техніка<br>та обладнання</a>
+                    <a href="/kryla" class="svelte-xt9fw9">крила<br>в оренду</a>
+                    <a href="/sukni" class="svelte-xt9fw9">аксесуари та<br> сукні в оренду</a>
+                    <a href="/pro" class="svelte-xt9fw9">про<br>нашу студію</a>
                 </div>
             </div>
         </section>

@@ -867,11 +867,11 @@ function create_fragment(ctx) {
 			link14 = element("link");
 			meta2 = element("meta");
 			style = element("style");
-			t = text("@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: var(--darkColor);\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  background: white;\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = text("@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n  background-color: var(--darkColor);\n}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: var(--darkColor);\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {\n  background-color: white;\n}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-13vzyi1', document.head);
+			const head_nodes = head_selector('svelte-4pwykj', document.head);
 
 			link0 = claim_element(head_nodes, "LINK", {
 				rel: true,
@@ -924,7 +924,7 @@ function create_fragment(ctx) {
 			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t = claim_text(style_nodes, "@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: var(--darkColor);\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  background: white;\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = claim_text(style_nodes, "@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n  background-color: var(--darkColor);\n}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: var(--darkColor);\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {\n  background-color: white;\n}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -1076,7 +1076,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (201:4) {:else}
+// (200:4) {:else}
 function create_else_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1093,7 +1093,7 @@ function create_else_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo.svg")) attr(img, "src", img_src_value);
 			attr(img, "alt", "Logo SkyStudio");
-			attr(img, "class", "svelte-1h9irmg");
+			attr(img, "class", "svelte-58qo4l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1104,7 +1104,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (195:4) {#if scrollY > scrollTrigger}
+// (194:4) {#if scrollY > scrollTrigger}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1121,7 +1121,7 @@ function create_if_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo_scrolled.svg")) attr(img, "src", img_src_value);
 			attr(img, "alt", "Logo SkyStudio");
-			attr(img, "class", "svelte-1h9irmg");
+			attr(img, "class", "svelte-58qo4l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1132,7 +1132,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (207:13) {#each links as {item}}
+// (206:13) {#each links as {item}}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[8].label + "";
@@ -1156,7 +1156,7 @@ function create_each_block(ctx) {
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[8].url);
 			attr(a, "title", a_title_value = /*item*/ ctx[8].label);
-			attr(a, "class", "svelte-1h9irmg");
+			attr(a, "class", "svelte-58qo4l");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -1358,46 +1358,46 @@ function create_fragment$1(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "svelte-1h9irmg");
+			attr(a0, "class", "svelte-58qo4l");
 			attr(div0, "class", "logo");
-			attr(div1, "class", "nav svelte-1h9irmg");
+			attr(div1, "class", "nav svelte-58qo4l");
 			attr(img0, "alt", "fb icon");
 			if (!src_url_equal(img0.src, img0_src_value = "https://cdn.skystudio.uz.ua/old/icons/phone.svg")) attr(img0, "src", img0_src_value);
-			attr(img0, "class", "svelte-1h9irmg");
+			attr(img0, "class", "svelte-58qo4l");
 			attr(a1, "rel", "noreferrer");
 			attr(a1, "href", "tel:+380950889787");
-			attr(a1, "class", "svelte-1h9irmg");
+			attr(a1, "class", "svelte-58qo4l");
 			attr(img1, "alt", "instagram icon");
 			if (!src_url_equal(img1.src, img1_src_value = "https://cdn.skystudio.uz.ua/old/icons/insta.svg")) attr(img1, "src", img1_src_value);
-			attr(img1, "class", "svelte-1h9irmg");
+			attr(img1, "class", "svelte-58qo4l");
 			set_style(img1, "--size", `1.5rem`);
 			attr(a2, "target", "_blank");
 			attr(a2, "rel", "noreferrer");
 			attr(a2, "href", "https://www.instagram.com/sky_studio_uzh/");
-			attr(a2, "class", "svelte-1h9irmg");
+			attr(a2, "class", "svelte-58qo4l");
 			attr(img2, "alt", "fb icon");
 			if (!src_url_equal(img2.src, img2_src_value = "https://cdn.skystudio.uz.ua/old/icons/fb.svg")) attr(img2, "src", img2_src_value);
-			attr(img2, "class", "svelte-1h9irmg");
+			attr(img2, "class", "svelte-58qo4l");
 			attr(a3, "target", "_blank");
 			attr(a3, "rel", "noreferrer");
 			attr(a3, "href", "https://www.facebook.com/skystudio.uz");
-			attr(a3, "class", "svelte-1h9irmg");
+			attr(a3, "class", "svelte-58qo4l");
 			attr(img3, "alt", "youtube icon");
 			if (!src_url_equal(img3.src, img3_src_value = "https://cdn.skystudio.uz.ua/old/icons/youtube.svg")) attr(img3, "src", img3_src_value);
-			attr(img3, "class", "svelte-1h9irmg");
+			attr(img3, "class", "svelte-58qo4l");
 			attr(a4, "target", "_blank");
 			attr(a4, "rel", "noreferrer");
 			attr(a4, "href", "https://youtube.com/@sky_studio_uzh");
-			attr(a4, "class", "svelte-1h9irmg");
-			attr(div2, "class", "social svelte-1h9irmg");
-			attr(div3, "class", "langs svelte-1h9irmg");
+			attr(a4, "class", "svelte-58qo4l");
+			attr(div2, "class", "social svelte-58qo4l");
+			attr(div3, "class", "langs svelte-58qo4l");
 			attr(img4, "alt", "burger icon");
 			if (!src_url_equal(img4.src, img4_src_value = "https://cdn.skystudio.uz.ua/old/icons/hamburger.svg")) attr(img4, "src", img4_src_value);
-			attr(img4, "class", "svelte-1h9irmg");
-			attr(button, "class", "svelte-1h9irmg");
-			attr(div4, "class", "burger svelte-1h9irmg");
-			attr(div5, "class", "container svelte-1h9irmg");
-			attr(header, "class", "svelte-1h9irmg");
+			attr(img4, "class", "svelte-58qo4l");
+			attr(button, "class", "svelte-58qo4l");
+			attr(div4, "class", "burger svelte-58qo4l");
+			attr(div5, "class", "container svelte-58qo4l");
+			attr(header, "class", "svelte-58qo4l");
 			toggle_class(header, "scrolled", /*scrollY*/ ctx[1] > scrollTrigger);
 			attr(div6, "class", "section");
 			attr(div6, "id", "section-86f12157");
@@ -1582,9 +1582,9 @@ function create_if_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(span, "class", "svelte-owgiis");
+			attr(span, "class", "svelte-xt9fw9");
 			attr(a, "href", "#mainContent");
-			attr(a, "class", "svelte-owgiis");
+			attr(a, "class", "svelte-xt9fw9");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
@@ -1827,34 +1827,34 @@ function create_fragment$2(ctx) {
 			attr(img, "height", "1061");
 			attr(img, "width", "2126");
 			set_style(img, "content-visibility", "auto");
-			attr(img, "class", "svelte-owgiis");
+			attr(img, "class", "svelte-xt9fw9");
 			set_style(img, "--moveX", /*slides*/ ctx[0][/*slideno*/ ctx[2]].moveMobile.x);
 			set_style(img, "--scale", /*slides*/ ctx[0][/*slideno*/ ctx[2]].moveMobile.scale);
-			attr(picture, "class", "svelte-owgiis");
+			attr(picture, "class", "svelte-xt9fw9");
 			set_style(picture, "--brightness", /*slides*/ ctx[0][/*slideno*/ ctx[2]].brightness || '');
-			attr(div0, "class", "first svelte-owgiis");
-			attr(div1, "class", "second svelte-owgiis");
+			attr(div0, "class", "first svelte-xt9fw9");
+			attr(div1, "class", "second svelte-xt9fw9");
 			set_style(div1, "--length", /*texts*/ ctx[1][/*slideno*/ ctx[2]].second.length);
-			attr(div2, "class", "buttonHero svelte-owgiis");
-			attr(div3, "class", "premenu svelte-owgiis");
+			attr(div2, "class", "buttonHero svelte-xt9fw9");
+			attr(div3, "class", "premenu svelte-xt9fw9");
 			attr(a0, "href", "/fotozony");
-			attr(a0, "class", "svelte-owgiis");
+			attr(a0, "class", "svelte-xt9fw9");
 			toggle_class(a0, "active", /*slideno*/ ctx[2] === 1);
 			attr(a1, "href", "/tekhnika");
-			attr(a1, "class", "svelte-owgiis");
+			attr(a1, "class", "svelte-xt9fw9");
 			toggle_class(a1, "active", /*slideno*/ ctx[2] === 2);
 			attr(a2, "href", "/kryla");
-			attr(a2, "class", "svelte-owgiis");
+			attr(a2, "class", "svelte-xt9fw9");
 			toggle_class(a2, "active", /*slideno*/ ctx[2] === 3);
 			attr(a3, "href", "/sukni");
-			attr(a3, "class", "svelte-owgiis");
+			attr(a3, "class", "svelte-xt9fw9");
 			toggle_class(a3, "active", /*slideno*/ ctx[2] === 4);
 			attr(a4, "href", "/pro");
-			attr(a4, "class", "svelte-owgiis");
+			attr(a4, "class", "svelte-xt9fw9");
 			toggle_class(a4, "active", /*slideno*/ ctx[2] === 5);
-			attr(div4, "class", "menu svelte-owgiis");
-			attr(div5, "class", "texts svelte-owgiis");
-			attr(section, "class", "svelte-owgiis");
+			attr(div4, "class", "menu svelte-xt9fw9");
+			attr(div5, "class", "texts svelte-xt9fw9");
+			attr(section, "class", "svelte-xt9fw9");
 			attr(div6, "class", "section");
 			attr(div6, "id", "section-a0a741e8");
 		},
@@ -3791,18 +3791,18 @@ function create_fragment$b(ctx) {
 				description: "Фотостудія в Ужгороді",
 				links: [
 					{
-						"item": { "label": "Головна", "url": "/" }
+						"item": { "url": "/", "label": "Головна" }
 					},
 					{
-						"item": { "label": "Фотозони", "url": "/" }
+						"item": { "url": "/", "label": "Фотозони" }
 					},
 					{
-						"item": { "label": "Техніка", "url": "/" }
+						"item": { "url": "/", "label": "Техніка" }
 					},
-					{ "item": { "label": "Крила", "url": "/" } },
-					{ "item": { "label": "Сукні", "url": "/" } },
+					{ "item": { "url": "/", "label": "Крила" } },
+					{ "item": { "url": "/", "label": "Сукні" } },
 					{
-						"item": { "label": "Про нас", "url": "/" }
+						"item": { "url": "/", "label": "Про нас" }
 					}
 				]
 			}
