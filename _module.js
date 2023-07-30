@@ -931,11 +931,11 @@ function create_fragment(ctx) {
 			link14 = element("link");
 			meta2 = element("meta");
 			style = element("style");
-			t = text("@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n  background-color: var(--darkColor);\n}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: var(--darkColor);\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {\n  background-color: white;\n}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = text("@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n  background-color: var(--darkColor);\n}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: white;\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {\n  background-color: white;\n}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-4pwykj', document.head);
+			const head_nodes = head_selector('svelte-1g4smfr', document.head);
 
 			link0 = claim_element(head_nodes, "LINK", {
 				rel: true,
@@ -988,7 +988,7 @@ function create_fragment(ctx) {
 			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t = claim_text(style_nodes, "@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n  background-color: var(--darkColor);\n}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: var(--darkColor);\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {\n  background-color: white;\n}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = claim_text(style_nodes, "@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n  background-color: var(--darkColor);\n}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: white;\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {\n  background-color: white;\n}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -1115,20 +1115,28 @@ function instance($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
 		if ('description' in $$props) $$invalidate(2, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description];
+	return [favicon, title, description, slidenumber];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+
+		init(this, options, instance, create_fragment, safe_not_equal, {
+			favicon: 0,
+			title: 1,
+			description: 2,
+			slidenumber: 3
+		});
 	}
 }
 
@@ -1164,17 +1172,17 @@ function fly(node, { delay = 0, duration = 400, easing = cubicOut$1, x = 0, y = 
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i].item;
+	child_ctx[13] = list[i].item;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i].item;
+	child_ctx[13] = list[i].item;
 	return child_ctx;
 }
 
-// (347:0) {#if openMenu}
+// (348:0) {#if openMenu}
 function create_if_block_1(ctx) {
 	let div6;
 	let div0;
@@ -1366,58 +1374,58 @@ function create_if_block_1(ctx) {
 		h() {
 			attr(img0, "alt", "burger icon");
 			if (!src_url_equal(img0.src, img0_src_value = "https://cdn.skystudio.uz.ua/old/icons/cross.svg")) attr(img0, "src", img0_src_value);
-			attr(img0, "class", "svelte-6uvl3f");
-			attr(button, "class", "svelte-6uvl3f");
-			attr(div0, "class", "cross svelte-6uvl3f");
+			attr(img0, "class", "svelte-5fxekz");
+			attr(button, "class", "svelte-5fxekz");
+			attr(div0, "class", "cross svelte-5fxekz");
 			if (!src_url_equal(img1.src, img1_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo.svg")) attr(img1, "src", img1_src_value);
 			attr(img1, "alt", "Logo SkyStudio");
-			attr(img1, "class", "svelte-6uvl3f");
+			attr(img1, "class", "svelte-5fxekz");
 			attr(a0, "href", "/");
-			attr(a0, "class", "svelte-6uvl3f");
-			attr(div1, "class", "logo svelte-6uvl3f");
-			attr(ul, "class", "svelte-6uvl3f");
+			attr(a0, "class", "svelte-5fxekz");
+			attr(div1, "class", "logo svelte-5fxekz");
+			attr(ul, "class", "svelte-5fxekz");
 			attr(img2, "alt", "fb icon");
 			if (!src_url_equal(img2.src, img2_src_value = "https://cdn.skystudio.uz.ua/old/icons/phone.svg")) attr(img2, "src", img2_src_value);
-			attr(img2, "class", "svelte-6uvl3f");
+			attr(img2, "class", "svelte-5fxekz");
 			attr(a1, "rel", "noreferrer");
 			attr(a1, "href", "tel:+380950889787");
-			attr(a1, "class", "svelte-6uvl3f");
+			attr(a1, "class", "svelte-5fxekz");
 			attr(img3, "alt", "instagram icon");
 			if (!src_url_equal(img3.src, img3_src_value = "https://cdn.skystudio.uz.ua/old/icons/insta.svg")) attr(img3, "src", img3_src_value);
-			attr(img3, "class", "svelte-6uvl3f");
+			attr(img3, "class", "svelte-5fxekz");
 			set_style(img3, "--size", `1.7rem`);
 			attr(a2, "target", "_blank");
 			attr(a2, "rel", "noreferrer");
 			attr(a2, "href", "https://www.instagram.com/sky_studio_uzh/");
-			attr(a2, "class", "svelte-6uvl3f");
+			attr(a2, "class", "svelte-5fxekz");
 			attr(img4, "alt", "fb icon");
 			if (!src_url_equal(img4.src, img4_src_value = "https://cdn.skystudio.uz.ua/old/icons/fb.svg")) attr(img4, "src", img4_src_value);
-			attr(img4, "class", "svelte-6uvl3f");
+			attr(img4, "class", "svelte-5fxekz");
 			attr(a3, "target", "_blank");
 			attr(a3, "rel", "noreferrer");
 			attr(a3, "href", "https://www.facebook.com/skystudio.uz");
-			attr(a3, "class", "svelte-6uvl3f");
+			attr(a3, "class", "svelte-5fxekz");
 			attr(img5, "alt", "telegram icon");
 			if (!src_url_equal(img5.src, img5_src_value = "https://cdn.skystudio.uz.ua/old/icons/telegram.svg")) attr(img5, "src", img5_src_value);
-			attr(img5, "class", "svelte-6uvl3f");
+			attr(img5, "class", "svelte-5fxekz");
 			set_style(img5, "--size", `1.4rem`);
 			attr(a4, "target", "_blank");
 			attr(a4, "rel", "noreferrer");
 			attr(a4, "href", "https://t.me/macwings");
-			attr(a4, "class", "svelte-6uvl3f");
+			attr(a4, "class", "svelte-5fxekz");
 			attr(img6, "alt", "youtube icon");
 			if (!src_url_equal(img6.src, img6_src_value = "https://cdn.skystudio.uz.ua/old/icons/youtube.svg")) attr(img6, "src", img6_src_value);
-			attr(img6, "class", "svelte-6uvl3f");
+			attr(img6, "class", "svelte-5fxekz");
 			set_style(img6, "--size", `1.4rem`);
 			attr(a5, "target", "_blank");
 			attr(a5, "rel", "noreferrer");
 			attr(a5, "href", "https://youtube.com/@sky_studio_uzh");
-			attr(a5, "class", "svelte-6uvl3f");
-			attr(div2, "class", "social svelte-6uvl3f");
-			attr(div3, "class", "phone svelte-6uvl3f");
-			attr(div4, "class", "main svelte-6uvl3f");
-			attr(div5, "class", "footer svelte-6uvl3f");
-			attr(div6, "class", "mobileMenu svelte-6uvl3f");
+			attr(a5, "class", "svelte-5fxekz");
+			attr(div2, "class", "social svelte-5fxekz");
+			attr(div3, "class", "phone svelte-5fxekz");
+			attr(div4, "class", "main svelte-5fxekz");
+			attr(div5, "class", "footer svelte-5fxekz");
+			attr(div6, "class", "mobileMenu svelte-5fxekz");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div6, anchor);
@@ -1462,9 +1470,9 @@ function create_if_block_1(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(button, "click", /*click_handler*/ ctx[9]),
+					listen(button, "click", /*click_handler*/ ctx[10]),
 					action_destroyer(swipeToClose_action = /*swipeToClose*/ ctx[3].call(null, div6)),
-					listen(div6, "swiperight", /*swiperight_handler*/ ctx[10])
+					listen(div6, "swiperight", /*swiperight_handler*/ ctx[11])
 				];
 
 				mounted = true;
@@ -1530,11 +1538,11 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (363:7) {#each links as {item}}
+// (364:7) {#each links as {item}}
 function create_each_block_1(ctx) {
 	let li;
 	let a;
-	let t_value = /*item*/ ctx[12].label + "";
+	let t_value = /*item*/ ctx[13].label + "";
 	let t;
 	let a_href_value;
 	let a_title_value;
@@ -1557,10 +1565,10 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*item*/ ctx[12].url);
-			attr(a, "title", a_title_value = /*item*/ ctx[12].label);
-			attr(a, "class", "svelte-6uvl3f");
-			attr(li, "class", "svelte-6uvl3f");
+			attr(a, "href", a_href_value = /*item*/ ctx[13].url);
+			attr(a, "title", a_title_value = /*item*/ ctx[13].label);
+			attr(a, "class", "svelte-5fxekz");
+			attr(li, "class", "svelte-5fxekz");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -1568,13 +1576,13 @@ function create_each_block_1(ctx) {
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[12].label + "")) set_data(t, t_value);
+			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[13].label + "")) set_data(t, t_value);
 
-			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[12].url)) {
+			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[13].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[12].label)) {
+			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[13].label)) {
 				attr(a, "title", a_title_value);
 			}
 		},
@@ -1584,7 +1592,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (403:4) {:else}
+// (404:4) {:else}
 function create_else_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1601,7 +1609,7 @@ function create_else_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo.svg")) attr(img, "src", img_src_value);
 			attr(img, "alt", "Logo SkyStudio");
-			attr(img, "class", "svelte-6uvl3f");
+			attr(img, "class", "svelte-5fxekz");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1612,7 +1620,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (397:4) {#if scrollY > scrollTrigger}
+// (398:4) {#if scrollY > scrollTrigger}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1629,7 +1637,7 @@ function create_if_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo_scrolled.svg")) attr(img, "src", img_src_value);
 			attr(img, "alt", "Logo SkyStudio");
-			attr(img, "class", "svelte-6uvl3f");
+			attr(img, "class", "svelte-5fxekz");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1640,10 +1648,10 @@ function create_if_block(ctx) {
 	};
 }
 
-// (409:13) {#each links as {item}}
+// (410:13) {#each links as {item}}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*item*/ ctx[12].label + "";
+	let t_value = /*item*/ ctx[13].label + "";
 	let t;
 	let a_href_value;
 	let a_title_value;
@@ -1662,22 +1670,22 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*item*/ ctx[12].url);
-			attr(a, "title", a_title_value = /*item*/ ctx[12].label);
-			attr(a, "class", "svelte-6uvl3f");
+			attr(a, "href", a_href_value = /*item*/ ctx[13].url);
+			attr(a, "title", a_title_value = /*item*/ ctx[13].label);
+			attr(a, "class", "svelte-5fxekz");
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[12].label + "")) set_data(t, t_value);
+			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[13].label + "")) set_data(t, t_value);
 
-			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[12].url)) {
+			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[13].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[12].label)) {
+			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[13].label)) {
 				attr(a, "title", a_title_value);
 			}
 		},
@@ -1730,7 +1738,7 @@ function create_fragment$1(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	add_render_callback(/*onwindowscroll*/ ctx[8]);
+	add_render_callback(/*onwindowscroll*/ ctx[9]);
 	let if_block0 = /*openMenu*/ ctx[2] && create_if_block_1(ctx);
 
 	function select_block_type(ctx, dirty) {
@@ -1873,46 +1881,46 @@ function create_fragment$1(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "svelte-6uvl3f");
-			attr(div0, "class", "logo svelte-6uvl3f");
-			attr(div1, "class", "nav svelte-6uvl3f");
+			attr(a0, "class", "svelte-5fxekz");
+			attr(div0, "class", "logo svelte-5fxekz");
+			attr(div1, "class", "nav svelte-5fxekz");
 			attr(img0, "alt", "fb icon");
 			if (!src_url_equal(img0.src, img0_src_value = "https://cdn.skystudio.uz.ua/old/icons/phone.svg")) attr(img0, "src", img0_src_value);
-			attr(img0, "class", "svelte-6uvl3f");
+			attr(img0, "class", "svelte-5fxekz");
 			attr(a1, "rel", "noreferrer");
 			attr(a1, "href", "tel:+380950889787");
-			attr(a1, "class", "svelte-6uvl3f");
+			attr(a1, "class", "svelte-5fxekz");
 			attr(img1, "alt", "instagram icon");
 			if (!src_url_equal(img1.src, img1_src_value = "https://cdn.skystudio.uz.ua/old/icons/insta.svg")) attr(img1, "src", img1_src_value);
-			attr(img1, "class", "svelte-6uvl3f");
+			attr(img1, "class", "svelte-5fxekz");
 			set_style(img1, "--size", `1.5rem`);
 			attr(a2, "target", "_blank");
 			attr(a2, "rel", "noreferrer");
 			attr(a2, "href", "https://www.instagram.com/sky_studio_uzh/");
-			attr(a2, "class", "svelte-6uvl3f");
+			attr(a2, "class", "svelte-5fxekz");
 			attr(img2, "alt", "fb icon");
 			if (!src_url_equal(img2.src, img2_src_value = "https://cdn.skystudio.uz.ua/old/icons/fb.svg")) attr(img2, "src", img2_src_value);
-			attr(img2, "class", "svelte-6uvl3f");
+			attr(img2, "class", "svelte-5fxekz");
 			attr(a3, "target", "_blank");
 			attr(a3, "rel", "noreferrer");
 			attr(a3, "href", "https://www.facebook.com/skystudio.uz");
-			attr(a3, "class", "svelte-6uvl3f");
+			attr(a3, "class", "svelte-5fxekz");
 			attr(img3, "alt", "youtube icon");
 			if (!src_url_equal(img3.src, img3_src_value = "https://cdn.skystudio.uz.ua/old/icons/youtube.svg")) attr(img3, "src", img3_src_value);
-			attr(img3, "class", "svelte-6uvl3f");
+			attr(img3, "class", "svelte-5fxekz");
 			attr(a4, "target", "_blank");
 			attr(a4, "rel", "noreferrer");
 			attr(a4, "href", "https://youtube.com/@sky_studio_uzh");
-			attr(a4, "class", "svelte-6uvl3f");
-			attr(div2, "class", "social svelte-6uvl3f");
+			attr(a4, "class", "svelte-5fxekz");
+			attr(div2, "class", "social svelte-5fxekz");
 			attr(div3, "class", "langs");
 			attr(img4, "alt", "burger icon");
 			if (!src_url_equal(img4.src, img4_src_value = "https://cdn.skystudio.uz.ua/old/icons/hamburger.svg")) attr(img4, "src", img4_src_value);
-			attr(img4, "class", "svelte-6uvl3f");
-			attr(button, "class", "svelte-6uvl3f");
-			attr(div4, "class", "burger svelte-6uvl3f");
-			attr(div5, "class", "container svelte-6uvl3f");
-			attr(header, "class", "svelte-6uvl3f");
+			attr(img4, "class", "svelte-5fxekz");
+			attr(button, "class", "svelte-5fxekz");
+			attr(div4, "class", "burger svelte-5fxekz");
+			attr(div5, "class", "container svelte-5fxekz");
+			attr(header, "class", "svelte-5fxekz");
 			toggle_class(header, "scrolled", /*scrollY*/ ctx[1] > scrollTrigger);
 			attr(div6, "class", "section");
 			attr(div6, "id", "section-86f12157");
@@ -1962,9 +1970,9 @@ function create_fragment$1(ctx) {
 						scrolling = true;
 						clearTimeout(scrolling_timeout);
 						scrolling_timeout = setTimeout(clear_scrolling, 100);
-						/*onwindowscroll*/ ctx[8]();
+						/*onwindowscroll*/ ctx[9]();
 					}),
-					listen(button, "click", /*click_handler_1*/ ctx[11])
+					listen(button, "click", /*click_handler_1*/ ctx[12])
 				];
 
 				mounted = true;
@@ -2064,6 +2072,7 @@ function instance$1($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 	let { links } = $$props;
 	let scrollY = 0;
 	let openMenu = false;
@@ -2148,6 +2157,7 @@ function instance$1($$self, $$props, $$invalidate) {
 		if ('favicon' in $$props) $$invalidate(4, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(5, title = $$props.title);
 		if ('description' in $$props) $$invalidate(6, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(7, slidenumber = $$props.slidenumber);
 		if ('links' in $$props) $$invalidate(0, links = $$props.links);
 	};
 
@@ -2159,6 +2169,7 @@ function instance$1($$self, $$props, $$invalidate) {
 		favicon,
 		title,
 		description,
+		slidenumber,
 		swipable,
 		onwindowscroll,
 		click_handler,
@@ -2175,13 +2186,14 @@ class Component$1 extends SvelteComponent {
 			favicon: 4,
 			title: 5,
 			description: 6,
+			slidenumber: 7,
 			links: 0,
-			swipable: 7
+			swipable: 8
 		});
 	}
 
 	get swipable() {
-		return this.$$.ctx[7];
+		return this.$$.ctx[8];
 	}
 }
 
@@ -2225,7 +2237,7 @@ function create_if_block_1$1(ctx) {
 	};
 }
 
-// (398:3) {#if slideno === 0}
+// (400:3) {#if slideno === 0}
 function create_if_block$1(ctx) {
 	let t;
 
@@ -2644,6 +2656,7 @@ function instance$2($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 	let { select_slide } = $$props;
 
 	const slides = [
@@ -2724,16 +2737,20 @@ function instance$2($$self, $$props, $$invalidate) {
 		}
 	];
 
-	let slideno = select_slide ? parseInt(select_slide) : 0;
+	//let slideno=select_slide ? parseInt(select_slide) : 0
+	let slideno = typeof slidenumber !== 'undefined'
+	? parseInt(slidenumber)
+	: 0;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(4, title = $$props.title);
 		if ('description' in $$props) $$invalidate(5, description = $$props.description);
-		if ('select_slide' in $$props) $$invalidate(6, select_slide = $$props.select_slide);
+		if ('slidenumber' in $$props) $$invalidate(6, slidenumber = $$props.slidenumber);
+		if ('select_slide' in $$props) $$invalidate(7, select_slide = $$props.select_slide);
 	};
 
-	return [slides, texts, slideno, favicon, title, description, select_slide];
+	return [slides, texts, slideno, favicon, title, description, slidenumber, select_slide];
 }
 
 class Component$2 extends SvelteComponent {
@@ -2744,7 +2761,8 @@ class Component$2 extends SvelteComponent {
 			favicon: 3,
 			title: 4,
 			description: 5,
-			select_slide: 6
+			slidenumber: 6,
+			select_slide: 7
 		});
 	}
 }
@@ -2793,20 +2811,28 @@ function instance$3($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
 		if ('description' in $$props) $$invalidate(2, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description];
+	return [favicon, title, description, slidenumber];
 }
 
 class Component$3 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$3, create_fragment$3, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+
+		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
+			favicon: 0,
+			title: 1,
+			description: 2,
+			slidenumber: 3
+		});
 	}
 }
 
@@ -2906,6 +2932,7 @@ function instance$4($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 	let { heading } = $$props;
 	let { button } = $$props;
 
@@ -2913,11 +2940,12 @@ function instance$4($$self, $$props, $$invalidate) {
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(3, title = $$props.title);
 		if ('description' in $$props) $$invalidate(4, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(5, slidenumber = $$props.slidenumber);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('button' in $$props) $$invalidate(1, button = $$props.button);
 	};
 
-	return [heading, button, favicon, title, description];
+	return [heading, button, favicon, title, description, slidenumber];
 }
 
 class Component$4 extends SvelteComponent {
@@ -2928,6 +2956,7 @@ class Component$4 extends SvelteComponent {
 			favicon: 2,
 			title: 3,
 			description: 4,
+			slidenumber: 5,
 			heading: 0,
 			button: 1
 		});
@@ -3285,12 +3314,12 @@ function get_each_context$1(ctx, list, i) {
 	const child_ctx = ctx.slice();
 	child_ctx[1] = list[i].title;
 	child_ctx[2] = list[i].text;
-	child_ctx[5] = list[i].picture;
-	child_ctx[6] = list[i].date;
+	child_ctx[6] = list[i].picture;
+	child_ctx[7] = list[i].date;
 	return child_ctx;
 }
 
-// (260:2) {#each news as { title, text, picture, date }}
+// (261:2) {#each news as { title, text, picture, date }}
 function create_each_block$1(ctx) {
 	let div4;
 	let div0;
@@ -3298,7 +3327,7 @@ function create_each_block$1(ctx) {
 	let t0;
 	let t1;
 	let div1;
-	let t2_value = /*date*/ ctx[6] + "";
+	let t2_value = /*date*/ ctx[7] + "";
 	let t2;
 	let t3;
 	let div2;
@@ -3315,8 +3344,8 @@ function create_each_block$1(ctx) {
 				width: 960,
 				heigh: 1280,
 				loading: "eager",
-				path: "/i/news/" + /*date*/ ctx[6],
-				image: /*picture*/ ctx[5]
+				path: "/i/news/" + /*date*/ ctx[7],
+				image: /*picture*/ ctx[6]
 			}
 		});
 
@@ -3389,10 +3418,10 @@ function create_each_block$1(ctx) {
 		},
 		p(ctx, dirty) {
 			if ((!current || dirty & /*news*/ 1) && t0_value !== (t0_value = /*title*/ ctx[1] + "")) set_data(t0, t0_value);
-			if ((!current || dirty & /*news*/ 1) && t2_value !== (t2_value = /*date*/ ctx[6] + "")) set_data(t2, t2_value);
+			if ((!current || dirty & /*news*/ 1) && t2_value !== (t2_value = /*date*/ ctx[7] + "")) set_data(t2, t2_value);
 			if ((!current || dirty & /*news*/ 1) && raw_value !== (raw_value = /*text*/ ctx[2] + "")) div2.innerHTML = raw_value;			const picture_changes = {};
-			if (dirty & /*news*/ 1) picture_changes.path = "/i/news/" + /*date*/ ctx[6];
-			if (dirty & /*news*/ 1) picture_changes.image = /*picture*/ ctx[5];
+			if (dirty & /*news*/ 1) picture_changes.path = "/i/news/" + /*date*/ ctx[7];
+			if (dirty & /*news*/ 1) picture_changes.image = /*picture*/ ctx[6];
 			picture.$set(picture_changes);
 		},
 		i(local) {
@@ -3630,6 +3659,7 @@ function instance$6($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 	let { news } = $$props;
 	let { text } = $$props;
 
@@ -3637,11 +3667,12 @@ function instance$6($$self, $$props, $$invalidate) {
 		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
 		if ('description' in $$props) $$invalidate(4, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(5, slidenumber = $$props.slidenumber);
 		if ('news' in $$props) $$invalidate(0, news = $$props.news);
 		if ('text' in $$props) $$invalidate(2, text = $$props.text);
 	};
 
-	return [news, title, text, favicon, description];
+	return [news, title, text, favicon, description, slidenumber];
 }
 
 class Component$6 extends SvelteComponent {
@@ -3652,6 +3683,7 @@ class Component$6 extends SvelteComponent {
 			favicon: 3,
 			title: 1,
 			description: 4,
+			slidenumber: 5,
 			news: 0,
 			text: 2
 		});
@@ -3803,6 +3835,7 @@ function instance$7($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 	let { heading } = $$props;
 	let { text } = $$props;
 
@@ -3810,11 +3843,12 @@ function instance$7($$self, $$props, $$invalidate) {
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(3, title = $$props.title);
 		if ('description' in $$props) $$invalidate(4, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(5, slidenumber = $$props.slidenumber);
 		if ('heading' in $$props) $$invalidate(0, heading = $$props.heading);
 		if ('text' in $$props) $$invalidate(1, text = $$props.text);
 	};
 
-	return [heading, text, favicon, title, description];
+	return [heading, text, favicon, title, description, slidenumber];
 }
 
 class Component$7 extends SvelteComponent {
@@ -3825,6 +3859,7 @@ class Component$7 extends SvelteComponent {
 			favicon: 2,
 			title: 3,
 			description: 4,
+			slidenumber: 5,
 			heading: 0,
 			text: 1
 		});
@@ -3899,20 +3934,28 @@ function instance$8($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
 		if ('description' in $$props) $$invalidate(2, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description];
+	return [favicon, title, description, slidenumber];
 }
 
 class Component$8 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$8, create_fragment$8, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+
+		init(this, options, instance$8, create_fragment$8, safe_not_equal, {
+			favicon: 0,
+			title: 1,
+			description: 2,
+			slidenumber: 3
+		});
 	}
 }
 
@@ -4065,20 +4108,28 @@ function instance$9($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
 		if ('description' in $$props) $$invalidate(2, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description];
+	return [favicon, title, description, slidenumber];
 }
 
 class Component$9 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$9, create_fragment$9, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+
+		init(this, options, instance$9, create_fragment$9, safe_not_equal, {
+			favicon: 0,
+			title: 1,
+			description: 2,
+			slidenumber: 3
+		});
 	}
 }
 
@@ -4086,14 +4137,14 @@ class Component$9 extends SvelteComponent {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[5] = list[i].item;
+	child_ctx[6] = list[i].item;
 	return child_ctx;
 }
 
-// (106:3) {#each links as {item}}
+// (107:3) {#each links as {item}}
 function create_each_block$2(ctx) {
 	let a;
-	let t_value = /*item*/ ctx[5].label + "";
+	let t_value = /*item*/ ctx[6].label + "";
 	let t;
 	let a_href_value;
 	let a_title_value;
@@ -4113,21 +4164,21 @@ function create_each_block$2(ctx) {
 		},
 		h() {
 			attr(a, "class", "lighter svelte-b63oz0");
-			attr(a, "href", a_href_value = /*item*/ ctx[5].url);
-			attr(a, "title", a_title_value = /*item*/ ctx[5].label);
+			attr(a, "href", a_href_value = /*item*/ ctx[6].url);
+			attr(a, "title", a_title_value = /*item*/ ctx[6].label);
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*links*/ 2 && t_value !== (t_value = /*item*/ ctx[5].label + "")) set_data(t, t_value);
+			if (dirty & /*links*/ 2 && t_value !== (t_value = /*item*/ ctx[6].label + "")) set_data(t, t_value);
 
-			if (dirty & /*links*/ 2 && a_href_value !== (a_href_value = /*item*/ ctx[5].url)) {
+			if (dirty & /*links*/ 2 && a_href_value !== (a_href_value = /*item*/ ctx[6].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (dirty & /*links*/ 2 && a_title_value !== (a_title_value = /*item*/ ctx[5].label)) {
+			if (dirty & /*links*/ 2 && a_title_value !== (a_title_value = /*item*/ ctx[6].label)) {
 				attr(a, "title", a_title_value);
 			}
 		},
@@ -4317,6 +4368,7 @@ function instance$a($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 	let { email } = $$props;
 	let { links } = $$props;
 
@@ -4324,11 +4376,12 @@ function instance$a($$self, $$props, $$invalidate) {
 		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(3, title = $$props.title);
 		if ('description' in $$props) $$invalidate(4, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(5, slidenumber = $$props.slidenumber);
 		if ('email' in $$props) $$invalidate(0, email = $$props.email);
 		if ('links' in $$props) $$invalidate(1, links = $$props.links);
 	};
 
-	return [email, links, favicon, title, description];
+	return [email, links, favicon, title, description, slidenumber];
 }
 
 class Component$a extends SvelteComponent {
@@ -4339,6 +4392,7 @@ class Component$a extends SvelteComponent {
 			favicon: 2,
 			title: 3,
 			description: 4,
+			slidenumber: 5,
 			email: 0,
 			links: 1
 		});
@@ -4351,20 +4405,28 @@ function instance$b($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
+	let { slidenumber } = $$props;
 
 	$$self.$$set = $$props => {
 		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
 		if ('title' in $$props) $$invalidate(1, title = $$props.title);
 		if ('description' in $$props) $$invalidate(2, description = $$props.description);
+		if ('slidenumber' in $$props) $$invalidate(3, slidenumber = $$props.slidenumber);
 	};
 
-	return [favicon, title, description];
+	return [favicon, title, description, slidenumber];
 }
 
 class Component$b extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$b, null, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+
+		init(this, options, instance$b, null, safe_not_equal, {
+			favicon: 0,
+			title: 1,
+			description: 2,
+			slidenumber: 3
+		});
 	}
 }
 
@@ -4403,7 +4465,8 @@ function create_fragment$b(ctx) {
 					"size": 4
 				},
 				title: "Primo Skystudio",
-				description: "Фотостудія в Ужгороді"
+				description: "Фотостудія в Ужгороді",
+				slidenumber: "0"
 			}
 		});
 
@@ -4417,6 +4480,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
+				slidenumber: "0",
 				links: [
 					{
 						"item": { "url": "/", "label": "Головна" }
@@ -4446,6 +4510,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
+				slidenumber: "0",
 				select_slide: "0"
 			}
 		});
@@ -4459,7 +4524,8 @@ function create_fragment$b(ctx) {
 					"size": 4
 				},
 				title: "Primo Skystudio",
-				description: "Фотостудія в Ужгороді"
+				description: "Фотостудія в Ужгороді",
+				slidenumber: "0"
 			}
 		});
 
@@ -4473,6 +4539,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
+				slidenumber: "0",
 				heading: "Переглянути&nbsp;фотозони",
 				button: {
 					"url": "/fotozony#mainContent",
@@ -4491,6 +4558,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
+				slidenumber: "0",
 				news: [
 					{
 						"date": "22.07.2023",
@@ -4528,6 +4596,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
+				slidenumber: "0",
 				heading: "Правила оренди студії",
 				text: {
 					"html": "<ol>\n<li>Оренда студії відбувається без передоплати. Будь ласка, про зміни попереджуйте заздалегідь.</li>\n<li>У студії є змінне взуття на 6 людей. Якщо людей буде більше, вам треба подбати про своє змінне взуття. У нас на підлозі коврове покриття, тому спокійно можна бути в шкарпетках.</li>\n<li>Якщо ви будете фотографуватись у взутті, воно обовʼязково має бути чистим!</li>\n<li>Вся студія бронюється за вами лише за умови роботи одного фотографа. Якщо працює два фотографа паралельно на різних зонах, оплата подвоюється.</li>\n<li>Чай, кава - безкоштовні. Капучино - за наявності молока :)</li>\n<li>В разі пошкодження майна вам необхідно повністю компенсувати збитки. Витрати оплачуються вами відразу. Шукаємо ринкову ціну пошкодженої речі при вас.</li>\n<li>Якщо ви плануєте зйомку з тваринами чи просто приходите з ними, попереджуйте про їх наявність завчасно та узгоджуйте це питання з нами.</li>\n<li>Відверті зйомки — це добре, але категорично заборонені зйомки порнографічного характеру.</li>\n</ol>\n<h3 id=\"skystudio\">Дякуємо за розуміння! З радістю чекаємо вас в Sky Studio.</h3>",
@@ -4545,7 +4614,8 @@ function create_fragment$b(ctx) {
 					"size": 4
 				},
 				title: "Primo Skystudio",
-				description: "Фотостудія в Ужгороді"
+				description: "Фотостудія в Ужгороді",
+				slidenumber: "0"
 			}
 		});
 
@@ -4558,7 +4628,8 @@ function create_fragment$b(ctx) {
 					"size": 4
 				},
 				title: "Primo Skystudio",
-				description: "Фотостудія в Ужгороді"
+				description: "Фотостудія в Ужгороді",
+				slidenumber: "0"
 			}
 		});
 
@@ -4572,6 +4643,7 @@ function create_fragment$b(ctx) {
 				},
 				title: "Sky Studio – Фотостудія з крилами в Ужгороді",
 				description: "Фотостудія в Ужгороді",
+				slidenumber: "0",
 				email: "contact@skystudio.uz.ua",
 				links: [
 					{
@@ -4601,7 +4673,8 @@ function create_fragment$b(ctx) {
 					"size": 4
 				},
 				title: "Primo Skystudio",
-				description: "Фотостудія в Ужгороді"
+				description: "Фотостудія в Ужгороді",
+				slidenumber: "0"
 			}
 		});
 
