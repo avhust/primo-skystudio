@@ -1,4 +1,5 @@
 function noop() { }
+const identity = x => x;
 function run(fn) {
     return fn();
 }
@@ -24,6 +25,41 @@ function src_url_equal(element_src, url) {
 }
 function is_empty(obj) {
     return Object.keys(obj).length === 0;
+}
+
+const is_client = typeof window !== 'undefined';
+let now = is_client
+    ? () => window.performance.now()
+    : () => Date.now();
+let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+
+const tasks = new Set();
+function run_tasks(now) {
+    tasks.forEach(task => {
+        if (!task.c(now)) {
+            tasks.delete(task);
+            task.f();
+        }
+    });
+    if (tasks.size !== 0)
+        raf(run_tasks);
+}
+/**
+ * Creates a new task that runs on each raf frame
+ * until it returns a falsy value or is aborted
+ */
+function loop(callback) {
+    let task;
+    if (tasks.size === 0)
+        raf(run_tasks);
+    return {
+        promise: new Promise(fulfill => {
+            tasks.add(task = { c: callback, f: fulfill });
+        }),
+        abort() {
+            tasks.delete(task);
+        }
+    };
 }
 
 // Track which nodes are claimed during hydration. Unclaimed nodes can then be removed from the DOM
@@ -126,6 +162,27 @@ function init_hydrate(target) {
         const anchor = j < lis.length ? lis[j] : null;
         target.insertBefore(toMove[i], anchor);
     }
+}
+function append(target, node) {
+    target.appendChild(node);
+}
+function get_root_for_style(node) {
+    if (!node)
+        return document;
+    const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
+    if (root && root.host) {
+        return root;
+    }
+    return node.ownerDocument;
+}
+function append_empty_stylesheet(node) {
+    const style_element = element('style');
+    append_stylesheet(get_root_for_style(node), style_element);
+    return style_element.sheet;
+}
+function append_stylesheet(node, style) {
+    append(node.head || node, style);
+    return style.sheet;
 }
 function append_hydration(target, node) {
     if (is_hydrating) {
@@ -293,6 +350,11 @@ function set_style(node, key, value, important) {
         node.style.setProperty(key, value, important ? 'important' : '');
     }
 }
+function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
+    const e = document.createEvent('CustomEvent');
+    e.initCustomEvent(type, bubbles, cancelable, detail);
+    return e;
+}
 function head_selector(nodeId, head) {
     const result = [];
     let started = 0;
@@ -313,6 +375,71 @@ function head_selector(nodeId, head) {
         }
     }
     return result;
+}
+
+// we need to store the information for multiple documents because a Svelte application could also contain iframes
+// https://github.com/sveltejs/svelte/issues/3624
+const managed_styles = new Map();
+let active = 0;
+// https://github.com/darkskyapp/string-hash/blob/master/index.js
+function hash(str) {
+    let hash = 5381;
+    let i = str.length;
+    while (i--)
+        hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
+    return hash >>> 0;
+}
+function create_style_information(doc, node) {
+    const info = { stylesheet: append_empty_stylesheet(node), rules: {} };
+    managed_styles.set(doc, info);
+    return info;
+}
+function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
+    const step = 16.666 / duration;
+    let keyframes = '{\n';
+    for (let p = 0; p <= 1; p += step) {
+        const t = a + (b - a) * ease(p);
+        keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
+    }
+    const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
+    const name = `__svelte_${hash(rule)}_${uid}`;
+    const doc = get_root_for_style(node);
+    const { stylesheet, rules } = managed_styles.get(doc) || create_style_information(doc, node);
+    if (!rules[name]) {
+        rules[name] = true;
+        stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+    }
+    const animation = node.style.animation || '';
+    node.style.animation = `${animation ? `${animation}, ` : ''}${name} ${duration}ms linear ${delay}ms 1 both`;
+    active += 1;
+    return name;
+}
+function delete_rule(node, name) {
+    const previous = (node.style.animation || '').split(', ');
+    const next = previous.filter(name
+        ? anim => anim.indexOf(name) < 0 // remove specific animation
+        : anim => anim.indexOf('__svelte') === -1 // remove all Svelte animations
+    );
+    const deleted = previous.length - next.length;
+    if (deleted) {
+        node.style.animation = next.join(', ');
+        active -= deleted;
+        if (!active)
+            clear_rules();
+    }
+}
+function clear_rules() {
+    raf(() => {
+        if (active)
+            return;
+        managed_styles.forEach(info => {
+            const { ownerNode } = info.stylesheet;
+            // there is no ownerNode if it runs on jsdom.
+            if (ownerNode)
+                detach(ownerNode);
+        });
+        managed_styles.clear();
+    });
 }
 
 let current_component;
@@ -425,6 +552,20 @@ function flush_render_callbacks(fns) {
     targets.forEach((c) => c());
     render_callbacks = filtered;
 }
+
+let promise;
+function wait() {
+    if (!promise) {
+        promise = Promise.resolve();
+        promise.then(() => {
+            promise = null;
+        });
+    }
+    return promise;
+}
+function dispatch(node, direction, kind) {
+    node.dispatchEvent(custom_event(`${direction ? 'intro' : 'outro'}${kind}`));
+}
 const outroing = new Set();
 let outros;
 function group_outros() {
@@ -464,6 +605,71 @@ function transition_out(block, local, detach, callback) {
     else if (callback) {
         callback();
     }
+}
+const null_transition = { duration: 0 };
+function create_in_transition(node, fn, params) {
+    const options = { direction: 'in' };
+    let config = fn(node, params, options);
+    let running = false;
+    let animation_name;
+    let task;
+    let uid = 0;
+    function cleanup() {
+        if (animation_name)
+            delete_rule(node, animation_name);
+    }
+    function go() {
+        const { delay = 0, duration = 300, easing = identity, tick = noop, css } = config || null_transition;
+        if (css)
+            animation_name = create_rule(node, 0, 1, duration, delay, easing, css, uid++);
+        tick(0, 1);
+        const start_time = now() + delay;
+        const end_time = start_time + duration;
+        if (task)
+            task.abort();
+        running = true;
+        add_render_callback(() => dispatch(node, true, 'start'));
+        task = loop(now => {
+            if (running) {
+                if (now >= end_time) {
+                    tick(1, 0);
+                    dispatch(node, true, 'end');
+                    cleanup();
+                    return running = false;
+                }
+                if (now >= start_time) {
+                    const t = easing((now - start_time) / duration);
+                    tick(t, 1 - t);
+                }
+            }
+            return running;
+        });
+    }
+    let started = false;
+    return {
+        start() {
+            if (started)
+                return;
+            started = true;
+            delete_rule(node);
+            if (is_function(config)) {
+                config = config(options);
+                wait().then(go);
+            }
+            else {
+                go();
+            }
+        },
+        invalidate() {
+            started = false;
+        },
+        end() {
+            if (running) {
+                cleanup();
+                running = false;
+            }
+        }
+    };
 }
 function create_component(block) {
     block && block.c();
@@ -654,11 +860,11 @@ function create_fragment(ctx) {
 			link14 = element("link");
 			meta2 = element("meta");
 			style = element("style");
-			t = text("@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n\n}\n.section-container {\n    max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section-container {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = text("@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: var(--darkColor);\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  background: white;\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-kopt1f', document.head);
+			const head_nodes = head_selector('svelte-13vzyi1', document.head);
 
 			link0 = claim_element(head_nodes, "LINK", {
 				rel: true,
@@ -711,7 +917,7 @@ function create_fragment(ctx) {
 			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t = claim_text(style_nodes, "@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n\n}\n.section-container {\n    max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section-container {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = claim_text(style_nodes, "@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 300;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 600;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n}\n\n@font-face {\n  font-family: 'ProximaNova';\n  font-style: normal;\n  font-weight: 900;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n}\n\n@font-face {\n  font-family: 'NotoSerif';\n  font-style: normal;\n  font-weight: 700;\n  font-stretch: 100%;\n  font-display: swap;\n  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n}\n\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n\n  --darkColor: #294c80;\n  --lightColor: #2d8fc5;\n  --accentColor: #FEC93C;\n  --accentDarkerColor: #FEC93C;\n  --font1: \"ProximaNova\", sans-serif;\n  --font2: \"NotoSerif\", serif;\n\n  --color: #0f0f16;\n  --colorGray: #b6b6d2;\n  --zoom: 0.9;\n}\n\nhtml {\n  /* zoom: var(--zoom); */\n}\n\nhtml,\nbody {}\n\n\n.noscroll {\n  overflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n  scroll-behavior: smooth;\n  scroll-padding: 6em;\n  padding: 0;\n  margin: 0;\n  background-color: var(--darkColor);\n  font-size: 16px;\n\n\n  color: var(--color);\n\n\n  background: white;\n\n  font-size: 16px;\n  font-family: var(--font1);\n  font-weight: 300;\n}\n#page a {\n    text-decoration: none;\n  }\n@media (hover: hover) and (pointer: fine) {\n    #page a:hover {\n      text-decoration: none;\n    }\n  }\n\n/* Elements */\n.section {}\n\n.section-container {\n  max-width: 1200px;\n  margin: 0 auto;\n  width: auto;\n  padding-bottom: 3rem;\n}\n\n@media screen and (min-width: 768px) {\n\n.section-container {\n    width: calc(100% - 2rem)\n}\n  }\n\n.section-container.no-bottom-padding {\n    padding-bottom: 0;\n  }\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px);\n  /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px);\n    /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -858,6 +1064,159 @@ class Component extends SvelteComponent {
 /* generated by Svelte v3.59.1 */
 
 function create_fragment$1(ctx) {
+	let div1;
+	let div0;
+	let t;
+	let div0_intro;
+
+	return {
+		c() {
+			div1 = element("div");
+			div0 = element("div");
+			t = text("some");
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", {});
+			var div0_nodes = children(div0);
+			t = claim_text(div0_nodes, "some");
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(div1, "class", "section");
+			attr(div1, "id", "section-39553bc3");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, div0);
+			append_hydration(div0, t);
+		},
+		p: noop,
+		i(local) {
+			if (!div0_intro) {
+				add_render_callback(() => {
+					div0_intro = create_in_transition(div0, scale, { duration: 1000, delay: 2000 });
+					div0_intro.start();
+				});
+			}
+		},
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div1);
+		}
+	};
+}
+
+function scale(
+	node,
+{ delay = 0, duration = 400, easing = cubicOut, start = 0, opacity = 0 } = {}
+) {
+	const style = getComputedStyle(node);
+	const target_opacity = +style.opacity;
+	const transform = style.transform === 'none' ? '' : style.transform;
+	const sd = 1 - start;
+	const od = target_opacity * (1 - opacity);
+
+	return {
+		delay,
+		duration,
+		easing,
+		css: (_t, u) => `
+			transform: ${transform} scale(${1 - sd * u});
+			opacity: ${target_opacity - od * u}
+		`
+	};
+}
+
+function instance$1($$self, $$props, $$invalidate) {
+	let { favicon } = $$props;
+	let { title } = $$props;
+	let { description } = $$props;
+
+	$$self.$$set = $$props => {
+		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(1, title = $$props.title);
+		if ('description' in $$props) $$invalidate(2, description = $$props.description);
+	};
+
+	return [favicon, title, description];
+}
+
+class Component$1 extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, instance$1, create_fragment$1, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+	}
+}
+
+/* generated by Svelte v3.59.1 */
+
+function create_fragment$2(ctx) {
+	let div1;
+	let div0;
+
+	return {
+		c() {
+			div1 = element("div");
+			div0 = element("div");
+			this.h();
+		},
+		l(nodes) {
+			div1 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true, id: true });
+			var div0_nodes = children(div0);
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(div0, "class", "section-container");
+			attr(div0, "id", "mainContent");
+			attr(div1, "class", "section");
+			attr(div1, "id", "section-4cec6e6f");
+		},
+		m(target, anchor) {
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, div0);
+		},
+		p: noop,
+		i: noop,
+		o: noop,
+		d(detaching) {
+			if (detaching) detach(div1);
+		}
+	};
+}
+
+function instance$2($$self, $$props, $$invalidate) {
+	let { favicon } = $$props;
+	let { title } = $$props;
+	let { description } = $$props;
+
+	$$self.$$set = $$props => {
+		if ('favicon' in $$props) $$invalidate(0, favicon = $$props.favicon);
+		if ('title' in $$props) $$invalidate(1, title = $$props.title);
+		if ('description' in $$props) $$invalidate(2, description = $$props.description);
+	};
+
+	return [favicon, title, description];
+}
+
+class Component$2 extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, instance$2, create_fragment$2, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+	}
+}
+
+/* generated by Svelte v3.59.1 */
+
+function create_fragment$3(ctx) {
 	let div4;
 	let div3;
 	let div2;
@@ -947,7 +1306,7 @@ function create_fragment$1(ctx) {
 	};
 }
 
-function instance$1($$self, $$props, $$invalidate) {
+function instance$3($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -965,11 +1324,11 @@ function instance$1($$self, $$props, $$invalidate) {
 	return [heading, button, favicon, title, description];
 }
 
-class Component$1 extends SvelteComponent {
+class Component$3 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
+		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
 			favicon: 2,
 			title: 3,
 			description: 4,
@@ -1231,7 +1590,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-function create_fragment$2(ctx) {
+function create_fragment$4(ctx) {
 	let if_block_anchor;
 	let if_block = /*image*/ ctx[2] && create_if_block(ctx);
 
@@ -1271,7 +1630,7 @@ function create_fragment$2(ctx) {
 	};
 }
 
-function instance$2($$self, $$props, $$invalidate) {
+function instance$4($$self, $$props, $$invalidate) {
 	let format;
 	let name;
 	let { cdn = '' } = $$props;
@@ -1307,11 +1666,11 @@ function instance$2($$self, $$props, $$invalidate) {
 	return [cdn, path, image, alt, height, width, x2, loading, name, format];
 }
 
-class Component$2 extends SvelteComponent {
+class Component$4 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
+		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
 			cdn: 0,
 			path: 1,
 			image: 2,
@@ -1353,7 +1712,7 @@ function create_each_block(ctx) {
 	let picture;
 	let current;
 
-	picture = new Component$2({
+	picture = new Component$4({
 			props: {
 				cdn: "https://cdn.skystudio.uz.ua/old",
 				x2: false,
@@ -1456,7 +1815,7 @@ function create_each_block(ctx) {
 	};
 }
 
-function create_fragment$3(ctx) {
+function create_fragment$5(ctx) {
 	let div9;
 	let div8;
 	let div7;
@@ -1671,7 +2030,7 @@ function create_fragment$3(ctx) {
 	};
 }
 
-function instance$3($$self, $$props, $$invalidate) {
+function instance$5($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -1689,11 +2048,11 @@ function instance$3($$self, $$props, $$invalidate) {
 	return [news, title, text, favicon, description];
 }
 
-class Component$3 extends SvelteComponent {
+class Component$5 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
+		init(this, options, instance$5, create_fragment$5, safe_not_equal, {
 			favicon: 3,
 			title: 1,
 			description: 4,
@@ -1705,7 +2064,7 @@ class Component$3 extends SvelteComponent {
 
 /* generated by Svelte v3.59.1 */
 
-function create_fragment$4(ctx) {
+function create_fragment$6(ctx) {
 	let div5;
 	let div4;
 	let div3;
@@ -1844,7 +2203,7 @@ function create_fragment$4(ctx) {
 	};
 }
 
-function instance$4($$self, $$props, $$invalidate) {
+function instance$6($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -1862,11 +2221,11 @@ function instance$4($$self, $$props, $$invalidate) {
 	return [heading, text, favicon, title, description];
 }
 
-class Component$4 extends SvelteComponent {
+class Component$6 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
+		init(this, options, instance$6, create_fragment$6, safe_not_equal, {
 			favicon: 2,
 			title: 3,
 			description: 4,
@@ -1878,7 +2237,7 @@ class Component$4 extends SvelteComponent {
 
 /* generated by Svelte v3.59.1 */
 
-function create_fragment$5(ctx) {
+function create_fragment$7(ctx) {
 	let div1;
 	let div0;
 	let iframe;
@@ -1940,7 +2299,7 @@ function create_fragment$5(ctx) {
 	};
 }
 
-function instance$5($$self, $$props, $$invalidate) {
+function instance$7($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -1954,16 +2313,16 @@ function instance$5($$self, $$props, $$invalidate) {
 	return [favicon, title, description];
 }
 
-class Component$5 extends SvelteComponent {
+class Component$7 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$5, create_fragment$5, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+		init(this, options, instance$7, create_fragment$7, safe_not_equal, { favicon: 0, title: 1, description: 2 });
 	}
 }
 
 /* generated by Svelte v3.59.1 */
 
-function create_fragment$6(ctx) {
+function create_fragment$8(ctx) {
 	let div4;
 	let div3;
 	let div2;
@@ -2106,7 +2465,7 @@ function create_fragment$6(ctx) {
 	};
 }
 
-function instance$6($$self, $$props, $$invalidate) {
+function instance$8($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -2120,10 +2479,10 @@ function instance$6($$self, $$props, $$invalidate) {
 	return [favicon, title, description];
 }
 
-class Component$6 extends SvelteComponent {
+class Component$8 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$6, create_fragment$6, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+		init(this, options, instance$8, create_fragment$8, safe_not_equal, { favicon: 0, title: 1, description: 2 });
 	}
 }
 
@@ -2182,7 +2541,7 @@ function create_each_block$1(ctx) {
 	};
 }
 
-function create_fragment$7(ctx) {
+function create_fragment$9(ctx) {
 	let div4;
 	let footer;
 	let div3;
@@ -2358,7 +2717,7 @@ function create_fragment$7(ctx) {
 	};
 }
 
-function instance$7($$self, $$props, $$invalidate) {
+function instance$9($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -2376,11 +2735,11 @@ function instance$7($$self, $$props, $$invalidate) {
 	return [email, links, favicon, title, description];
 }
 
-class Component$7 extends SvelteComponent {
+class Component$9 extends SvelteComponent {
 	constructor(options) {
 		super();
 
-		init(this, options, instance$7, create_fragment$7, safe_not_equal, {
+		init(this, options, instance$9, create_fragment$9, safe_not_equal, {
 			favicon: 2,
 			title: 3,
 			description: 4,
@@ -2392,7 +2751,7 @@ class Component$7 extends SvelteComponent {
 
 /* generated by Svelte v3.59.1 */
 
-function instance$8($$self, $$props, $$invalidate) {
+function instance$a($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -2406,16 +2765,16 @@ function instance$8($$self, $$props, $$invalidate) {
 	return [favicon, title, description];
 }
 
-class Component$8 extends SvelteComponent {
+class Component$a extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$8, null, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+		init(this, options, instance$a, null, safe_not_equal, { favicon: 0, title: 1, description: 2 });
 	}
 }
 
 /* generated by Svelte v3.59.1 */
 
-function create_fragment$8(ctx) {
+function create_fragment$a(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
@@ -2431,6 +2790,10 @@ function create_fragment$8(ctx) {
 	let component_6;
 	let t6;
 	let component_7;
+	let t7;
+	let component_8;
+	let t8;
+	let component_9;
 	let current;
 
 	component_0 = new Component({
@@ -2455,6 +2818,32 @@ function create_fragment$8(ctx) {
 					"size": 4
 				},
 				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді"
+			}
+		});
+
+	component_2 = new Component$2({
+			props: {
+				favicon: {
+					"alt": "SkyStudio",
+					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
+					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
+					"size": 4
+				},
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді"
+			}
+		});
+
+	component_3 = new Component$3({
+			props: {
+				favicon: {
+					"alt": "SkyStudio",
+					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
+					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
+					"size": 4
+				},
+				title: "Primo Skystudio",
 				description: "Фотостудія в Ужгороді",
 				heading: "Переглянути&nbsp;фотозони",
 				button: {
@@ -2464,7 +2853,7 @@ function create_fragment$8(ctx) {
 			}
 		});
 
-	component_2 = new Component$3({
+	component_4 = new Component$5({
 			props: {
 				favicon: {
 					"alt": "SkyStudio",
@@ -2501,7 +2890,7 @@ function create_fragment$8(ctx) {
 			}
 		});
 
-	component_3 = new Component$4({
+	component_5 = new Component$6({
 			props: {
 				favicon: {
 					"alt": "SkyStudio",
@@ -2519,33 +2908,33 @@ function create_fragment$8(ctx) {
 			}
 		});
 
-	component_4 = new Component$5({
-			props: {
-				favicon: {
-					"alt": "SkyStudio",
-					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"size": 4
-				},
-				title: "Primo Skystudio",
-				description: "Фотостудія в Ужгороді"
-			}
-		});
-
-	component_5 = new Component$6({
-			props: {
-				favicon: {
-					"alt": "SkyStudio",
-					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"size": 4
-				},
-				title: "Primo Skystudio",
-				description: "Фотостудія в Ужгороді"
-			}
-		});
-
 	component_6 = new Component$7({
+			props: {
+				favicon: {
+					"alt": "SkyStudio",
+					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
+					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
+					"size": 4
+				},
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді"
+			}
+		});
+
+	component_7 = new Component$8({
+			props: {
+				favicon: {
+					"alt": "SkyStudio",
+					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
+					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
+					"size": 4
+				},
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді"
+			}
+		});
+
+	component_8 = new Component$9({
 			props: {
 				favicon: {
 					"alt": "SkyStudio",
@@ -2575,7 +2964,7 @@ function create_fragment$8(ctx) {
 			}
 		});
 
-	component_7 = new Component$8({
+	component_9 = new Component$a({
 			props: {
 				favicon: {
 					"alt": "SkyStudio",
@@ -2605,6 +2994,10 @@ function create_fragment$8(ctx) {
 			create_component(component_6.$$.fragment);
 			t6 = space();
 			create_component(component_7.$$.fragment);
+			t7 = space();
+			create_component(component_8.$$.fragment);
+			t8 = space();
+			create_component(component_9.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -2622,6 +3015,10 @@ function create_fragment$8(ctx) {
 			claim_component(component_6.$$.fragment, nodes);
 			t6 = claim_space(nodes);
 			claim_component(component_7.$$.fragment, nodes);
+			t7 = claim_space(nodes);
+			claim_component(component_8.$$.fragment, nodes);
+			t8 = claim_space(nodes);
+			claim_component(component_9.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -2639,6 +3036,10 @@ function create_fragment$8(ctx) {
 			mount_component(component_6, target, anchor);
 			insert_hydration(target, t6, anchor);
 			mount_component(component_7, target, anchor);
+			insert_hydration(target, t7, anchor);
+			mount_component(component_8, target, anchor);
+			insert_hydration(target, t8, anchor);
+			mount_component(component_9, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -2652,6 +3053,8 @@ function create_fragment$8(ctx) {
 			transition_in(component_5.$$.fragment, local);
 			transition_in(component_6.$$.fragment, local);
 			transition_in(component_7.$$.fragment, local);
+			transition_in(component_8.$$.fragment, local);
+			transition_in(component_9.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
@@ -2663,6 +3066,8 @@ function create_fragment$8(ctx) {
 			transition_out(component_5.$$.fragment, local);
 			transition_out(component_6.$$.fragment, local);
 			transition_out(component_7.$$.fragment, local);
+			transition_out(component_8.$$.fragment, local);
+			transition_out(component_9.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -2681,15 +3086,19 @@ function create_fragment$8(ctx) {
 			destroy_component(component_6, detaching);
 			if (detaching) detach(t6);
 			destroy_component(component_7, detaching);
+			if (detaching) detach(t7);
+			destroy_component(component_8, detaching);
+			if (detaching) detach(t8);
+			destroy_component(component_9, detaching);
 		}
 	};
 }
 
-class Component$9 extends SvelteComponent {
+class Component$b extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$8, safe_not_equal, {});
+		init(this, options, null, create_fragment$a, safe_not_equal, {});
 	}
 }
 
-export default Component$9;
+export default Component$b;
