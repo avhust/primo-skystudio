@@ -3,7 +3,7 @@
 
 <head>
     <meta name="generator" content="Primo" />
-    <title>Blog</title><!-- HEAD_svelte-jg5tgf_START -->
+    <title>Blog</title><!-- HEAD_svelte-1h9i1lw_START -->
     <link rel="icon" type="image/png" sizes="32x32" href="https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-60x60.png">
@@ -145,7 +145,9 @@
         }
 
         /* Elements */
-        .section {
+        .section {}
+
+        .section-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 1rem;
@@ -154,7 +156,7 @@
         }
 
         @media screen and (min-width: 768px) {
-            .section {
+            .section-container {
                 width: calc(100% - 2rem)
             }
         }
@@ -267,7 +269,7 @@
             margin-bottom: 1.5rem;
             border-left: 5px solid var(--color-accent);
         }
-    </style><!-- HEAD_svelte-jg5tgf_END -->
+    </style><!-- HEAD_svelte-1h9i1lw_END -->
     <style>
         .section-container.svelte-136lx2d.svelte-136lx2d {
             display: flex;
@@ -345,106 +347,6 @@
             right: 1rem;
             top: 1rem
         }
-
-        .teasers.svelte-zvxqyf.svelte-zvxqyf {
-            display: grid;
-            gap: 6rem
-        }
-
-        .teaser.svelte-zvxqyf.svelte-zvxqyf {
-            display: grid;
-            gap: 3rem
-        }
-
-        .teaser.svelte-zvxqyf img.svelte-zvxqyf {
-            width: 100%;
-            border-radius: var(--border-radius)
-        }
-
-        .teaser.svelte-zvxqyf .body.svelte-zvxqyf {
-            display: grid;
-            place-items: flex-start;
-            gap: 1.5rem;
-            padding: 0;
-            line-height: 1.5
-        }
-
-        .teaser.svelte-zvxqyf .body .title.svelte-zvxqyf {
-            font-size: 2.25rem;
-            font-weight: 500;
-            line-height: 1.25
-        }
-
-        @media(min-width: 800px) {
-            .teaser.svelte-zvxqyf.svelte-zvxqyf {
-                grid-template-columns: 1fr 1fr;
-                place-items: center
-                    /* switch direction for even items */
-            }
-
-            .teaser.svelte-zvxqyf:nth-child(even) .body.svelte-zvxqyf {
-                grid-row: 1;
-                grid-column: 2
-            }
-
-            .teaser.svelte-zvxqyf:nth-child(even) img.svelte-zvxqyf {
-                grid-row: 1;
-                grid-column: 1
-            }
-        }
-
-        @media(min-width: 1200px) {
-            section.svelte-zvxqyf.svelte-zvxqyf {
-                gap: 6rem
-            }
-
-            .teaser.svelte-zvxqyf.svelte-zvxqyf {
-                gap: 6rem
-            }
-        }
-
-        footer.svelte-u1zmy0.svelte-u1zmy0 {
-            background: #2b312b;
-            color: white
-        }
-
-        .section-container.svelte-u1zmy0.svelte-u1zmy0 {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 4rem
-        }
-
-        .content.svelte-u1zmy0.svelte-u1zmy0 {
-            margin: initial;
-            padding: 0;
-            line-height: 1.1
-        }
-
-        .nav-items.svelte-u1zmy0.svelte-u1zmy0 {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4rem
-        }
-
-        .nav-items.svelte-u1zmy0 ul.svelte-u1zmy0 {
-            display: grid;
-            gap: 0.5rem
-        }
-
-        .nav-items.svelte-u1zmy0 ul .link.svelte-u1zmy0 {
-            border-bottom: 2px solid white
-        }
-
-        .nav-items.svelte-u1zmy0 ul .link.svelte-u1zmy0:hover {
-            border-color: transparent
-        }
-
-        .nav-items.svelte-u1zmy0 h3.svelte-u1zmy0 {
-            font-weight: 500;
-            font-size: 1.5rem;
-            margin-bottom: 1rem
-        }
     </style>
 </head>
 
@@ -469,53 +371,6 @@
                     </svg></button>
             </div>
         </header>
-    </div>
-    <div class="section" id="section-ce48f1fe">
-        <section class="section-container svelte-zvxqyf">
-            <div class="teasers svelte-zvxqyf">
-                <div class="teaser svelte-zvxqyf">
-                    <div class="body svelte-zvxqyf">
-                        <h2 class="title svelte-zvxqyf">Discover the unseen</h2>
-                        <div class="description"><!-- HTML_TAG_START -->
-                            <p>Dive into a world full of hidden mysteries and breathtaking views. Explore the unexplored corners of the Earth from the comfort of your own home. </p><!-- HTML_TAG_END -->
-                        </div>
-                        <a class="link svelte-zvxqyf" href="/">Read more
-                        </a>
-                    </div>
-                    <img src="https://picsum.photos/600/400?blur=10" alt="" class="svelte-zvxqyf">
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="section" id="section-865be344">
-        <footer class="svelte-u1zmy0">
-            <div class="section-container svelte-u1zmy0">
-                <div class="content svelte-u1zmy0"><!-- HTML_TAG_START -->
-                    <h3>BillionTrees <br></h3>
-                    <p>321 Something St. Jackson, AL 20332</p><!-- HTML_TAG_END -->
-                </div>
-                <div class="nav-items svelte-u1zmy0">
-                    <nav>
-                        <h3 class="svelte-u1zmy0">About Us</h3>
-                        <ul class="svelte-u1zmy0">
-                            <li><a class="link svelte-u1zmy0" href="/">blog</a>
-                            </li>
-                            <li><a class="link svelte-u1zmy0" href="/">consectetur</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav>
-                        <h3 class="svelte-u1zmy0">Get Involved</h3>
-                        <ul class="svelte-u1zmy0">
-                            <li><a class="link svelte-u1zmy0" href="/">qui</a>
-                            </li>
-                            <li><a class="link svelte-u1zmy0" href="/">ex</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </footer>
     </div>
 
     <script type="module">

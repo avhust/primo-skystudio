@@ -1040,11 +1040,11 @@ function create_fragment(ctx) {
 			meta1 = element("meta");
 			link14 = element("link");
 			style = element("style");
-			t = text("@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n  max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = text("@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n\n}\n.section-container {\n    max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section-container {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-14b963', document.head);
+			const head_nodes = head_selector('svelte-lzv7s4', document.head);
 
 			link0 = claim_element(head_nodes, "LINK", {
 				rel: true,
@@ -1096,7 +1096,7 @@ function create_fragment(ctx) {
 			link14 = claim_element(head_nodes, "LINK", { rel: true, href: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t = claim_text(style_nodes, "@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n  max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = claim_text(style_nodes, "@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n\n}\n.section-container {\n    max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section-container {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -3726,494 +3726,7 @@ class Component$2 extends SvelteComponent {
 
 /* generated by Svelte v3.59.1 */
 
-function create_fragment$3(ctx) {
-	let div;
-	let header;
-	let span;
-	let t0;
-	let t1;
-	let h1;
-	let t2;
-	let t3;
-	let img;
-	let img_src_value;
-	let img_alt_value;
-
-	return {
-		c() {
-			div = element("div");
-			header = element("header");
-			span = element("span");
-			t0 = text(/*superhead*/ ctx[0]);
-			t1 = space();
-			h1 = element("h1");
-			t2 = text(/*heading*/ ctx[1]);
-			t3 = space();
-			img = element("img");
-			this.h();
-		},
-		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true, id: true });
-			var div_nodes = children(div);
-			header = claim_element(div_nodes, "HEADER", { class: true });
-			var header_nodes = children(header);
-			span = claim_element(header_nodes, "SPAN", { class: true });
-			var span_nodes = children(span);
-			t0 = claim_text(span_nodes, /*superhead*/ ctx[0]);
-			span_nodes.forEach(detach);
-			t1 = claim_space(header_nodes);
-			h1 = claim_element(header_nodes, "H1", { class: true });
-			var h1_nodes = children(h1);
-			t2 = claim_text(h1_nodes, /*heading*/ ctx[1]);
-			h1_nodes.forEach(detach);
-			t3 = claim_space(header_nodes);
-			img = claim_element(header_nodes, "IMG", { src: true, alt: true, class: true });
-			header_nodes.forEach(detach);
-			div_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(span, "class", "superhead svelte-so1len");
-			attr(h1, "class", "heading svelte-so1len");
-			if (!src_url_equal(img.src, img_src_value = /*image*/ ctx[2].url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*image*/ ctx[2].alt);
-			attr(img, "class", "svelte-so1len");
-			attr(header, "class", "section-container svelte-so1len");
-			attr(div, "class", "section");
-			attr(div, "id", "section-9e8bc317");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, header);
-			append_hydration(header, span);
-			append_hydration(span, t0);
-			append_hydration(header, t1);
-			append_hydration(header, h1);
-			append_hydration(h1, t2);
-			append_hydration(header, t3);
-			append_hydration(header, img);
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*superhead*/ 1) set_data(t0, /*superhead*/ ctx[0]);
-			if (dirty & /*heading*/ 2) set_data(t2, /*heading*/ ctx[1]);
-
-			if (dirty & /*image*/ 4 && !src_url_equal(img.src, img_src_value = /*image*/ ctx[2].url)) {
-				attr(img, "src", img_src_value);
-			}
-
-			if (dirty & /*image*/ 4 && img_alt_value !== (img_alt_value = /*image*/ ctx[2].alt)) {
-				attr(img, "alt", img_alt_value);
-			}
-		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div);
-		}
-	};
-}
-
 function instance$3($$self, $$props, $$invalidate) {
-	let { favicon } = $$props;
-	let { superhead } = $$props;
-	let { heading } = $$props;
-	let { image } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('superhead' in $$props) $$invalidate(0, superhead = $$props.superhead);
-		if ('heading' in $$props) $$invalidate(1, heading = $$props.heading);
-		if ('image' in $$props) $$invalidate(2, image = $$props.image);
-	};
-
-	return [superhead, heading, image, favicon];
-}
-
-class Component$3 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
-			favicon: 3,
-			superhead: 0,
-			heading: 1,
-			image: 2
-		});
-	}
-}
-
-/* generated by Svelte v3.59.1 */
-
-function create_fragment$4(ctx) {
-	let div2;
-	let div1;
-	let div0;
-	let raw_value = /*content*/ ctx[0].html + "";
-
-	return {
-		c() {
-			div2 = element("div");
-			div1 = element("div");
-			div0 = element("div");
-			this.h();
-		},
-		l(nodes) {
-			div2 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div2_nodes = children(div2);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(div0, "class", "section-container content");
-			attr(div1, "class", "section");
-			attr(div2, "class", "section");
-			attr(div2, "id", "section-875d16c5");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div2, anchor);
-			append_hydration(div2, div1);
-			append_hydration(div1, div0);
-			div0.innerHTML = raw_value;
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*content*/ 1 && raw_value !== (raw_value = /*content*/ ctx[0].html + "")) div0.innerHTML = raw_value;		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div2);
-		}
-	};
-}
-
-function instance$4($$self, $$props, $$invalidate) {
-	let { favicon } = $$props;
-	let { content } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(1, favicon = $$props.favicon);
-		if ('content' in $$props) $$invalidate(0, content = $$props.content);
-	};
-
-	return [content, favicon];
-}
-
-class Component$4 extends SvelteComponent {
-	constructor(options) {
-		super();
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, { favicon: 1, content: 0 });
-	}
-}
-
-/* generated by Svelte v3.59.1 */
-
-function get_each_context$1(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[3] = list[i].title;
-	child_ctx[4] = list[i].links;
-	return child_ctx;
-}
-
-function get_each_context_1$1(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[7] = list[i].link;
-	return child_ctx;
-}
-
-// (63:12) {#each links as { link }}
-function create_each_block_1$1(ctx) {
-	let li;
-	let a;
-	let t0_value = /*link*/ ctx[7].label + "";
-	let t0;
-	let a_href_value;
-	let t1;
-
-	return {
-		c() {
-			li = element("li");
-			a = element("a");
-			t0 = text(t0_value);
-			t1 = space();
-			this.h();
-		},
-		l(nodes) {
-			li = claim_element(nodes, "LI", {});
-			var li_nodes = children(li);
-			a = claim_element(li_nodes, "A", { class: true, href: true });
-			var a_nodes = children(a);
-			t0 = claim_text(a_nodes, t0_value);
-			a_nodes.forEach(detach);
-			t1 = claim_space(li_nodes);
-			li_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(a, "class", "link svelte-u1zmy0");
-			attr(a, "href", a_href_value = /*link*/ ctx[7].url);
-		},
-		m(target, anchor) {
-			insert_hydration(target, li, anchor);
-			append_hydration(li, a);
-			append_hydration(a, t0);
-			append_hydration(li, t1);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*menus*/ 2 && t0_value !== (t0_value = /*link*/ ctx[7].label + "")) set_data(t0, t0_value);
-
-			if (dirty & /*menus*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[7].url)) {
-				attr(a, "href", a_href_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(li);
-		}
-	};
-}
-
-// (59:6) {#each menus as { title, links }}
-function create_each_block$1(ctx) {
-	let nav;
-	let h3;
-	let t0_value = /*title*/ ctx[3] + "";
-	let t0;
-	let t1;
-	let ul;
-	let t2;
-	let each_value_1 = /*links*/ ctx[4];
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
-	}
-
-	return {
-		c() {
-			nav = element("nav");
-			h3 = element("h3");
-			t0 = text(t0_value);
-			t1 = space();
-			ul = element("ul");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			t2 = space();
-			this.h();
-		},
-		l(nodes) {
-			nav = claim_element(nodes, "NAV", {});
-			var nav_nodes = children(nav);
-			h3 = claim_element(nav_nodes, "H3", { class: true });
-			var h3_nodes = children(h3);
-			t0 = claim_text(h3_nodes, t0_value);
-			h3_nodes.forEach(detach);
-			t1 = claim_space(nav_nodes);
-			ul = claim_element(nav_nodes, "UL", { class: true });
-			var ul_nodes = children(ul);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(ul_nodes);
-			}
-
-			ul_nodes.forEach(detach);
-			t2 = claim_space(nav_nodes);
-			nav_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(h3, "class", "svelte-u1zmy0");
-			attr(ul, "class", "svelte-u1zmy0");
-		},
-		m(target, anchor) {
-			insert_hydration(target, nav, anchor);
-			append_hydration(nav, h3);
-			append_hydration(h3, t0);
-			append_hydration(nav, t1);
-			append_hydration(nav, ul);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(ul, null);
-				}
-			}
-
-			append_hydration(nav, t2);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*menus*/ 2 && t0_value !== (t0_value = /*title*/ ctx[3] + "")) set_data(t0, t0_value);
-
-			if (dirty & /*menus*/ 2) {
-				each_value_1 = /*links*/ ctx[4];
-				let i;
-
-				for (i = 0; i < each_value_1.length; i += 1) {
-					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block_1$1(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(ul, null);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value_1.length;
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(nav);
-			destroy_each(each_blocks, detaching);
-		}
-	};
-}
-
-function create_fragment$5(ctx) {
-	let div3;
-	let footer;
-	let div2;
-	let div0;
-	let raw_value = /*content*/ ctx[0].html + "";
-	let t;
-	let div1;
-	let each_value = /*menus*/ ctx[1];
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
-	}
-
-	return {
-		c() {
-			div3 = element("div");
-			footer = element("footer");
-			div2 = element("div");
-			div0 = element("div");
-			t = space();
-			div1 = element("div");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			this.h();
-		},
-		l(nodes) {
-			div3 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div3_nodes = children(div3);
-			footer = claim_element(div3_nodes, "FOOTER", { class: true });
-			var footer_nodes = children(footer);
-			div2 = claim_element(footer_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			div0 = claim_element(div2_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			t = claim_space(div2_nodes);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(div1_nodes);
-			}
-
-			div1_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			footer_nodes.forEach(detach);
-			div3_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(div0, "class", "content svelte-u1zmy0");
-			attr(div1, "class", "nav-items svelte-u1zmy0");
-			attr(div2, "class", "section-container svelte-u1zmy0");
-			attr(footer, "class", "svelte-u1zmy0");
-			attr(div3, "class", "section");
-			attr(div3, "id", "section-1adf42cd");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div3, anchor);
-			append_hydration(div3, footer);
-			append_hydration(footer, div2);
-			append_hydration(div2, div0);
-			div0.innerHTML = raw_value;
-			append_hydration(div2, t);
-			append_hydration(div2, div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(div1, null);
-				}
-			}
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*content*/ 1 && raw_value !== (raw_value = /*content*/ ctx[0].html + "")) div0.innerHTML = raw_value;
-			if (dirty & /*menus*/ 2) {
-				each_value = /*menus*/ ctx[1];
-				let i;
-
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$1(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block$1(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(div1, null);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value.length;
-			}
-		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div3);
-			destroy_each(each_blocks, detaching);
-		}
-	};
-}
-
-function instance$5($$self, $$props, $$invalidate) {
-	let { favicon } = $$props;
-	let { content } = $$props;
-	let { menus } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(2, favicon = $$props.favicon);
-		if ('content' in $$props) $$invalidate(0, content = $$props.content);
-		if ('menus' in $$props) $$invalidate(1, menus = $$props.menus);
-	};
-
-	return [content, menus, favicon];
-}
-
-class Component$5 extends SvelteComponent {
-	constructor(options) {
-		super();
-		init(this, options, instance$5, create_fragment$5, safe_not_equal, { favicon: 2, content: 0, menus: 1 });
-	}
-}
-
-/* generated by Svelte v3.59.1 */
-
-function instance$6($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 
 	$$self.$$set = $$props => {
@@ -4223,27 +3736,21 @@ function instance$6($$self, $$props, $$invalidate) {
 	return [favicon];
 }
 
-class Component$6 extends SvelteComponent {
+class Component$3 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$6, null, safe_not_equal, { favicon: 0 });
+		init(this, options, instance$3, null, safe_not_equal, { favicon: 0 });
 	}
 }
 
 /* generated by Svelte v3.59.1 */
 
-function create_fragment$6(ctx) {
+function create_fragment$3(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
 	let t1;
 	let component_2;
-	let t2;
-	let component_3;
-	let t3;
-	let component_4;
-	let t4;
-	let component_5;
 	let current;
 
 	component_0 = new Component({
@@ -4296,73 +3803,6 @@ function create_fragment$6(ctx) {
 					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
-				},
-				superhead: "October 12 • Written by John Doe",
-				heading: "Visual Editing",
-				image: {
-					"alt": "",
-					"src": "https://images.unsplash.com/photo-1668400121008-6134fd5b104d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
-					"url": "https://images.unsplash.com/photo-1668400121008-6134fd5b104d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
-					"size": null
-				}
-			}
-		});
-
-	component_3 = new Component$4({
-			props: {
-				favicon: {
-					"alt": "SkyStudio",
-					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"size": 4
-				},
-				content: {
-					"html": "<h2>Morbi quis</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices tincidunt arcu non sodales. Ac orci phasellus egestas tellus rutrum tellus. <em>Dictumst vestibulum </em>rhoncus est pellentesque elit ullamcorper dignissim. Massa sed elementum tempus egestas sed sed risus pretium. Elit duis tristique sollicitudin nibh. Sed risus ultricies tristique nulla aliquet enim tortor at. Odio tempor orci dapibus ultrices in iaculis nunc sed augue. Diam sit amet nisl suscipit adipiscing bibendum. <strong>Egestas integer</strong> eget aliquet nibh praesent. Natoque penatibus et magnis dis parturient. Amet cursus sit amet dictum sit amet justo donec enim.</p><h2>Suspendisse interdum</h2><p>Orci porta non pulvinar neque laoreet suspendisse interdum. Id aliquet lectus proin nibh nisl condimentum. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. A condimentum vitae sapien pellentesque habitant. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Amet massa vitae tortor condimentum lacinia. Semper auctor neque vitae tempus quam pellentesque. Enim praesent elementum <strong>facilisis</strong> leo vel fringilla est. Turpis cursus in hac habitasse platea dictumst quisque. In arcu cursus euismod quis viverra nibh. Consectetur a erat nam at. Massa eget egestas purus viverra accumsan in nisl nisi.</p><p>Ut aliquam purus sit amet luctus venenatis lectus magna. Tortor <strong>aliquam</strong> nulla facilisi cras. Pellentesque sit amet porttitor eget dolor. Donec ultrices tincidunt arcu non. Non enim praesent elementum facilisis leo vel fringilla. Egestas tellus rutrum tellus pellentesque eu tincidunt. Morbi quis commodo odio aenean sed adipiscing diam. Tristique senectus et netus et malesuada fames ac turpis. Est ante in nibh mauris cursus. Morbi tincidunt augue interdum velit euismod in pellentesque massa placerat. Pulvinar pellentesque habitant morbi tristique senectus et netus et. Id nibh tortor id aliquet lectus.</p>",
-					"markdown": "## Morbi quis\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices tincidunt arcu non sodales. Ac orci phasellus egestas tellus rutrum tellus. *Dictumst vestibulum *rhoncus est pellentesque elit ullamcorper dignissim. Massa sed elementum tempus egestas sed sed risus pretium. Elit duis tristique sollicitudin nibh. Sed risus ultricies tristique nulla aliquet enim tortor at. Odio tempor orci dapibus ultrices in iaculis nunc sed augue. Diam sit amet nisl suscipit adipiscing bibendum. **Egestas integer** eget aliquet nibh praesent. Natoque penatibus et magnis dis parturient. Amet cursus sit amet dictum sit amet justo donec enim.\n\n## Suspendisse interdum\n\nOrci porta non pulvinar neque laoreet suspendisse interdum. Id aliquet lectus proin nibh nisl condimentum. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. A condimentum vitae sapien pellentesque habitant. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus. Amet massa vitae tortor condimentum lacinia. Semper auctor neque vitae tempus quam pellentesque. Enim praesent elementum **facilisis** leo vel fringilla est. Turpis cursus in hac habitasse platea dictumst quisque. In arcu cursus euismod quis viverra nibh. Consectetur a erat nam at. Massa eget egestas purus viverra accumsan in nisl nisi.\n\nUt aliquam purus sit amet luctus venenatis lectus magna. Tortor **aliquam** nulla facilisi cras. Pellentesque sit amet porttitor eget dolor. Donec ultrices tincidunt arcu non. Non enim praesent elementum facilisis leo vel fringilla. Egestas tellus rutrum tellus pellentesque eu tincidunt. Morbi quis commodo odio aenean sed adipiscing diam. Tristique senectus et netus et malesuada fames ac turpis. Est ante in nibh mauris cursus. Morbi tincidunt augue interdum velit euismod in pellentesque massa placerat. Pulvinar pellentesque habitant morbi tristique senectus et netus et. Id nibh tortor id aliquet lectus.\n\n"
-				}
-			}
-		});
-
-	component_4 = new Component$5({
-			props: {
-				favicon: {
-					"alt": "SkyStudio",
-					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"size": 4
-				},
-				content: {
-					"html": "<h3>BillionTrees <br></h3><p>321 Something St. Jackson, AL 20332</p>",
-					"markdown": "### BillionTrees <br>\n\n\n\n321 Something St. Jackson, AL 20332\n\n"
-				},
-				menus: [
-					{
-						"links": [
-							{ "link": { "url": "/", "label": "blog" } },
-							{
-								"link": { "url": "/", "label": "consectetur" }
-							}
-						],
-						"title": "About Us"
-					},
-					{
-						"links": [
-							{ "link": { "url": "/", "label": "qui" } },
-							{ "link": { "url": "/", "label": "ex" } }
-						],
-						"title": "Get Involved"
-					}
-				]
-			}
-		});
-
-	component_5 = new Component$6({
-			props: {
-				favicon: {
-					"alt": "SkyStudio",
-					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"size": 4
 				}
 			}
 		});
@@ -4374,12 +3814,6 @@ function create_fragment$6(ctx) {
 			create_component(component_1.$$.fragment);
 			t1 = space();
 			create_component(component_2.$$.fragment);
-			t2 = space();
-			create_component(component_3.$$.fragment);
-			t3 = space();
-			create_component(component_4.$$.fragment);
-			t4 = space();
-			create_component(component_5.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -4387,12 +3821,6 @@ function create_fragment$6(ctx) {
 			claim_component(component_1.$$.fragment, nodes);
 			t1 = claim_space(nodes);
 			claim_component(component_2.$$.fragment, nodes);
-			t2 = claim_space(nodes);
-			claim_component(component_3.$$.fragment, nodes);
-			t3 = claim_space(nodes);
-			claim_component(component_4.$$.fragment, nodes);
-			t4 = claim_space(nodes);
-			claim_component(component_5.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -4400,12 +3828,6 @@ function create_fragment$6(ctx) {
 			mount_component(component_1, target, anchor);
 			insert_hydration(target, t1, anchor);
 			mount_component(component_2, target, anchor);
-			insert_hydration(target, t2, anchor);
-			mount_component(component_3, target, anchor);
-			insert_hydration(target, t3, anchor);
-			mount_component(component_4, target, anchor);
-			insert_hydration(target, t4, anchor);
-			mount_component(component_5, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -4414,18 +3836,12 @@ function create_fragment$6(ctx) {
 			transition_in(component_0.$$.fragment, local);
 			transition_in(component_1.$$.fragment, local);
 			transition_in(component_2.$$.fragment, local);
-			transition_in(component_3.$$.fragment, local);
-			transition_in(component_4.$$.fragment, local);
-			transition_in(component_5.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
 			transition_out(component_0.$$.fragment, local);
 			transition_out(component_1.$$.fragment, local);
 			transition_out(component_2.$$.fragment, local);
-			transition_out(component_3.$$.fragment, local);
-			transition_out(component_4.$$.fragment, local);
-			transition_out(component_5.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -4434,21 +3850,15 @@ function create_fragment$6(ctx) {
 			destroy_component(component_1, detaching);
 			if (detaching) detach(t1);
 			destroy_component(component_2, detaching);
-			if (detaching) detach(t2);
-			destroy_component(component_3, detaching);
-			if (detaching) detach(t3);
-			destroy_component(component_4, detaching);
-			if (detaching) detach(t4);
-			destroy_component(component_5, detaching);
 		}
 	};
 }
 
-class Component$7 extends SvelteComponent {
+class Component$4 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$6, safe_not_equal, {});
+		init(this, options, null, create_fragment$3, safe_not_equal, {});
 	}
 }
 
-export default Component$7;
+export default Component$4;

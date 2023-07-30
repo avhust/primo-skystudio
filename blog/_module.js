@@ -1044,11 +1044,11 @@ function create_fragment(ctx) {
 			link14 = element("link");
 			meta2 = element("meta");
 			style = element("style");
-			t = text("@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n  max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = text("@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n\n}\n.section-container {\n    max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section-container {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-jg5tgf', document.head);
+			const head_nodes = head_selector('svelte-1h9i1lw', document.head);
 
 			link0 = claim_element(head_nodes, "LINK", {
 				rel: true,
@@ -1101,7 +1101,7 @@ function create_fragment(ctx) {
 			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t = claim_text(style_nodes, "@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n  max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = claim_text(style_nodes, "@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n\n}\n.section-container {\n    max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section-container {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -3767,635 +3767,7 @@ class Component$2 extends SvelteComponent {
 
 /* generated by Svelte v3.59.1 */
 
-function get_each_context$1(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[4] = list[i];
-	return child_ctx;
-}
-
-// (83:10) {#if teaser.link.url}
-function create_if_block_1$2(ctx) {
-	let a;
-	let t_value = /*teaser*/ ctx[4].link.label + "";
-	let t;
-	let a_href_value;
-
-	return {
-		c() {
-			a = element("a");
-			t = text(t_value);
-			this.h();
-		},
-		l(nodes) {
-			a = claim_element(nodes, "A", { class: true, href: true });
-			var a_nodes = children(a);
-			t = claim_text(a_nodes, t_value);
-			a_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(a, "class", "link svelte-zvxqyf");
-			attr(a, "href", a_href_value = /*teaser*/ ctx[4].link.url);
-		},
-		m(target, anchor) {
-			insert_hydration(target, a, anchor);
-			append_hydration(a, t);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*teasers*/ 1 && t_value !== (t_value = /*teaser*/ ctx[4].link.label + "")) set_data(t, t_value);
-
-			if (dirty & /*teasers*/ 1 && a_href_value !== (a_href_value = /*teaser*/ ctx[4].link.url)) {
-				attr(a, "href", a_href_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(a);
-		}
-	};
-}
-
-// (89:8) {#if teaser.image.url}
-function create_if_block$2(ctx) {
-	let img;
-	let img_src_value;
-	let img_alt_value;
-
-	return {
-		c() {
-			img = element("img");
-			this.h();
-		},
-		l(nodes) {
-			img = claim_element(nodes, "IMG", { src: true, alt: true, class: true });
-			this.h();
-		},
-		h() {
-			if (!src_url_equal(img.src, img_src_value = /*teaser*/ ctx[4].image.url)) attr(img, "src", img_src_value);
-			attr(img, "alt", img_alt_value = /*teaser*/ ctx[4].image.alt);
-			attr(img, "class", "svelte-zvxqyf");
-		},
-		m(target, anchor) {
-			insert_hydration(target, img, anchor);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*teasers*/ 1 && !src_url_equal(img.src, img_src_value = /*teaser*/ ctx[4].image.url)) {
-				attr(img, "src", img_src_value);
-			}
-
-			if (dirty & /*teasers*/ 1 && img_alt_value !== (img_alt_value = /*teaser*/ ctx[4].image.alt)) {
-				attr(img, "alt", img_alt_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(img);
-		}
-	};
-}
-
-// (78:4) {#each teasers as teaser}
-function create_each_block$1(ctx) {
-	let div2;
-	let div1;
-	let h2;
-	let t0_value = /*teaser*/ ctx[4].title + "";
-	let t0;
-	let t1;
-	let div0;
-	let raw_value = /*teaser*/ ctx[4].description.html + "";
-	let t2;
-	let t3;
-	let t4;
-	let if_block0 = /*teaser*/ ctx[4].link.url && create_if_block_1$2(ctx);
-	let if_block1 = /*teaser*/ ctx[4].image.url && create_if_block$2(ctx);
-
-	return {
-		c() {
-			div2 = element("div");
-			div1 = element("div");
-			h2 = element("h2");
-			t0 = text(t0_value);
-			t1 = space();
-			div0 = element("div");
-			t2 = space();
-			if (if_block0) if_block0.c();
-			t3 = space();
-			if (if_block1) if_block1.c();
-			t4 = space();
-			this.h();
-		},
-		l(nodes) {
-			div2 = claim_element(nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-			h2 = claim_element(div1_nodes, "H2", { class: true });
-			var h2_nodes = children(h2);
-			t0 = claim_text(h2_nodes, t0_value);
-			h2_nodes.forEach(detach);
-			t1 = claim_space(div1_nodes);
-			div0 = claim_element(div1_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			t2 = claim_space(div1_nodes);
-			if (if_block0) if_block0.l(div1_nodes);
-			div1_nodes.forEach(detach);
-			t3 = claim_space(div2_nodes);
-			if (if_block1) if_block1.l(div2_nodes);
-			t4 = claim_space(div2_nodes);
-			div2_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(h2, "class", "title svelte-zvxqyf");
-			attr(div0, "class", "description");
-			attr(div1, "class", "body svelte-zvxqyf");
-			attr(div2, "class", "teaser svelte-zvxqyf");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div2, anchor);
-			append_hydration(div2, div1);
-			append_hydration(div1, h2);
-			append_hydration(h2, t0);
-			append_hydration(div1, t1);
-			append_hydration(div1, div0);
-			div0.innerHTML = raw_value;
-			append_hydration(div1, t2);
-			if (if_block0) if_block0.m(div1, null);
-			append_hydration(div2, t3);
-			if (if_block1) if_block1.m(div2, null);
-			append_hydration(div2, t4);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*teasers*/ 1 && t0_value !== (t0_value = /*teaser*/ ctx[4].title + "")) set_data(t0, t0_value);
-			if (dirty & /*teasers*/ 1 && raw_value !== (raw_value = /*teaser*/ ctx[4].description.html + "")) div0.innerHTML = raw_value;
-			if (/*teaser*/ ctx[4].link.url) {
-				if (if_block0) {
-					if_block0.p(ctx, dirty);
-				} else {
-					if_block0 = create_if_block_1$2(ctx);
-					if_block0.c();
-					if_block0.m(div1, null);
-				}
-			} else if (if_block0) {
-				if_block0.d(1);
-				if_block0 = null;
-			}
-
-			if (/*teaser*/ ctx[4].image.url) {
-				if (if_block1) {
-					if_block1.p(ctx, dirty);
-				} else {
-					if_block1 = create_if_block$2(ctx);
-					if_block1.c();
-					if_block1.m(div2, t4);
-				}
-			} else if (if_block1) {
-				if_block1.d(1);
-				if_block1 = null;
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(div2);
-			if (if_block0) if_block0.d();
-			if (if_block1) if_block1.d();
-		}
-	};
-}
-
-function create_fragment$3(ctx) {
-	let div1;
-	let section;
-	let div0;
-	let each_value = /*teasers*/ ctx[0];
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
-	}
-
-	return {
-		c() {
-			div1 = element("div");
-			section = element("section");
-			div0 = element("div");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			this.h();
-		},
-		l(nodes) {
-			div1 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div1_nodes = children(div1);
-			section = claim_element(div1_nodes, "SECTION", { class: true });
-			var section_nodes = children(section);
-			div0 = claim_element(section_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(div0_nodes);
-			}
-
-			div0_nodes.forEach(detach);
-			section_nodes.forEach(detach);
-			div1_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(div0, "class", "teasers svelte-zvxqyf");
-			attr(section, "class", "section-container svelte-zvxqyf");
-			attr(div1, "class", "section");
-			attr(div1, "id", "section-ce48f1fe");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div1, anchor);
-			append_hydration(div1, section);
-			append_hydration(section, div0);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(div0, null);
-				}
-			}
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*teasers*/ 1) {
-				each_value = /*teasers*/ ctx[0];
-				let i;
-
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$1(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block$1(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(div0, null);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value.length;
-			}
-		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div1);
-			destroy_each(each_blocks, detaching);
-		}
-	};
-}
-
 function instance$3($$self, $$props, $$invalidate) {
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
-	let { teasers } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(1, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(2, title = $$props.title);
-		if ('description' in $$props) $$invalidate(3, description = $$props.description);
-		if ('teasers' in $$props) $$invalidate(0, teasers = $$props.teasers);
-	};
-
-	return [teasers, favicon, title, description];
-}
-
-class Component$3 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$3, create_fragment$3, safe_not_equal, {
-			favicon: 1,
-			title: 2,
-			description: 3,
-			teasers: 0
-		});
-	}
-}
-
-/* generated by Svelte v3.59.1 */
-
-function get_each_context$2(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[2] = list[i].title;
-	child_ctx[5] = list[i].links;
-	return child_ctx;
-}
-
-function get_each_context_1$1(ctx, list, i) {
-	const child_ctx = ctx.slice();
-	child_ctx[8] = list[i].link;
-	return child_ctx;
-}
-
-// (65:12) {#each links as { link }}
-function create_each_block_1$1(ctx) {
-	let li;
-	let a;
-	let t0_value = /*link*/ ctx[8].label + "";
-	let t0;
-	let a_href_value;
-	let t1;
-
-	return {
-		c() {
-			li = element("li");
-			a = element("a");
-			t0 = text(t0_value);
-			t1 = space();
-			this.h();
-		},
-		l(nodes) {
-			li = claim_element(nodes, "LI", {});
-			var li_nodes = children(li);
-			a = claim_element(li_nodes, "A", { class: true, href: true });
-			var a_nodes = children(a);
-			t0 = claim_text(a_nodes, t0_value);
-			a_nodes.forEach(detach);
-			t1 = claim_space(li_nodes);
-			li_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(a, "class", "link svelte-u1zmy0");
-			attr(a, "href", a_href_value = /*link*/ ctx[8].url);
-		},
-		m(target, anchor) {
-			insert_hydration(target, li, anchor);
-			append_hydration(li, a);
-			append_hydration(a, t0);
-			append_hydration(li, t1);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*menus*/ 2 && t0_value !== (t0_value = /*link*/ ctx[8].label + "")) set_data(t0, t0_value);
-
-			if (dirty & /*menus*/ 2 && a_href_value !== (a_href_value = /*link*/ ctx[8].url)) {
-				attr(a, "href", a_href_value);
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(li);
-		}
-	};
-}
-
-// (61:6) {#each menus as { title, links }}
-function create_each_block$2(ctx) {
-	let nav;
-	let h3;
-	let t0_value = /*title*/ ctx[2] + "";
-	let t0;
-	let t1;
-	let ul;
-	let t2;
-	let each_value_1 = /*links*/ ctx[5];
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value_1.length; i += 1) {
-		each_blocks[i] = create_each_block_1$1(get_each_context_1$1(ctx, each_value_1, i));
-	}
-
-	return {
-		c() {
-			nav = element("nav");
-			h3 = element("h3");
-			t0 = text(t0_value);
-			t1 = space();
-			ul = element("ul");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			t2 = space();
-			this.h();
-		},
-		l(nodes) {
-			nav = claim_element(nodes, "NAV", {});
-			var nav_nodes = children(nav);
-			h3 = claim_element(nav_nodes, "H3", { class: true });
-			var h3_nodes = children(h3);
-			t0 = claim_text(h3_nodes, t0_value);
-			h3_nodes.forEach(detach);
-			t1 = claim_space(nav_nodes);
-			ul = claim_element(nav_nodes, "UL", { class: true });
-			var ul_nodes = children(ul);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(ul_nodes);
-			}
-
-			ul_nodes.forEach(detach);
-			t2 = claim_space(nav_nodes);
-			nav_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(h3, "class", "svelte-u1zmy0");
-			attr(ul, "class", "svelte-u1zmy0");
-		},
-		m(target, anchor) {
-			insert_hydration(target, nav, anchor);
-			append_hydration(nav, h3);
-			append_hydration(h3, t0);
-			append_hydration(nav, t1);
-			append_hydration(nav, ul);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(ul, null);
-				}
-			}
-
-			append_hydration(nav, t2);
-		},
-		p(ctx, dirty) {
-			if (dirty & /*menus*/ 2 && t0_value !== (t0_value = /*title*/ ctx[2] + "")) set_data(t0, t0_value);
-
-			if (dirty & /*menus*/ 2) {
-				each_value_1 = /*links*/ ctx[5];
-				let i;
-
-				for (i = 0; i < each_value_1.length; i += 1) {
-					const child_ctx = get_each_context_1$1(ctx, each_value_1, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block_1$1(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(ul, null);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value_1.length;
-			}
-		},
-		d(detaching) {
-			if (detaching) detach(nav);
-			destroy_each(each_blocks, detaching);
-		}
-	};
-}
-
-function create_fragment$4(ctx) {
-	let div3;
-	let footer;
-	let div2;
-	let div0;
-	let raw_value = /*content*/ ctx[0].html + "";
-	let t;
-	let div1;
-	let each_value = /*menus*/ ctx[1];
-	let each_blocks = [];
-
-	for (let i = 0; i < each_value.length; i += 1) {
-		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
-	}
-
-	return {
-		c() {
-			div3 = element("div");
-			footer = element("footer");
-			div2 = element("div");
-			div0 = element("div");
-			t = space();
-			div1 = element("div");
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].c();
-			}
-
-			this.h();
-		},
-		l(nodes) {
-			div3 = claim_element(nodes, "DIV", { class: true, id: true });
-			var div3_nodes = children(div3);
-			footer = claim_element(div3_nodes, "FOOTER", { class: true });
-			var footer_nodes = children(footer);
-			div2 = claim_element(footer_nodes, "DIV", { class: true });
-			var div2_nodes = children(div2);
-			div0 = claim_element(div2_nodes, "DIV", { class: true });
-			var div0_nodes = children(div0);
-			div0_nodes.forEach(detach);
-			t = claim_space(div2_nodes);
-			div1 = claim_element(div2_nodes, "DIV", { class: true });
-			var div1_nodes = children(div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				each_blocks[i].l(div1_nodes);
-			}
-
-			div1_nodes.forEach(detach);
-			div2_nodes.forEach(detach);
-			footer_nodes.forEach(detach);
-			div3_nodes.forEach(detach);
-			this.h();
-		},
-		h() {
-			attr(div0, "class", "content svelte-u1zmy0");
-			attr(div1, "class", "nav-items svelte-u1zmy0");
-			attr(div2, "class", "section-container svelte-u1zmy0");
-			attr(footer, "class", "svelte-u1zmy0");
-			attr(div3, "class", "section");
-			attr(div3, "id", "section-865be344");
-		},
-		m(target, anchor) {
-			insert_hydration(target, div3, anchor);
-			append_hydration(div3, footer);
-			append_hydration(footer, div2);
-			append_hydration(div2, div0);
-			div0.innerHTML = raw_value;
-			append_hydration(div2, t);
-			append_hydration(div2, div1);
-
-			for (let i = 0; i < each_blocks.length; i += 1) {
-				if (each_blocks[i]) {
-					each_blocks[i].m(div1, null);
-				}
-			}
-		},
-		p(ctx, [dirty]) {
-			if (dirty & /*content*/ 1 && raw_value !== (raw_value = /*content*/ ctx[0].html + "")) div0.innerHTML = raw_value;
-			if (dirty & /*menus*/ 2) {
-				each_value = /*menus*/ ctx[1];
-				let i;
-
-				for (i = 0; i < each_value.length; i += 1) {
-					const child_ctx = get_each_context$2(ctx, each_value, i);
-
-					if (each_blocks[i]) {
-						each_blocks[i].p(child_ctx, dirty);
-					} else {
-						each_blocks[i] = create_each_block$2(child_ctx);
-						each_blocks[i].c();
-						each_blocks[i].m(div1, null);
-					}
-				}
-
-				for (; i < each_blocks.length; i += 1) {
-					each_blocks[i].d(1);
-				}
-
-				each_blocks.length = each_value.length;
-			}
-		},
-		i: noop,
-		o: noop,
-		d(detaching) {
-			if (detaching) detach(div3);
-			destroy_each(each_blocks, detaching);
-		}
-	};
-}
-
-function instance$4($$self, $$props, $$invalidate) {
-	let { favicon } = $$props;
-	let { title } = $$props;
-	let { description } = $$props;
-	let { content } = $$props;
-	let { menus } = $$props;
-
-	$$self.$$set = $$props => {
-		if ('favicon' in $$props) $$invalidate(3, favicon = $$props.favicon);
-		if ('title' in $$props) $$invalidate(2, title = $$props.title);
-		if ('description' in $$props) $$invalidate(4, description = $$props.description);
-		if ('content' in $$props) $$invalidate(0, content = $$props.content);
-		if ('menus' in $$props) $$invalidate(1, menus = $$props.menus);
-	};
-
-	return [content, menus, title, favicon, description];
-}
-
-class Component$4 extends SvelteComponent {
-	constructor(options) {
-		super();
-
-		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
-			favicon: 3,
-			title: 2,
-			description: 4,
-			content: 0,
-			menus: 1
-		});
-	}
-}
-
-/* generated by Svelte v3.59.1 */
-
-function instance$5($$self, $$props, $$invalidate) {
 	let { favicon } = $$props;
 	let { title } = $$props;
 	let { description } = $$props;
@@ -4409,25 +3781,21 @@ function instance$5($$self, $$props, $$invalidate) {
 	return [favicon, title, description];
 }
 
-class Component$5 extends SvelteComponent {
+class Component$3 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance$5, null, safe_not_equal, { favicon: 0, title: 1, description: 2 });
+		init(this, options, instance$3, null, safe_not_equal, { favicon: 0, title: 1, description: 2 });
 	}
 }
 
 /* generated by Svelte v3.59.1 */
 
-function create_fragment$5(ctx) {
+function create_fragment$3(ctx) {
 	let component_0;
 	let t0;
 	let component_1;
 	let t1;
 	let component_2;
-	let t2;
-	let component_3;
-	let t3;
-	let component_4;
 	let current;
 
 	component_0 = new Component({
@@ -4475,70 +3843,6 @@ function create_fragment$5(ctx) {
 					"size": 4
 				},
 				title: "Blog",
-				description: "Our blog to learn everything you need to save the trees",
-				teasers: [
-					{
-						"link": { "url": "/", "label": "Read more" },
-						"image": {
-							"alt": "",
-							"src": "https://picsum.photos/600/400?blur=10",
-							"url": "https://picsum.photos/600/400?blur=10",
-							"size": null
-						},
-						"title": "Discover the unseen",
-						"description": {
-							"html": "<p>Dive into a world full of hidden mysteries and breathtaking views. Explore the unexplored corners of the Earth from the comfort of your own home. </p>",
-							"markdown": "Dive into a world full of hidden mysteries and breathtaking views. Explore the unexplored corners of the Earth from the comfort of your own home. "
-						}
-					}
-				]
-			}
-		});
-
-	component_3 = new Component$4({
-			props: {
-				favicon: {
-					"alt": "SkyStudio",
-					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"size": 4
-				},
-				title: "Blog",
-				description: "Our blog to learn everything you need to save the trees",
-				content: {
-					"html": "<h3>BillionTrees <br></h3><p>321 Something St. Jackson, AL 20332</p>",
-					"markdown": "### BillionTrees <br>\n\n\n\n321 Something St. Jackson, AL 20332\n\n"
-				},
-				menus: [
-					{
-						"links": [
-							{ "link": { "url": "/", "label": "blog" } },
-							{
-								"link": { "url": "/", "label": "consectetur" }
-							}
-						],
-						"title": "About Us"
-					},
-					{
-						"links": [
-							{ "link": { "url": "/", "label": "qui" } },
-							{ "link": { "url": "/", "label": "ex" } }
-						],
-						"title": "Get Involved"
-					}
-				]
-			}
-		});
-
-	component_4 = new Component$5({
-			props: {
-				favicon: {
-					"alt": "SkyStudio",
-					"src": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
-					"size": 4
-				},
-				title: "Blog",
 				description: "Our blog to learn everything you need to save the trees"
 			}
 		});
@@ -4550,10 +3854,6 @@ function create_fragment$5(ctx) {
 			create_component(component_1.$$.fragment);
 			t1 = space();
 			create_component(component_2.$$.fragment);
-			t2 = space();
-			create_component(component_3.$$.fragment);
-			t3 = space();
-			create_component(component_4.$$.fragment);
 		},
 		l(nodes) {
 			claim_component(component_0.$$.fragment, nodes);
@@ -4561,10 +3861,6 @@ function create_fragment$5(ctx) {
 			claim_component(component_1.$$.fragment, nodes);
 			t1 = claim_space(nodes);
 			claim_component(component_2.$$.fragment, nodes);
-			t2 = claim_space(nodes);
-			claim_component(component_3.$$.fragment, nodes);
-			t3 = claim_space(nodes);
-			claim_component(component_4.$$.fragment, nodes);
 		},
 		m(target, anchor) {
 			mount_component(component_0, target, anchor);
@@ -4572,10 +3868,6 @@ function create_fragment$5(ctx) {
 			mount_component(component_1, target, anchor);
 			insert_hydration(target, t1, anchor);
 			mount_component(component_2, target, anchor);
-			insert_hydration(target, t2, anchor);
-			mount_component(component_3, target, anchor);
-			insert_hydration(target, t3, anchor);
-			mount_component(component_4, target, anchor);
 			current = true;
 		},
 		p: noop,
@@ -4584,16 +3876,12 @@ function create_fragment$5(ctx) {
 			transition_in(component_0.$$.fragment, local);
 			transition_in(component_1.$$.fragment, local);
 			transition_in(component_2.$$.fragment, local);
-			transition_in(component_3.$$.fragment, local);
-			transition_in(component_4.$$.fragment, local);
 			current = true;
 		},
 		o(local) {
 			transition_out(component_0.$$.fragment, local);
 			transition_out(component_1.$$.fragment, local);
 			transition_out(component_2.$$.fragment, local);
-			transition_out(component_3.$$.fragment, local);
-			transition_out(component_4.$$.fragment, local);
 			current = false;
 		},
 		d(detaching) {
@@ -4602,19 +3890,15 @@ function create_fragment$5(ctx) {
 			destroy_component(component_1, detaching);
 			if (detaching) detach(t1);
 			destroy_component(component_2, detaching);
-			if (detaching) detach(t2);
-			destroy_component(component_3, detaching);
-			if (detaching) detach(t3);
-			destroy_component(component_4, detaching);
 		}
 	};
 }
 
-class Component$6 extends SvelteComponent {
+class Component$4 extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, null, create_fragment$5, safe_not_equal, {});
+		init(this, options, null, create_fragment$3, safe_not_equal, {});
 	}
 }
 
-export default Component$6;
+export default Component$4;

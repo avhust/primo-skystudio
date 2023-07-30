@@ -654,11 +654,11 @@ function create_fragment(ctx) {
 			link14 = element("link");
 			meta2 = element("meta");
 			style = element("style");
-			t = text("@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n  max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = text("@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n\n}\n.section-container {\n    max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section-container {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			this.h();
 		},
 		l(nodes) {
-			const head_nodes = head_selector('svelte-dw9fj2', document.head);
+			const head_nodes = head_selector('svelte-kopt1f', document.head);
 
 			link0 = claim_element(head_nodes, "LINK", {
 				rel: true,
@@ -711,7 +711,7 @@ function create_fragment(ctx) {
 			meta2 = claim_element(head_nodes, "META", { name: true, content: true });
 			style = claim_element(head_nodes, "STYLE", {});
 			var style_nodes = children(style);
-			t = claim_text(style_nodes, "@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n  max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
+			t = claim_text(style_nodes, "@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 300;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 600;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);\n\t\t}\n\n\t\t@font-face {\n\t\t\tfont-family: 'ProximaNova';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 900;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),\n\t\t\t\turl(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);\n\t\t}\n\n\t\t/* Bold */\n\t\t/* @font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Bold.ttf);\n\t\t} */\n\t\t@font-face {\n\t\t\tfont-family: 'NotoSerif';\n\t\t\tfont-style: normal;\n\t\t\tfont-weight: 700;\n\t\t\tfont-stretch: 100%;\n\t\t\tfont-display: swap;\n\t\t\tsrc: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);\n\t\t}\n/* Reset & standardize default styles */\n/*@import url(\"https://unpkg.com/@primo-app/primo@1.3.64/reset.css\") layer;*/\n\n/* Design tokens (apply to components) */\n:root {\n  /* Custom theme options\n  --color-accent: #004700;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #e0e1e1;\n  */\n  --color-accent: #FEC93C;\n  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);\n  --border-radius: 0;\n  --border-color: #294c80;\n  \n  \t--darkColor: #294c80;\n\t--lightColor: #2d8fc5;\n\t--accentColor: #FEC93C;\n\t--accentDarkerColor: #FEC93C;\n\t--font1: \"ProximaNova\", sans-serif;\n\t--font2: \"NotoSerif\", serif;\n\n\t--color: #0f0f16;\n\t--colorGray: #b6b6d2;\n\t--zoom: 0.9;\n}\n\nhtml {\n\t/* zoom: var(--zoom); */\n}\n\nhtml,\nbody {\n\n}\n\n\n.noscroll {\n\toverflow: hidden;\n}\n\n\n\n/* Root element (use instead of `body`) */\n#page {\n  zoom: var(--zoom);\n\tscroll-behavior: smooth;\n\tscroll-padding: 6em;\n\tpadding: 0; \n\tmargin: 0;\n\tbackground-color: var(--darkColor);\n\tfont-size: 16px;\n\n  \n  \tcolor: var(--color);\n  \n\n  background: white;\n\n\tfont-size: 16px;\n\tfont-family: var(--font1);\n\tfont-weight: 300;\n}\n#page a {\n\t\ttext-decoration: none;\n\t}\n@media (hover: hover) and (pointer: fine) {\n\t\t#page a:hover {\n\t\t\ttext-decoration: none;\n\t\t}\n\t}\n\n/* Elements */\n.section {\n\n}\n.section-container {\n    max-width: 1200px;\n  margin: 0 auto;\n  \t\tpadding: 3rem 1rem;\n\t\tmargin: 0 auto;\n\t\twidth: auto;\n}\n@media screen and (min-width: 768px) {\n.section-container {\n\t\t\twidth: calc(100% - 2rem)\n}\n\t\t}\n\na.link {\n  line-height: 1.3;\n\n  border-bottom: 2px solid var(--color-accent);\n  transform: translateY(-2px); /* move link back into place */\n  transition: var(--transition, 0.1s border);\n}\n\na.link:hover {\n    border-color: transparent;\n  }\n\n.heading {\n  font-size: 2.5rem;\n  line-height: 1.15;\n\n}\n\n.button {\n  color: white;\n  background: var(--color-accent, rebeccapurple);\n  border-radius: 0;\n  padding: 18px 24px;\n  transition: var(--transition, 0.1s box-shadow);\n  border: 0;\n}\n\n/* reset */\n\n.button:hover {\n    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);\n  }\n\n.button.inverted {\n    background: transparent;\n    color: var(--color-accent, rebeccapurple);\n  }\n\n/* Content Section */\n.content {\n  max-width: 900px;\n  margin: 0 auto;\n  padding: 3rem 2rem;\n}\n.content p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n.content img {\n    width: 100%;\n    margin: 2rem 0;\n    box-shadow: var(--box-shadow);\n    border-radius: var(--border-radius);\n  }\n.content a.link {\n    line-height: 1.3;\n    font-weight: 500;\n    border-bottom: 2px solid var(--color-accent);\n    transform: translateY(-2px); /* move link back into place */\n    transition: var(--transition, 0.1s border);\n  }\n.content a.link:hover {\n      border-color: transparent;\n    }\n.content h1 {\n    font-size: 3rem;\n    font-weight: 500;\n    line-height: 1.1;\n    margin-bottom: 1.5rem;\n  }\n.content h2 {\n    font-size: 2.5rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content h3 {\n    font-size: 2rem;\n    font-weight: 500;\n    margin-bottom: 1rem;\n  }\n.content ul {\n    list-style: disc;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content ol {\n    list-style: decimal;\n    padding: 0.5rem 0;\n    padding-left: 1.25rem;\n  }\n.content blockquote {\n    padding: 2rem;\n    margin-top: 1.5rem;\n    margin-bottom: 1.5rem;\n    border-left: 5px solid var(--color-accent);\n  }");
 			style_nodes.forEach(detach);
 			head_nodes.forEach(detach);
 			this.h();
@@ -858,6 +858,7 @@ class Component extends SvelteComponent {
 /* generated by Svelte v3.59.1 */
 
 function create_fragment$1(ctx) {
+	let div4;
 	let div3;
 	let div2;
 	let div1;
@@ -871,6 +872,7 @@ function create_fragment$1(ctx) {
 
 	return {
 		c() {
+			div4 = element("div");
 			div3 = element("div");
 			div2 = element("div");
 			div1 = element("div");
@@ -882,7 +884,9 @@ function create_fragment$1(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			div3 = claim_element(nodes, "DIV", { class: true, id: true });
+			div4 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div4_nodes = children(div4);
+			div3 = claim_element(div4_nodes, "DIV", { class: true });
 			var div3_nodes = children(div3);
 			div2 = claim_element(div3_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
@@ -902,20 +906,23 @@ function create_fragment$1(ctx) {
 			div1_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
+			div4_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "text svelte-nhwolt");
-			attr(span, "class", "svelte-nhwolt");
+			attr(div0, "class", "text svelte-1p505uh");
+			attr(span, "class", "svelte-1p505uh");
 			attr(a, "href", a_href_value = /*button*/ ctx[1].url);
-			attr(a, "class", "svelte-nhwolt");
-			attr(div1, "class", "buttonWrapper svelte-nhwolt");
-			attr(div2, "class", "infoLine toRight svelte-nhwolt");
-			attr(div3, "class", "section");
-			attr(div3, "id", "section-e63ef93d");
+			attr(a, "class", "svelte-1p505uh");
+			attr(div1, "class", "buttonWrapper svelte-1p505uh");
+			attr(div2, "class", "infoLine toRight svelte-1p505uh");
+			attr(div3, "class", "section-container");
+			attr(div4, "class", "section");
+			attr(div4, "id", "section-e63ef93d");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div3, anchor);
+			insert_hydration(target, div4, anchor);
+			append_hydration(div4, div3);
 			append_hydration(div3, div2);
 			append_hydration(div2, div1);
 			append_hydration(div1, div0);
@@ -935,7 +942,7 @@ function create_fragment$1(ctx) {
 		i: noop,
 		o: noop,
 		d(detaching) {
-			if (detaching) detach(div3);
+			if (detaching) detach(div4);
 		}
 	};
 }
@@ -1328,7 +1335,7 @@ function get_each_context(ctx, list, i) {
 	return child_ctx;
 }
 
-// (258:2) {#each news as { title, text, picture, date }}
+// (260:2) {#each news as { title, text, picture, date }}
 function create_each_block(ctx) {
 	let div4;
 	let div0;
@@ -1403,12 +1410,12 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(div0, "class", "news-title svelte-jltnxf");
-			attr(div1, "class", "news-date svelte-jltnxf");
-			attr(div2, "class", "news-text svelte-jltnxf");
+			attr(div0, "class", "news-title svelte-kwgaw5");
+			attr(div1, "class", "news-date svelte-kwgaw5");
+			attr(div2, "class", "news-text svelte-kwgaw5");
 			attr(div2, "data-sveltekit-reload", "");
-			attr(div3, "class", "news-image svelte-jltnxf");
-			attr(div4, "class", "news svelte-jltnxf");
+			attr(div3, "class", "news-image svelte-kwgaw5");
+			attr(div4, "class", "news svelte-kwgaw5");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div4, anchor);
@@ -1450,6 +1457,7 @@ function create_each_block(ctx) {
 }
 
 function create_fragment$3(ctx) {
+	let div9;
 	let div8;
 	let div7;
 	let div0;
@@ -1484,6 +1492,7 @@ function create_fragment$3(ctx) {
 
 	return {
 		c() {
+			div9 = element("div");
 			div8 = element("div");
 			div7 = element("div");
 			div0 = element("div");
@@ -1511,7 +1520,9 @@ function create_fragment$3(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			div8 = claim_element(nodes, "DIV", { class: true, id: true });
+			div9 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div9_nodes = children(div9);
+			div8 = claim_element(div9_nodes, "DIV", { class: true });
 			var div8_nodes = children(div8);
 			div7 = claim_element(div8_nodes, "DIV", { class: true });
 			var div7_nodes = children(div7);
@@ -1556,25 +1567,28 @@ function create_fragment$3(ctx) {
 			div6_nodes.forEach(detach);
 			div7_nodes.forEach(detach);
 			div8_nodes.forEach(detach);
+			div9_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "svelte-jltnxf");
-			attr(div0, "class", "title svelte-jltnxf");
-			attr(div1, "class", "text svelte-jltnxf");
-			attr(div2, "class", "news-header svelte-jltnxf");
-			attr(div3, "class", "fader svelte-jltnxf");
+			attr(h3, "class", "svelte-kwgaw5");
+			attr(div0, "class", "title svelte-kwgaw5");
+			attr(div1, "class", "text svelte-kwgaw5");
+			attr(div2, "class", "news-header svelte-kwgaw5");
+			attr(div3, "class", "fader svelte-kwgaw5");
 			attr(a, "href", "/novyny#mainContent");
-			attr(a, "class", "more svelte-jltnxf");
-			attr(div4, "class", "wrapper svelte-jltnxf");
+			attr(a, "class", "more svelte-kwgaw5");
+			attr(div4, "class", "wrapper svelte-kwgaw5");
 			attr(div5, "class", "news-wrapper");
-			attr(div6, "class", "secondColumn svelte-jltnxf");
-			attr(div7, "class", "block2Columns svelte-jltnxf");
-			attr(div8, "class", "section");
-			attr(div8, "id", "section-d2e87603");
+			attr(div6, "class", "secondColumn svelte-kwgaw5");
+			attr(div7, "class", "block2Columns svelte-kwgaw5");
+			attr(div8, "class", "section-container");
+			attr(div9, "class", "section");
+			attr(div9, "id", "section-d2e87603");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div8, anchor);
+			insert_hydration(target, div9, anchor);
+			append_hydration(div9, div8);
 			append_hydration(div8, div7);
 			append_hydration(div7, div0);
 			append_hydration(div0, h3);
@@ -1651,7 +1665,7 @@ function create_fragment$3(ctx) {
 			current = false;
 		},
 		d(detaching) {
-			if (detaching) detach(div8);
+			if (detaching) detach(div9);
 			destroy_each(each_blocks, detaching);
 		}
 	};
@@ -1692,6 +1706,7 @@ class Component$3 extends SvelteComponent {
 /* generated by Svelte v3.59.1 */
 
 function create_fragment$4(ctx) {
+	let div5;
 	let div4;
 	let div3;
 	let div0;
@@ -1712,6 +1727,7 @@ function create_fragment$4(ctx) {
 
 	return {
 		c() {
+			div5 = element("div");
 			div4 = element("div");
 			div3 = element("div");
 			div0 = element("div");
@@ -1730,7 +1746,9 @@ function create_fragment$4(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			div4 = claim_element(nodes, "DIV", { class: true, id: true });
+			div5 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div5_nodes = children(div5);
+			div4 = claim_element(div5_nodes, "DIV", { class: true });
 			var div4_nodes = children(div4);
 			div3 = claim_element(div4_nodes, "DIV", { class: true });
 			var div3_nodes = children(div3);
@@ -1770,12 +1788,13 @@ function create_fragment$4(ctx) {
 			div2_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
 			div4_nodes.forEach(detach);
+			div5_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "svelte-1mxbfeb");
-			attr(div0, "class", "title svelte-1mxbfeb");
-			attr(div1, "class", "text svelte-1mxbfeb");
+			attr(h3, "class", "svelte-wwjqoz");
+			attr(div0, "class", "title svelte-wwjqoz");
+			attr(div1, "class", "text svelte-wwjqoz");
 			attr(source0, "type", "image/avif");
 			attr(source0, "srcset", "https://cdn.skystudio.uz.ua/old/i/home/avif/home1-1x.avif 1x, https://cdn.skystudio.uz.ua/old/i/home/avif/home1.avif 2x");
 			attr(source1, "type", "image/webp");
@@ -1787,15 +1806,17 @@ function create_fragment$4(ctx) {
 			attr(img, "height", "1199");
 			attr(img, "loading", "lazy");
 			attr(img, "decoding", "async");
-			attr(img, "class", "svelte-1mxbfeb");
-			attr(picture, "class", "svelte-1mxbfeb");
-			attr(div2, "class", "image svelte-1mxbfeb");
-			attr(div3, "class", "blockWithImageAndButton svelte-1mxbfeb");
-			attr(div4, "class", "section");
-			attr(div4, "id", "section-21e44ccf");
+			attr(img, "class", "svelte-wwjqoz");
+			attr(picture, "class", "svelte-wwjqoz");
+			attr(div2, "class", "image svelte-wwjqoz");
+			attr(div3, "class", "blockWithImageAndButton svelte-wwjqoz");
+			attr(div4, "class", "section-container");
+			attr(div5, "class", "section");
+			attr(div5, "id", "section-21e44ccf");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div4, anchor);
+			insert_hydration(target, div5, anchor);
+			append_hydration(div5, div4);
 			append_hydration(div4, div3);
 			append_hydration(div3, div0);
 			append_hydration(div0, h3);
@@ -1818,7 +1839,7 @@ function create_fragment$4(ctx) {
 		i: noop,
 		o: noop,
 		d(detaching) {
-			if (detaching) detach(div4);
+			if (detaching) detach(div5);
 		}
 	};
 }
@@ -1858,21 +1879,25 @@ class Component$4 extends SvelteComponent {
 /* generated by Svelte v3.59.1 */
 
 function create_fragment$5(ctx) {
-	let div;
+	let div1;
+	let div0;
 	let iframe;
 	let iframe_src_value;
 
 	return {
 		c() {
-			div = element("div");
+			div1 = element("div");
+			div0 = element("div");
 			iframe = element("iframe");
 			this.h();
 		},
 		l(nodes) {
-			div = claim_element(nodes, "DIV", { class: true, id: true });
-			var div_nodes = children(div);
+			div1 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div1_nodes = children(div1);
+			div0 = claim_element(div1_nodes, "DIV", { class: true });
+			var div0_nodes = children(div0);
 
-			iframe = claim_element(div_nodes, "IFRAME", {
+			iframe = claim_element(div0_nodes, "IFRAME", {
 				src: true,
 				style: true,
 				width: true,
@@ -1884,7 +1909,8 @@ function create_fragment$5(ctx) {
 			});
 
 			children(iframe).forEach(detach);
-			div_nodes.forEach(detach);
+			div0_nodes.forEach(detach);
+			div1_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
@@ -1895,19 +1921,21 @@ function create_fragment$5(ctx) {
 			attr(iframe, "frameborder", "0");
 			attr(iframe, "scrolling", "no");
 			attr(iframe, "title", "Google Calendar");
-			attr(iframe, "class", "svelte-wo908b");
-			attr(div, "class", "section");
-			attr(div, "id", "section-fe6920b8");
+			attr(iframe, "class", "svelte-fkbfxf");
+			attr(div0, "class", "section-container");
+			attr(div1, "class", "section");
+			attr(div1, "id", "section-fe6920b8");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div, anchor);
-			append_hydration(div, iframe);
+			insert_hydration(target, div1, anchor);
+			append_hydration(div1, div0);
+			append_hydration(div0, iframe);
 		},
 		p: noop,
 		i: noop,
 		o: noop,
 		d(detaching) {
-			if (detaching) detach(div);
+			if (detaching) detach(div1);
 		}
 	};
 }
@@ -1936,6 +1964,7 @@ class Component$5 extends SvelteComponent {
 /* generated by Svelte v3.59.1 */
 
 function create_fragment$6(ctx) {
+	let div4;
 	let div3;
 	let div2;
 	let div0;
@@ -1956,6 +1985,7 @@ function create_fragment$6(ctx) {
 
 	return {
 		c() {
+			div4 = element("div");
 			div3 = element("div");
 			div2 = element("div");
 			div0 = element("div");
@@ -1973,7 +2003,9 @@ function create_fragment$6(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			div3 = claim_element(nodes, "DIV", { class: true, id: true });
+			div4 = claim_element(nodes, "DIV", { class: true, id: true });
+			var div4_nodes = children(div4);
+			div3 = claim_element(div4_nodes, "DIV", { class: true });
 			var div3_nodes = children(div3);
 			div2 = claim_element(div3_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
@@ -2015,6 +2047,7 @@ function create_fragment$6(ctx) {
 			div1_nodes.forEach(detach);
 			div2_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
+			div4_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
@@ -2043,11 +2076,13 @@ function create_fragment$6(ctx) {
 			attr(a2, "class", "svelte-sabpsk");
 			attr(div1, "class", "contactUs svelte-sabpsk");
 			attr(div2, "class", "contactUsLine svelte-sabpsk");
-			attr(div3, "class", "section");
-			attr(div3, "id", "section-8029bd1a");
+			attr(div3, "class", "section-container");
+			attr(div4, "class", "section");
+			attr(div4, "id", "section-8029bd1a");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div3, anchor);
+			insert_hydration(target, div4, anchor);
+			append_hydration(div4, div3);
 			append_hydration(div3, div2);
 			append_hydration(div2, div0);
 			append_hydration(div0, t0);
@@ -2066,7 +2101,7 @@ function create_fragment$6(ctx) {
 		i: noop,
 		o: noop,
 		d(detaching) {
-			if (detaching) detach(div3);
+			if (detaching) detach(div4);
 		}
 	};
 }
@@ -2100,7 +2135,7 @@ function get_each_context$1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (107:3) {#each links as {item}}
+// (106:3) {#each links as {item}}
 function create_each_block$1(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[5].label + "";
@@ -2122,7 +2157,7 @@ function create_each_block$1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "class", "footer svelte-1fs83g");
+			attr(a, "class", "footer svelte-b63oz0");
 			attr(a, "href", a_href_value = /*item*/ ctx[5].url);
 			attr(a, "title", a_title_value = /*item*/ ctx[5].label);
 		},
@@ -2245,16 +2280,16 @@ function create_fragment$7(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo.svg")) attr(img, "src", img_src_value);
 			attr(img, "alt", "Logo SkyStudio");
-			attr(img, "class", "svelte-1fs83g");
+			attr(img, "class", "svelte-b63oz0");
 			attr(a0, "href", "/");
-			attr(a0, "class", "svelte-1fs83g");
+			attr(a0, "class", "svelte-b63oz0");
 			attr(div0, "class", "logo");
-			attr(div1, "class", "nav svelte-1fs83g");
+			attr(div1, "class", "nav svelte-b63oz0");
 			attr(a1, "href", a1_href_value = "mailto:" + /*email*/ ctx[0]);
-			attr(a1, "class", "svelte-1fs83g");
-			attr(div2, "class", "info svelte-1fs83g");
-			attr(div3, "class", "container svelte-1fs83g");
-			attr(footer, "class", "svelte-1fs83g");
+			attr(a1, "class", "svelte-b63oz0");
+			attr(div2, "class", "info svelte-b63oz0");
+			attr(div3, "class", "container svelte-b63oz0");
+			attr(footer, "class", "svelte-b63oz0");
 			attr(div4, "class", "section");
 			attr(div4, "id", "section-11d6b08b");
 		},
@@ -2406,8 +2441,8 @@ function create_fragment$8(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
-				title: "BillionTrees Project",
-				description: "We're on a mission to save the trees"
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді"
 			}
 		});
 
@@ -2419,8 +2454,8 @@ function create_fragment$8(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
-				title: "BillionTrees Project",
-				description: "We're on a mission to save the trees",
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді",
 				heading: "Переглянути&nbsp;фотозони",
 				button: {
 					"url": "/fotozony#mainContent",
@@ -2437,8 +2472,8 @@ function create_fragment$8(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
-				title: "BillionTrees Project",
-				description: "We're on a mission to save the trees",
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді",
 				news: [
 					{
 						"date": "22.07.2023",
@@ -2474,8 +2509,8 @@ function create_fragment$8(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
-				title: "BillionTrees Project",
-				description: "We're on a mission to save the trees",
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді",
 				heading: "Правила оренди студії",
 				text: {
 					"html": "<ol>\n<li>Оренда студії відбувається без передоплати. Будь ласка, про зміни попереджуйте заздалегідь.</li>\n<li>У студії є змінне взуття на 6 людей. Якщо людей буде більше, вам треба подбати про своє змінне взуття. У нас на підлозі коврове покриття, тому спокійно можна бути в шкарпетках.</li>\n<li>Якщо ви будете фотографуватись у взутті, воно обовʼязково має бути чистим!</li>\n<li>Вся студія бронюється за вами лише за умови роботи одного фотографа. Якщо працює два фотографа паралельно на різних зонах, оплата подвоюється.</li>\n<li>Чай, кава - безкоштовні. Капучино - за наявності молока :)</li>\n<li>В разі пошкодження майна вам необхідно повністю компенсувати збитки. Витрати оплачуються вами відразу. Шукаємо ринкову ціну пошкодженої речі при вас.</li>\n<li>Якщо ви плануєте зйомку з тваринами чи просто приходите з ними, попереджуйте про їх наявність завчасно та узгоджуйте це питання з нами.</li>\n<li>Відверті зйомки — це добре, але категорично заборонені зйомки порнографічного характеру.</li>\n</ol>\n<h3 id=\"skystudio\">Дякуємо за розуміння! З радістю чекаємо вас в Sky Studio.</h3>",
@@ -2492,8 +2527,8 @@ function create_fragment$8(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
-				title: "BillionTrees Project",
-				description: "We're on a mission to save the trees"
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді"
 			}
 		});
 
@@ -2505,8 +2540,8 @@ function create_fragment$8(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
-				title: "BillionTrees Project",
-				description: "We're on a mission to save the trees"
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді"
 			}
 		});
 
@@ -2519,7 +2554,7 @@ function create_fragment$8(ctx) {
 					"size": 4
 				},
 				title: "Sky Studio – Фотостудія з крилами в Ужгороді",
-				description: "We're on a mission to save the trees",
+				description: "Фотостудія в Ужгороді",
 				email: "contact@skystudio.uz.ua",
 				links: [
 					{
@@ -2548,8 +2583,8 @@ function create_fragment$8(ctx) {
 					"url": "https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico",
 					"size": 4
 				},
-				title: "BillionTrees Project",
-				description: "We're on a mission to save the trees"
+				title: "Primo Skystudio",
+				description: "Фотостудія в Ужгороді"
 			}
 		});
 
