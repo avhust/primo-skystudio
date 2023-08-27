@@ -1,1660 +1,409 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta name="generator" content="Primo" />
+      <title>Primo Skystudio</title><!-- HEAD_svelte-1g4smfr_START --><link rel="icon" type="image/png" sizes="32x32" href="https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico"><link rel="apple-touch-icon" sizes="57x57" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-180x180.png"><link rel="icon" type="image/png" sizes="192x192" href="https://cdn.skystudio.uz.ua/old/favicon/android-icon-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="https://cdn.skystudio.uz.ua/old/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="96x96" href="https://cdn.skystudio.uz.ua/old/favicon/favicon-96x96.png"><link rel="icon" type="image/png" sizes="16x16" href="https://cdn.skystudio.uz.ua/old/favicon/favicon-16x16.png"><meta name="theme-color" content="#2d8fc5"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="apple-touch-icon" href="https://cdn.skystudio.uz.ua/old/favicon/apple-touch-icon.png"><meta name="description" content="Фотостудія в Ужгороді"><style>@font-face {
+  font-family: 'ProximaNova';
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),
+    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);
+}
 
-<head>
-    <meta name="generator" content="Primo" />
-    <title>Primo Skystudio</title><!-- HEAD_svelte-1g4smfr_START -->
-    <link rel="icon" type="image/png" sizes="32x32" href="https://taxobusmgaowcldvwgnr.supabase.co/storage/v1/object/public/images/f0456fff-45d0-494b-8ceb-d9904528bd86/1690717229271favicon.ico">
-    <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.skystudio.uz.ua/old/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="https://cdn.skystudio.uz.ua/old/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.skystudio.uz.ua/old/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="https://cdn.skystudio.uz.ua/old/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.skystudio.uz.ua/old/favicon/favicon-16x16.png">
-    <meta name="theme-color" content="#2d8fc5">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="apple-touch-icon" href="https://cdn.skystudio.uz.ua/old/favicon/apple-touch-icon.png">
-    <meta name="description" content="Фотостудія в Ужгороді">
-    <style>
-        @font-face {
-            font-family: 'ProximaNova';
-            font-style: normal;
-            font-weight: 300;
-            font-stretch: 100%;
-            font-display: swap;
-            src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.woff2) format('woff2'),
-                url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Regular.ttf);
-        }
+@font-face {
+  font-family: 'ProximaNova';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),
+    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);
+}
 
-        @font-face {
-            font-family: 'ProximaNova';
-            font-style: normal;
-            font-weight: 600;
-            font-stretch: 100%;
-            font-display: swap;
-            src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.woff2) format('woff2'),
-                url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Bold.ttf);
-        }
+@font-face {
+  font-family: 'ProximaNova';
+  font-style: normal;
+  font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),
+    url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);
+}
 
-        @font-face {
-            font-family: 'ProximaNova';
-            font-style: normal;
-            font-weight: 900;
-            font-stretch: 100%;
-            font-display: swap;
-            src: url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.woff2) format('woff2'),
-                url(https://cdn.skystudio.uz.ua/old/fonts/used/ProximaNova-Black.ttf);
-        }
+@font-face {
+  font-family: 'NotoSerif';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);
+}
 
-        @font-face {
-            font-family: 'NotoSerif';
-            font-style: normal;
-            font-weight: 700;
-            font-stretch: 100%;
-            font-display: swap;
-            src: url(https://cdn.skystudio.uz.ua/old/fonts/Noto_Serif/NotoSerif-Regular.ttf);
-        }
+/* Reset & standardize default styles */
+/*@import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;*/
 
-        /* Reset & standardize default styles */
-        /*@import url("https://unpkg.com/@primo-app/primo@1.3.64/reset.css") layer;*/
-
-        /* Design tokens (apply to components) */
-        :root {
-            /* Custom theme options
+/* Design tokens (apply to components) */
+:root {
+  /* Custom theme options
   --color-accent: #004700;
   --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
   --border-radius: 0;
   --border-color: #e0e1e1;
   */
-            --color-accent: #FEC93C;
-            --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
-            --border-radius: 0;
-            --border-color: #294c80;
-
-            --darkColor: #294c80;
-            --lightColor: #2d8fc5;
-            --accentColor: #FEC93C;
-            --accentDarkerColor: #FEC93C;
-            --font1: "ProximaNova", sans-serif;
-            --font2: "NotoSerif", serif;
-
-            --color: #0f0f16;
-            --colorGray: #b6b6d2;
-            --zoom: 0.9;
-        }
-
-        html {
-            /* zoom: var(--zoom); */
-        }
-
-        html,
-        body {
-            background-color: var(--darkColor);
-        }
-
-
-        .noscroll {
-            overflow: hidden;
-        }
-
-
-
-        /* Root element (use instead of `body`) */
-        #page {
-            zoom: var(--zoom);
-            scroll-behavior: smooth;
-            scroll-padding: 6em;
-            padding: 0;
-            margin: 0;
-            background-color: white;
-            font-size: 16px;
-
-
-            color: var(--color);
-
-
-            font-size: 16px;
-            font-family: var(--font1);
-            font-weight: 300;
-        }
-
-        #page a {
-            text-decoration: none;
-        }
-
-        @media (hover: hover) and (pointer: fine) {
-            #page a:hover {
-                text-decoration: none;
-            }
-        }
-
-        /* Elements */
-        .section {
-            background-color: white;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: auto;
-            padding-bottom: 3rem;
-        }
-
-        @media screen and (min-width: 768px) {
-
-            .section-container {
-                width: calc(100% - 2rem)
-            }
-        }
-
-        .section-container.no-bottom-padding {
-            padding-bottom: 0;
-        }
-
-        a.link {
-            line-height: 1.3;
-
-            border-bottom: 2px solid var(--color-accent);
-            transform: translateY(-2px);
-            /* move link back into place */
-            transition: var(--transition, 0.1s border);
-        }
-
-        a.link:hover {
-            border-color: transparent;
-        }
-
-        .heading {
-            font-size: 2.5rem;
-            line-height: 1.15;
-
-        }
-
-        .button {
-            color: white;
-            background: var(--color-accent, rebeccapurple);
-            border-radius: 0;
-            padding: 18px 24px;
-            transition: var(--transition, 0.1s box-shadow);
-            border: 0;
-        }
-
-        /* reset */
-
-        .button:hover {
-            box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
-        }
-
-        .button.inverted {
-            background: transparent;
-            color: var(--color-accent, rebeccapurple);
-        }
-
-        /* Content Section */
-        .content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        .content p {
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .content img {
-            width: 100%;
-            margin: 2rem 0;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
-        }
-
-        .content a.link {
-            line-height: 1.3;
-            font-weight: 500;
-            border-bottom: 2px solid var(--color-accent);
-            transform: translateY(-2px);
-            /* move link back into place */
-            transition: var(--transition, 0.1s border);
-        }
-
-        .content a.link:hover {
-            border-color: transparent;
-        }
-
-        .content h1 {
-            font-size: 3rem;
-            font-weight: 500;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .content h2 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .content h3 {
-            font-size: 2rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .content ul {
-            list-style: disc;
-            padding: 0.5rem 0;
-            padding-left: 1.25rem;
-        }
-
-        .content ol {
-            list-style: decimal;
-            padding: 0.5rem 0;
-            padding-left: 1.25rem;
-        }
-
-        .content blockquote {
-            padding: 2rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 5px solid var(--color-accent);
-        }
-    </style><!-- HEAD_svelte-1g4smfr_END -->
-    <style>
-        header.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            color: white;
-            background-color: var(--darkColor);
-            transition: all 0.2s ease-in-out;
-            width: 100%
-        }
-
-        @media screen and (min-width: 768px) {
-            header.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                z-index: 12;
-                background-color: transparent;
-                background: unset
-            }
-
-            header.scrolled.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-                background-color: #294c80;
-                background: radial-gradient(circle at 5vw 20vw, #2d8fc5, #294c80, #294c80, #294c80)
-            }
-
-            header.scrolled.svelte-5fxekz .container.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-                height: 5rem
-            }
-
-            header.scrolled.svelte-5fxekz .logo.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz {
-                align-items: end;
-                align-items: flex-end
-            }
-
-            header.scrolled.svelte-5fxekz .logo.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz {
-                -o-object-position: 50% 100%;
-                object-position: 50% 100%;
-                transform: translate(0, 1px)
-            }
-        }
-
-        header.svelte-5fxekz .container.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            display: grid;
-            grid-template-columns: 2fr 5fr 2.7fr;
-            margin: 0;
-            width: 100%;
-            height: 6.5rem;
-            transition: all 0.2s ease-in-out
-        }
-
-        @media screen and (min-width: 768px) {
-            header.svelte-5fxekz .container.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-                height: 8.5rem;
-                margin: 0 auto;
-                grid-template-columns: 2.2fr 5.5fr 2fr 0.05fr;
-                width: calc(100% - 2rem);
-                max-width: 1200px
-            }
-        }
-
-        header.svelte-5fxekz .logo.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz {
-            display: flex;
-            height: 100%;
-            align-items: center
-        }
-
-        header.svelte-5fxekz .logo.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz {
-            display: block;
-            -o-object-fit: contain;
-            object-fit: contain;
-            width: 15rem;
-            height: 3.5rem;
-            margin: 0 auto 0 0
-        }
-
-        @media screen and (min-width: 768px) {
-            header.svelte-5fxekz .logo.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz {
-                height: 4.05rem;
-                width: 15rem
-            }
-        }
-
-        header.svelte-5fxekz .burger.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center
-        }
-
-        @media screen and (min-width: 768px) {
-            header.svelte-5fxekz .burger.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-                display: none
-            }
-        }
-
-        header.svelte-5fxekz .burger button.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            background: none;
-            border: none
-        }
-
-        header.svelte-5fxekz .burger button.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz {
-            --size: clamp(3rem, 12vw, 4rem);
-            height: var(--size);
-            width: var(--size)
-        }
-
-        header.svelte-5fxekz .nav.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            display: none
-        }
-
-        @media screen and (min-width: 768px) {
-            header.svelte-5fxekz .nav.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-                display: flex;
-                height: 100%;
-                align-items: center;
-                justify-content: space-around
-            }
-        }
-
-        header.svelte-5fxekz .nav a.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            color: white;
-            font-size: 1.05rem;
-            transition: color 0.3s ease-in-out
-        }
-
-        header.svelte-5fxekz .nav a.current.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            color: var(--accentColor);
-            font-weight: 600
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            header.svelte-5fxekz .nav a.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz:hover {
-                color: var(--accentColor)
-            }
-        }
-
-        header.svelte-5fxekz .social.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            display: none
-        }
-
-        @media screen and (min-width: 768px) {
-            header.svelte-5fxekz .social.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                gap: 0.25rem;
-                padding: 0 clamp(1.5rem, 3vw, 3rem)
-            }
-
-            header.svelte-5fxekz .social.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz {
-                display: flex;
-                height: 2.7rem;
-                width: 2.7rem;
-                justify-content: center;
-                background-color: #ffffff;
-                border-radius: 50%;
-                align-items: center;
-                transform: scale(1);
-                transform-origin: center;
-                transition: all 0.2s ease-in-out
-            }
-
-            @media(hover: hover) and (pointer: fine) {
-                header.svelte-5fxekz .social.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz:hover {
-                    transform: scale(1.1)
-                }
-            }
-
-            header.svelte-5fxekz .social.svelte-5fxekz a.svelte-5fxekz img.svelte-5fxekz {
-                --size: 1.3rem;
-                height: var(--size);
-                width: var(--size)
-            }
-        }
-
-        .mobileMenu.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            background-color: var(--darkColor);
-            position: fixed;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: 0;
-            color: white;
-            height: 100vh;
-            height: calc(100vh / var(--zoom));
-            z-index: 101;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-            grid-auto-flow: row
-        }
-
-        .mobileMenu.svelte-5fxekz .cross.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center
-        }
-
-        .mobileMenu.svelte-5fxekz .cross button.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            background: none;
-            border: none
-        }
-
-        .mobileMenu.svelte-5fxekz .cross button.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz {
-            --size: clamp(3rem, 12vw, 4rem);
-            height: var(--size);
-            width: var(--size)
-        }
-
-        .mobileMenu.svelte-5fxekz .main.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            overflow: scroll
-        }
-
-        .mobileMenu.svelte-5fxekz .main .logo.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            padding-bottom: 1rem
-        }
-
-        .mobileMenu.svelte-5fxekz .main .logo.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz {
-            display: flex;
-            width: 12rem;
-            height: 3.5rem;
-            margin: 0 auto;
-            align-items: center
-        }
-
-        .mobileMenu.svelte-5fxekz .main .logo.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz {
-            display: block;
-            -o-object-fit: contain;
-            object-fit: contain;
-            width: 12rem;
-            height: 3.5rem;
-            margin: 0 auto 0
-        }
-
-        .mobileMenu.svelte-5fxekz .main ul.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: clamp(1rem, 3vh, 2rem);
-            padding: 0 clamp(2rem, 8vw, 4rem)
-        }
-
-        .mobileMenu.svelte-5fxekz .main ul li.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            width: 100%;
-            display: block
-        }
-
-        .mobileMenu.svelte-5fxekz .main ul li.svelte-5fxekz a {
-            display: block;
-            width: 100%;
-            color: white;
-            font-size: 1.5rem;
-            text-decoration: none;
-            font-family: var(--font1);
-            border-bottom: 1px dashed white
-        }
-
-        .mobileMenu.svelte-5fxekz .main ul li a.current.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            pointer-events: none;
-            cursor: default;
-            color: var(--accentDarkerColor)
-        }
-
-        .mobileMenu.svelte-5fxekz .main .social.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            padding: 2rem clamp(1.5rem, 3vw, 3rem) 0
-        }
-
-        .mobileMenu.svelte-5fxekz .main .social.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz {
-            display: flex;
-            height: 3rem;
-            width: 3rem;
-            justify-content: center;
-            background-color: #ffffff;
-            border-radius: 50%;
-            align-items: center;
-            transform: scale(1);
-            transform-origin: center;
-            transition: all 0.2s ease-in-out
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            .mobileMenu.svelte-5fxekz .main .social.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz:hover {
-                transform: scale(1.2)
-            }
-        }
-
-        .mobileMenu.svelte-5fxekz .main .social.svelte-5fxekz a.svelte-5fxekz img.svelte-5fxekz {
-            --size: 1.5rem;
-            height: var(--size);
-            width: var(--size)
-        }
-
-        .mobileMenu.svelte-5fxekz .main .phone.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            padding: 2rem 0 0
-        }
-
-        .mobileMenu.svelte-5fxekz .main .phone a.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            display: block;
-            width: 100%;
-            text-align: center;
-            color: white;
-            font-size: clamp(1.5rem, 7vw, 3rem);
-            text-decoration: none;
-            font-family: var(--font1)
-        }
-
-        .mobileMenu.svelte-5fxekz .footer.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz {
-            min-height: 5.5rem
-        }
-
-        section.svelte-xt9fw9.svelte-xt9fw9 {
-            background: var(--darkColor);
-            height: calc(100vh / var(--zoom));
-            max-height: 900px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            z-index: 0;
-            box-sizing: border-box
-        }
-
-        @media screen and (min-width: 768px) {
-            section.svelte-xt9fw9.svelte-xt9fw9 {
-                min-height: 650px
-            }
-        }
-
-        section.svelte-xt9fw9 picture.svelte-xt9fw9 {
-            --brightness: 0.35;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: 0;
-            display: block;
-            z-index: -1;
-            filter: brightness(var(--brightness))
-        }
-
-        section.svelte-xt9fw9 picture img.svelte-xt9fw9 {
-            --scale: 1;
-            display: block;
-            width: 100%;
-            height: 100%;
-            -o-object-fit: cover;
-            object-fit: cover;
-            transform: scale(var(--scale));
-            -o-object-position: var(--moveX) 0;
-            object-position: var(--moveX) 0
-        }
-
-        @media screen and (min-width: 768px) {
-            section.svelte-xt9fw9 picture img.svelte-xt9fw9 {
-                transform: scale(1);
-                -o-object-position: 50% 15%;
-                object-position: 50% 15%;
-                -o-object-fit: cover;
-                object-fit: cover
-            }
-        }
-
-        section.svelte-xt9fw9 .texts.svelte-xt9fw9 {
-            z-index: 5;
-            display: grid;
-            grid-template-rows: 1.14fr 0.7fr 0.4fr 0.38fr 0.52fr;
-            grid-template-columns: 1fr;
-            gap: 0;
-            height: 95%;
-            color: white;
-            max-width: 1200px;
-            margin: 0 auto 0;
-            padding: 0 1rem;
-            box-sizing: border-box;
-            font-family: var(--font2);
-            width: 100%
-        }
-
-        @media screen and (min-width: 768px) {
-            section.svelte-xt9fw9 .texts.svelte-xt9fw9 {
-                width: calc(100% - 2rem);
-                padding: 0
-            }
-        }
-
-        section.svelte-xt9fw9 .texts .first.svelte-xt9fw9 {
-            font-family: var(--font1);
-            align-self: end;
-            font-size: clamp(2.5rem, 11vw, 4.5rem);
-            line-height: 0.8;
-            letter-spacing: -0.1rem;
-            color: hsl(201deg 7.03% 73.77%)
-        }
-
-        @media screen and (min-width: 768px) {
-            section.svelte-xt9fw9 .texts .first.svelte-xt9fw9 {
-                font-size: 4.5rem
-            }
-        }
-
-        section.svelte-xt9fw9 .texts .second.svelte-xt9fw9 {
-            --length: 5;
-            overflow: hidden;
-            font-size: clamp(2.7rem, calc(180vw / var(--length)), 8rem);
-            letter-spacing: calc(-2.8rem / var(--length));
-            line-height: 1;
-            transform: translateX(-0.2rem)
-        }
-
-        @media screen and (min-width: 768px) {
-            section.svelte-xt9fw9 .texts .second.svelte-xt9fw9 {
-                transform: translateX(-0.5rem);
-                letter-spacing: -0.55rem;
-                font-size: 8rem
-            }
-        }
-
-        section.svelte-xt9fw9 .texts .buttonHero.svelte-xt9fw9 {
-            display: flex;
-            align-items: center
-        }
-
-        section.svelte-xt9fw9 .texts .buttonHero a.svelte-xt9fw9 {
-            font-family: var(--font1);
-            padding: 1rem 3rem;
-            color: var(--accentColor);
-            background-color: transparent;
-            border-radius: 30px;
-            transition: all 0.2s ease-in-out;
-            border: 2px solid var(--accentColor)
-        }
-
-        section.svelte-xt9fw9 .texts .buttonHero a span.svelte-xt9fw9 {
-            transform: scale(1);
-            transition: all 0.2s ease-in-out;
-            transform-origin: center;
-            display: inline-block
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            section.svelte-xt9fw9 .texts .buttonHero a.svelte-xt9fw9:hover {
-                background-color: var(--darkColor)
-            }
-
-            section.svelte-xt9fw9 .texts .buttonHero a:hover span.svelte-xt9fw9 {
-                transform: scale(1.1)
-            }
-        }
-
-        section.svelte-xt9fw9 .texts .premenu.svelte-xt9fw9 {
-            color: var(--accentDarkerColor);
-            font-family: var(--font1);
-            line-height: 1;
-            padding-bottom: 0;
-            letter-spacing: -0.2rem;
-            font-size: clamp(2.2rem, 10vw, 4.5rem)
-        }
-
-        @media screen and (min-width: 768px) {
-            section.svelte-xt9fw9 .texts .premenu.svelte-xt9fw9 {
-                padding-bottom: 1rem;
-                letter-spacing: -0.2rem;
-                font-size: 4.5rem
-            }
-        }
-
-        section.svelte-xt9fw9 .texts .menu.svelte-xt9fw9 {
-            font-family: var(--font1);
-            position: relative;
-            border-top: 2px solid white;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 4%
-        }
-
-        @media screen and (min-width: 768px) {
-            section.svelte-xt9fw9 .texts .menu.svelte-xt9fw9 {
-                display: grid;
-                grid-auto-flow: column;
-                grid-template-columns: 1fr 1fr 0.8fr 1.2fr 1fr;
-                grid-template-rows: 1fr;
-                gap: 0
-            }
-        }
-
-        section.svelte-xt9fw9 .texts .menu a.svelte-xt9fw9 {
-            width: 48%;
-            color: rgba(255, 255, 255, 0.74);
-            padding: 1rem 0 0;
-            font-size: 1.2rem;
-            line-height: 0.95;
-            font-weight: 300;
-            transform-origin: top center;
-            transition: all 0.2s ease-in-out
-        }
-
-        @media screen and (min-width: 768px) {
-            section.svelte-xt9fw9 .texts .menu a.svelte-xt9fw9 {
-                position: relative;
-                color: rgba(255, 255, 255, 0.5);
-                width: 100%;
-                font-size: clamp(1.4rem, 3vw, 1.65rem);
-                line-height: 0.85;
-                padding-right: 1rem
-            }
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            section.svelte-xt9fw9 .texts .menu a.svelte-xt9fw9:hover {
-                color: white
-            }
-        }
-
-        section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9,
-        section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:hover {
-            color: var(--accentColor)
-        }
-
-        @media screen and (min-width: 768px) {
-
-            section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9,
-            section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:hover {
-                color: white
-            }
-        }
-
-        section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:before,
-        section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:hover:before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: 0;
-            display: block;
-            background-color: var(--accentColor);
-            height: 4px;
-            right: 0
-        }
-
-        @media screen and (min-width: 768px) {
-
-            section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:before,
-            section.svelte-xt9fw9 .texts .menu a.active.svelte-xt9fw9:hover:before {
-                right: 7%
-            }
-        }
-
-        .infoLine.svelte-1p505uh.svelte-1p505uh.svelte-1p505uh {
-            border: 2px solid var(--lightColor);
-            border-radius: 3rem;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem
-        }
-
-        @media screen and (min-width: 870px) {
-            .infoLine.svelte-1p505uh.svelte-1p505uh.svelte-1p505uh {
-                flex-direction: row;
-                padding: 1rem 1.2rem 1rem 3rem
-            }
-        }
-
-        .infoLine.toRight.svelte-1p505uh.svelte-1p505uh.svelte-1p505uh {
-            padding: 1rem
-        }
-
-        @media screen and (min-width: 870px) {
-            .infoLine.toRight.svelte-1p505uh.svelte-1p505uh.svelte-1p505uh {
-                justify-content: flex-end
-            }
-        }
-
-        @media screen and (min-width: 870px) {}
-
-        @media screen and (min-width: 870px) {}
-
-        .infoLine.svelte-1p505uh .info a.svelte-1p505uh.svelte-1p505uh,
-        .infoLine.svelte-1p505uh .info span.svelte-1p505uh.svelte-1p505uh {
-            padding: 0.5rem 0;
-            color: var(--color1);
-            transition: all 0.2s ease-in-out
-        }
-
-        @media screen and (min-width: 870px) {
-
-            .infoLine.svelte-1p505uh .info a.svelte-1p505uh.svelte-1p505uh,
-            .infoLine.svelte-1p505uh .info span.svelte-1p505uh.svelte-1p505uh {
-                padding: 0 0.5rem
-            }
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            .infoLine.svelte-1p505uh .info a.svelte-1p505uh.svelte-1p505uh:hover {
-                color: var(--accentDarkerColor)
-            }
-        }
-
-        .infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh.svelte-1p505uh {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            align-items: center
-        }
-
-        @media screen and (min-width: 870px) {
-            .infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh.svelte-1p505uh {
-                width: 500px;
-                flex-direction: row;
-                justify-content: space-evenly
-            }
-        }
-
-        .infoLine.svelte-1p505uh .buttonWrapper.spacy .text.svelte-1p505uh.svelte-1p505uh {
-            min-width: 200px;
-            text-align: left;
-            font-size: 1rem
-        }
-
-        @media screen and (min-width: 870px) {
-            .infoLine.svelte-1p505uh .buttonWrapper.spacy .text.svelte-1p505uh.svelte-1p505uh {
-                min-width: 300px;
-                font-size: 1.2rem;
-                text-align: right
-            }
-        }
-
-        @media screen and (min-width: 870px) {}
-
-        .infoLine.svelte-1p505uh .buttonWrapper .text.svelte-1p505uh.svelte-1p505uh {
-            font-weight: 600;
-            font-size: 1.2rem;
-            padding-bottom: 0.5rem
-        }
-
-        @media screen and (min-width: 870px) {
-            .infoLine.svelte-1p505uh .buttonWrapper .text.svelte-1p505uh.svelte-1p505uh {
-                padding-bottom: 0
-            }
-        }
-
-        .infoLine.svelte-1p505uh .buttonWrapper .text a.svelte-1p505uh.svelte-1p505uh {
-            color: var(--darkColor);
-            font-weight: normal
-        }
-
-        .infoLine.svelte-1p505uh .buttonWrapper .phonesWrapper a.svelte-1p505uh.svelte-1p505uh {
-            white-space: nowrap
-        }
-
-        .infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh>a.svelte-1p505uh {
-            padding: 1rem 2rem;
-            color: white;
-            background-color: var(--darkColor);
-            border-radius: 30px;
-            transition: all 0.2s ease-in-out
-        }
-
-        @media screen and (min-width: 870px) {
-            .infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh>a.svelte-1p505uh {
-                margin-left: 2rem;
-                padding: 1rem 3rem
-            }
-        }
-
-        .infoLine.svelte-1p505uh .buttonWrapper>a span.svelte-1p505uh.svelte-1p505uh,
-        .infoLine.svelte-1p505uh .buttonWrapper .phonesWrapper>a span.svelte-1p505uh.svelte-1p505uh {
-            transform: scale(1);
-            transition: all 0.2s ease-in-out;
-            transform-origin: center;
-            display: inline-block
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            .infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh>a.svelte-1p505uh:hover {
-                background-color: var(--lightColor)
-            }
-
-            .infoLine.svelte-1p505uh .buttonWrapper>a:hover span.svelte-1p505uh.svelte-1p505uh,
-            .infoLine.svelte-1p505uh .buttonWrapper .phonesWrapper>a:hover span.svelte-1p505uh.svelte-1p505uh {
-                transform: scale(1.1)
-            }
-        }
-
-        .block2Columns.svelte-kwgaw5.svelte-kwgaw5 {
-            margin: 0
-        }
-
-        @media screen and (min-width: 768px) {
-            .block2Columns.svelte-kwgaw5.svelte-kwgaw5 {
-                display: grid;
-                row-gap: 1rem;
-                grid: 'title secondColumn'
-                    'text secondColumn'
-                    / 66.6666% 33.3333%;
-                grid-template-rows: -webkit-min-content 1fr;
-                grid-template-rows: min-content 1fr
-            }
-        }
-
-        .block2Columns.svelte-kwgaw5 .title.svelte-kwgaw5 {
-            grid-area: title;
-            position: relative;
-            padding: 0 0 0.7rem 0.5rem
-        }
-
-        .block2Columns.svelte-kwgaw5 .title h3.svelte-kwgaw5 {
-            font-size: 1.7rem;
-            padding: 0;
-            margin: 0;
-            font-weight: 600
-        }
-
-        .block2Columns.svelte-kwgaw5 .title.svelte-kwgaw5:after {
-            content: '';
-            display: block;
-            height: 2.5px;
-            background-color: var(--accentColor);
-            width: 37%;
-            left: 0;
-            bottom: 0;
-            position: absolute
-        }
-
-        .block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 {
-            grid-area: text;
-            padding: 1rem 2rem 0.5rem 1rem
-        }
-
-        @media screen and (min-width: 768px) {
-            .block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 {
-                padding: 0 2rem 0 1rem
-            }
-        }
-
-        .block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 strong {
-            font-weight: 600
-        }
-
-        .block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 h3 {
-            font-size: 1.3rem;
-            font-weight: 600
-        }
-
-        .block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 p {
-            font-size: 1.1rem;
-            line-height: 1.35;
-            margin: 1rem 0 .25rem 0;
-            padding: 0
-        }
-
-        .block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 ul,
-        .block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 ol {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin-top: 0
-        }
-
-        .block2Columns.svelte-kwgaw5 .secondColumn.svelte-kwgaw5 {
-            grid-area: secondColumn
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper.svelte-kwgaw5 {
-            --fontSize: 1rem;
-            --imageWidth: 100px;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out;
-            position: relative
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .fader.svelte-kwgaw5 {
-            z-index: 2;
-            height: 5rem;
-            background: linear-gradient(to bottom, transparent, white, white);
-            left: 0;
-            right: 0;
-            bottom: 0;
-            position: absolute
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper a.more.svelte-kwgaw5 {
-            background: none;
-            border: 0;
-            color: var(--accentColor);
-            font-size: var(--fontSize);
-            font-weight: 600;
-            padding: 1rem 0;
-            display: block;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            cursor: pointer;
-            z-index: 10
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper a.more.svelte-kwgaw5:hover {
-                text-decoration: underline
-            }
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-header.svelte-kwgaw5 {
-            position: relative;
-            padding: 0.5rem 0;
-            text-transform: uppercase;
-            font-size: calc(var(--fontSize) * 1.2);
-            letter-spacing: 4px
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-header.svelte-kwgaw5::after {
-            content: '';
-            display: block;
-            height: 2.5px;
-            background-color: var(--accentColor);
-            width: 37%;
-            left: 0;
-            bottom: 0;
-            position: absolute
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news.svelte-kwgaw5 {
-            margin: 1rem 0;
-            display: grid;
-            grid: '. date'
-                'image title'
-                'image text'
-                / var(--imageWidth) 1fr;
-            grid-template-rows: -webkit-min-content -webkit-min-content 1fr;
-            grid-template-rows: min-content min-content 1fr;
-            -moz-column-gap: 0.5rem;
-            column-gap: 0.5rem;
-            width: 100%
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-date.svelte-kwgaw5 {
-            grid-area: date;
-            color: var(--colorGray)
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-title.svelte-kwgaw5 {
-            grid-area: title;
-            font-size: var(--fontSize);
-            font-weight: 600;
-            margin-bottom: 10px
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-text.svelte-kwgaw5 {
-            grid-area: text;
-            font-size: var(--fontSize);
-            font-weight: 400;
-            margin-bottom: 10px
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-text.svelte-kwgaw5 a {
-            color: var(--accentDarkerColor);
-            font-weight: 600
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-text.svelte-kwgaw5 a:hover {
-                text-decoration: underline
-            }
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-image.svelte-kwgaw5 {
-            grid-area: image
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-image.svelte-kwgaw5 img {
-            -o-object-position: top center;
-            object-position: top center;
-            display: block;
-            height: 100%;
-            width: 100%;
-            -o-object-fit: contain;
-            object-fit: contain
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .title.svelte-kwgaw5 {
-            position: relative;
-            padding: 0 0 0.7rem 0.5rem
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .title h3.svelte-kwgaw5 {
-            font-size: 1.7rem;
-            padding: 0;
-            margin: 0;
-            font-weight: 600
-        }
-
-        .block2Columns.svelte-kwgaw5 .news-wrapper .title.svelte-kwgaw5:after {
-            content: '';
-            display: block;
-            height: 2.5px;
-            background-color: var(--accentColor);
-            width: 37%;
-            left: 0;
-            bottom: 0;
-            position: absolute
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz.svelte-wwjqoz {
-            row-gap: 1rem
-        }
-
-        @media screen and (min-width: 768px) {
-            .blockWithImageAndButton.svelte-wwjqoz.svelte-wwjqoz {
-                display: grid;
-                grid: 'title image'
-                    'text image'
-                    'button image'
-                    / 2fr 1fr;
-                grid-template-rows: -webkit-min-content 1fr;
-                grid-template-rows: min-content 1fr
-            }
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .title.svelte-wwjqoz {
-            grid-area: title;
-            position: relative;
-            padding: 0 0 0.7rem 0.5rem
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .title h3.svelte-wwjqoz {
-            font-size: 1.7rem;
-            padding: 0;
-            margin: 0;
-            font-weight: 600
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .title.svelte-wwjqoz:after {
-            content: '';
-            display: block;
-            height: 2.5px;
-            background-color: var(--accentColor);
-            width: 37%;
-            left: 0;
-            bottom: 0;
-            position: absolute
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz {
-            grid-area: text;
-            padding: 1rem 2rem 0.5rem 1rem
-        }
-
-        @media screen and (min-width: 768px) {
-            .blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz {
-                padding: 0 2rem 0 1rem
-            }
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz strong {
-            font-weight: 600
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz h3 {
-            font-size: 1.3rem;
-            font-weight: 600
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz p {
-            font-size: 1.1rem;
-            line-height: 1.35;
-            margin: 1rem 0 .25rem 0;
-            padding: 0
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz ul,
-        .blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz ol {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            margin-top: 0
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .image.svelte-wwjqoz {
-            grid-area: image
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .image picture.svelte-wwjqoz {
-            display: block;
-            height: 100%;
-            width: 100%
-        }
-
-        .blockWithImageAndButton.svelte-wwjqoz .image picture img.svelte-wwjqoz {
-            display: block;
-            height: 100%;
-            width: 100%;
-            -o-object-fit: contain;
-            object-fit: contain
-        }
-
-        @media screen and (min-width: 768px) {}
-
-        @media screen and (min-width: 768px) {}
-
-        @media(hover: hover) and (pointer: fine) {}
-
-        iframe.svelte-fkbfxf {
-            width: 100%;
-            height: auto;
-            min-height: 400px;
-            max-height: 800px;
-            border-radius: 10px
-        }
-
-        .contactUsLine.svelte-sabpsk.svelte-sabpsk {
-            border: 2px solid var(--lightColor);
-            border-radius: 3rem;
-            display: flex;
-            justify-content: space-around;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem;
-            min-height: 4rem
-        }
-
-        @media screen and (min-width: 768px) {
-            .contactUsLine.svelte-sabpsk.svelte-sabpsk {
-                flex-direction: row;
-                padding: 1rem 1.2rem 1rem 3rem
-            }
-        }
-
-        .contactUsLine.svelte-sabpsk .text.svelte-sabpsk {
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 1rem 0.5rem;
-            text-align: center
-        }
-
-        @media screen and (min-width: 768px) {
-            .contactUsLine.svelte-sabpsk .text.svelte-sabpsk {
-                padding: 1rem;
-                font-size: 1.2rem
-            }
-        }
-
-        .contactUsLine.svelte-sabpsk .text a.svelte-sabpsk {
-            color: var(--darkColor);
-            font-weight: normal
-        }
-
-        .contactUs.svelte-sabpsk.svelte-sabpsk {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            gap: 0.5rem;
-            margin: 1rem;
-            padding: 0 clamp(1.5rem, 3vw, 3rem);
-            min-width: 10rem
-        }
-
-        .contactUs.svelte-sabpsk a.svelte-sabpsk {
-            display: flex;
-            height: 2.7rem;
-            width: 2.7rem;
-            justify-content: center;
-            background-color: var(--darkColor);
-            border-radius: 50%;
-            align-items: center;
-            transform: scale(1);
-            transform-origin: center;
-            transition: all 0.2s ease-in-out
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            .contactUs.svelte-sabpsk a.svelte-sabpsk:hover {
-                transform: scale(1.2)
-            }
-        }
-
-        .contactUs.svelte-sabpsk a img.svelte-sabpsk {
-            --size: 1.3rem;
-            height: var(--size);
-            width: var(--size)
-        }
-
-        footer.svelte-b63oz0.svelte-b63oz0 {
-            color: white;
-            width: 100%;
-            background-color: #294c80;
-            padding: 0
-        }
-
-        footer.svelte-b63oz0 .container.svelte-b63oz0 {
-            display: grid;
-            margin: 0 auto;
-            max-width: 820px;
-            width: calc(100% - 2rem);
-            min-height: 5.5rem;
-            transition: all 0.2s ease-in-out;
-            grid-template-columns: 1fr 2fr;
-            grid-auto-flow: column
-        }
-
-        @media screen and (min-width: 768px) {
-            footer.svelte-b63oz0 .container.svelte-b63oz0 {
-                grid-template-columns: 2fr 5fr 3fr;
-                width: calc(100% - 3rem);
-                max-width: 1200px
-            }
-        }
-
-        footer.svelte-b63oz0 .logo a.svelte-b63oz0 {
-            display: flex;
-            height: 100%;
-            align-items: center
-        }
-
-        footer.svelte-b63oz0 .logo img.svelte-b63oz0 {
-            display: block;
-            -o-object-fit: contain;
-            object-fit: contain;
-            height: 4.05rem;
-            width: 12rem;
-            margin: 0 auto 0
-        }
-
-        footer.svelte-b63oz0 .nav.svelte-b63oz0 {
-            display: none
-        }
-
-        @media screen and (min-width: 768px) {
-            footer.svelte-b63oz0 .nav.svelte-b63oz0 {
-                display: flex;
-                height: 100%;
-                align-items: center;
-                justify-content: space-around
-            }
-        }
-
-        footer.svelte-b63oz0 .nav a.svelte-b63oz0 {
-            color: white;
-            font-size: 1.05rem;
-            transition: color 0.3s ease-in-out
-        }
-
-        footer.svelte-b63oz0 .nav a.lighter.svelte-b63oz0 {
-            color: #eaeaea
-        }
-
-        footer.svelte-b63oz0 .nav a.lighter.current.svelte-b63oz0 {
-            font-weight: normal
-        }
-
-        footer.svelte-b63oz0 .nav a.current.svelte-b63oz0 {
-            color: var(--accentColor);
-            font-weight: 600
-        }
-
-        @media(hover: hover) and (pointer: fine) {
-            footer.svelte-b63oz0 .nav a.svelte-b63oz0:hover {
-                color: var(--accentColor)
-            }
-        }
-
-        footer.svelte-b63oz0 .info.svelte-b63oz0 {
-            --color: #e2dfd9;
-            padding: 1rem 0 1rem 0.5rem
-        }
-
-        footer.svelte-b63oz0 .info a.svelte-b63oz0 {
-            font-weight: 600;
-            text-decoration: none;
-            color: var(--color)
-        }
-
-        footer.svelte-b63oz0 .info.svelte-b63oz0 {
-            line-height: 1.2;
-            color: var(--color);
-            align-self: center;
-            font-size: 0.6rem
-        }
-
-        @media screen and (min-width: 768px) {
-            footer.svelte-b63oz0 .info.svelte-b63oz0 {
-                font-size: 0.7rem
-            }
-        }
-    </style>
-</head>
-
-<body id="page">
-
-    <div class="section" id="section-d2e0b991">
-        <header class="svelte-5fxekz">
-            <div class="container svelte-5fxekz">
-                <div class="logo svelte-5fxekz"><a href="/" class="svelte-5fxekz"><img src="https://cdn.skystudio.uz.ua/old/skystudio_logo.svg" alt="Logo SkyStudio" class="svelte-5fxekz"></a></div>
-                <div class="nav svelte-5fxekz"><a href="/" title="Головна" class="svelte-5fxekz">Головна</a><a href="/fotozony" title="Фотозони" class="svelte-5fxekz current">Фотозони</a><a href="/" title="Техніка" class="svelte-5fxekz">Техніка</a><a href="/" title="Крила" class="svelte-5fxekz">Крила</a><a href="/" title="Сукні" class="svelte-5fxekz">Сукні</a><a href="/" title="Про нас" class="svelte-5fxekz">Про нас</a></div>
-                <div class="social svelte-5fxekz"><a rel="noreferrer" href="tel:+380950889787" class="svelte-5fxekz"><img alt="fb icon" src="https://cdn.skystudio.uz.ua/old/icons/phone.svg" class="svelte-5fxekz"></a>
-                    <a target="_blank" rel="noreferrer" href="https://www.instagram.com/sky_studio_uzh/" class="svelte-5fxekz"><img alt="instagram icon" src="https://cdn.skystudio.uz.ua/old/icons/insta.svg" class="svelte-5fxekz" style="--size: 1.5rem;"></a>
-                    <a target="_blank" rel="noreferrer" href="https://www.facebook.com/skystudio.uz" class="svelte-5fxekz"><img alt="fb icon" src="https://cdn.skystudio.uz.ua/old/icons/fb.svg" class="svelte-5fxekz"></a>
-                    <a target="_blank" rel="noreferrer" href="https://youtube.com/@sky_studio_uzh" class="svelte-5fxekz"><img alt="youtube icon" src="https://cdn.skystudio.uz.ua/old/icons/youtube.svg" class="svelte-5fxekz"></a>
-                </div>
-                <div class="langs"></div>
-                <div class="burger svelte-5fxekz"><button class="svelte-5fxekz"><img alt="burger icon" src="https://cdn.skystudio.uz.ua/old/icons/hamburger.svg" class="svelte-5fxekz"></button></div>
-            </div>
-        </header>
-    </div>
-    <div class="section" id="section-80316739">
-        <section class="svelte-xt9fw9">
-            <picture class="svelte-xt9fw9" style="--brightness: 0.35;">
-                <source type="image/avif" sizes="100vw" srcset="
-			  https://cdn.skystudio.uz.ua/old/hero/fotozony-2x.avif 2128w, 
-			  https://cdn.skystudio.uz.ua/old/hero/fotozony-1x.avif 1419w">
-                <source type="image/webp" sizes="100vw" srcset="
-			  https://cdn.skystudio.uz.ua/old/hero/fotozony-2x.webp 2128w, 
-			  https://cdn.skystudio.uz.ua/old/hero/fotozony-1x.webp 1419w">
-                <img alt="hero" src="https://cdn.skystudio.uz.ua/old/hero/fotozony-1x.jpg" srcset="
-			  https://cdn.skystudio.uz.ua/old/hero/fotozony-2x.jpg 2128w, 
-			  https://cdn.skystudio.uz.ua/old/hero/fotozony-1x.jpg 1419w" sizes="100vw" height="1061" width="2126" style="content-visibility: auto; --moveX: 50%; --scale: 1;" class="svelte-xt9fw9">
-            </picture>
-            <div class="texts svelte-xt9fw9">
-                <div class="first svelte-xt9fw9"><!-- HTML_TAG_START --><br />фотозони<!-- HTML_TAG_END --></div>
-                <div class="second svelte-xt9fw9" style="--length: 10">Sky Studio</div>
-                <div class="buttonHero svelte-xt9fw9"><a href="#mainContent" class="svelte-xt9fw9"><span class="svelte-xt9fw9">Детальніше</span></a></div>
-                <div class="premenu svelte-xt9fw9"></div>
-                <div class="menu svelte-xt9fw9"><a href="/fotozony" class="svelte-xt9fw9 active">фотозони<br>Sky Studio</a>
-                    <a href="/tekhnika" class="svelte-xt9fw9">наша техніка<br>та обладнання</a>
-                    <a href="/kryla" class="svelte-xt9fw9">крила<br>в оренду</a>
-                    <a href="/sukni" class="svelte-xt9fw9">аксесуари та<br> сукні в оренду</a>
-                    <a href="/pro" class="svelte-xt9fw9">про<br>нашу студію</a>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="section" id="section-f93d8656">
-        <div class="section-container" id="mainContent"></div>
-    </div>
-    <div class="section" id="section-6ac3a884">
-        <div class="section-container">
-            <div class="infoLine toRight svelte-1p505uh">
-                <div class="buttonWrapper svelte-1p505uh">
-                    <div class="text svelte-1p505uh"><!-- HTML_TAG_START -->Переглянути&nbsp;фотозони<!-- HTML_TAG_END --></div>
-                    <a href="/fotozony#mainContent" class="svelte-1p505uh"><span class="svelte-1p505uh">Переглянути</span></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section" id="section-432b303e">
-        <div class="section-container">
-            <div class="block2Columns svelte-kwgaw5">
-                <div class="title svelte-kwgaw5">
-                    <h3 class="svelte-kwgaw5">Sky Studio</h3>
-                </div>
-                <div class="text svelte-kwgaw5"><!-- HTML_TAG_START -->
-                    <p>це фотостудія в Ужгороді, де ви можете орендувати крила янгола для зйомки. Ми працюємо з 1 грудня 2022 року. Засновниця студії Євгенія своїми руками створює крила янгола і робить все можливе для того, щоб ваша зйомка була на висоті. В нас є все необхідне для ідеальних фото. Переконайтеся самі 🙂</p>
-                    <h3 id="h3">Студія пропонує до ваших послуг:</h3>
-                    </h3>
-                    <ul>
-                        <li>4 фотозони</li>
-                        <li>циклорама 3х6м</li>
-                        <li>вінілові фотофони</li>
-                        <li>світло Godox</li>
-                        <li>гнучкі дзеркала</li>
-                        <li>вентилятор</li>
-                        <li>кольорові фільтри</li>
-                        <li>пілон</li>
-                        <li>інше</li>
-                    </ul>
-                    <h3 id="h3-1">Додатково є можливість орендувати:</h3>
-                    </h3>
-                    <ul>
-                        <li>крила янгола різних кольорів і розмірів</li>
-                        <li>вечірні сукні</li>
-                        <li>аксесуари</li>
-                    </ul><!-- HTML_TAG_END -->
-                </div>
-                <div class="secondColumn svelte-kwgaw5">
-                    <div class="news-wrapper">
-                        <div class="wrapper svelte-kwgaw5">
-                            <div class="news-header svelte-kwgaw5">Новини</div>
-                            <div class="news svelte-kwgaw5">
-                                <div class="news-title svelte-kwgaw5">Нова фотозона</div>
-                                <div class="news-date svelte-kwgaw5">22.07.2023</div>
-                                <div class="news-text svelte-kwgaw5" data-sveltekit-reload><!-- HTML_TAG_START -->Зона для немовлят з фруктами - вже доступна до бронювання. Зазвичай дітки люблять бавитися в воді, тому ми організували цю зону саме для них👼🏻<!-- HTML_TAG_END --></div>
-                                <div class="news-image svelte-kwgaw5">
-                                    <picture>
-                                        <source type="image/avif" srcset="https://cdn.skystudio.uz.ua/old/i/news/22.07.2023/avif/photo1.avif">
-                                        <source type="image/webp" srcset="https://cdn.skystudio.uz.ua/old/i/news/22.07.2023/webp/photo1.webp">
-                                        <img alt="placeholder" src="https://cdn.skystudio.uz.ua/old/i/news/22.07.2023/jpg/photo1.jpg" srcset="https://cdn.skystudio.uz.ua/old/i/news/22.07.2023/jpg/photo1.jpg" height="200" width="960" loading="eager" decoding="async">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="news svelte-kwgaw5">
-                                <div class="news-title svelte-kwgaw5">Нове кольорове світло</div>
-                                <div class="news-date svelte-kwgaw5">20.07.2023</div>
-                                <div class="news-text svelte-kwgaw5" data-sveltekit-reload><!-- HTML_TAG_START -->Це справжня новинка для фотографів - постійне кольорове світло Godox🔥 Можна виставити будь-який колір спектру для вашої зйомки. Входить у вартість оренди😉<!-- HTML_TAG_END --></div>
-                                <div class="news-image svelte-kwgaw5">
-                                    <picture>
-                                        <source type="image/avif" srcset="https://cdn.skystudio.uz.ua/old/i/news/20.07.2023/avif/photo1.avif">
-                                        <source type="image/webp" srcset="https://cdn.skystudio.uz.ua/old/i/news/20.07.2023/webp/photo1.webp">
-                                        <img alt="placeholder" src="https://cdn.skystudio.uz.ua/old/i/news/20.07.2023/jpg/photo1.jpg" srcset="https://cdn.skystudio.uz.ua/old/i/news/20.07.2023/jpg/photo1.jpg" height="200" width="960" loading="eager" decoding="async">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="news svelte-kwgaw5">
-                                <div class="news-title svelte-kwgaw5">Барбі</div>
-                                <div class="news-date svelte-kwgaw5">18.07.2023</div>
-                                <div class="news-text svelte-kwgaw5" data-sveltekit-reload><!-- HTML_TAG_START -->В нашій студії зʼявились сукні на маму і дитину в стилі Барбі. Також маємо дві пари жіночих босоніжок в рожевому кольорі. Образи вже доступні до оренди<!-- HTML_TAG_END --></div>
-                                <div class="news-image svelte-kwgaw5">
-                                    <picture>
-                                        <source type="image/avif" srcset="https://cdn.skystudio.uz.ua/old/i/news/18.07.2023/avif/photo1.avif">
-                                        <source type="image/webp" srcset="https://cdn.skystudio.uz.ua/old/i/news/18.07.2023/webp/photo1.webp">
-                                        <img alt="placeholder" src="https://cdn.skystudio.uz.ua/old/i/news/18.07.2023/jpg/photo1.jpg" srcset="https://cdn.skystudio.uz.ua/old/i/news/18.07.2023/jpg/photo1.jpg" height="200" width="960" loading="eager" decoding="async">
-                                    </picture>
-                                </div>
-                            </div>
-                            <div class="fader svelte-kwgaw5"></div>
-                            <a href="/novyny#mainContent" class="more svelte-kwgaw5">Всі новини</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section" id="section-05292821">
-        <div class="section-container">
-            <div class="blockWithImageAndButton svelte-wwjqoz">
-                <div class="title svelte-wwjqoz">
-                    <h3 class="svelte-wwjqoz">Правила оренди студії</h3>
-                </div>
-                <div class="text svelte-wwjqoz"><!-- HTML_TAG_START -->
-                    <ol>
-                        <li>Оренда студії відбувається без передоплати. Будь ласка, про зміни попереджуйте заздалегідь.</li>
-                        <li>У студії є змінне взуття на 6 людей. Якщо людей буде більше, вам треба подбати про своє змінне взуття. У нас на підлозі коврове покриття, тому спокійно можна бути в шкарпетках.</li>
-                        <li>Якщо ви будете фотографуватись у взутті, воно обовʼязково має бути чистим!</li>
-                        <li>Вся студія бронюється за вами лише за умови роботи одного фотографа. Якщо працює два фотографа паралельно на різних зонах, оплата подвоюється.</li>
-                        <li>Чай, кава - безкоштовні. Капучино - за наявності молока :)</li>
-                        <li>В разі пошкодження майна вам необхідно повністю компенсувати збитки. Витрати оплачуються вами відразу. Шукаємо ринкову ціну пошкодженої речі при вас.</li>
-                        <li>Якщо ви плануєте зйомку з тваринами чи просто приходите з ними, попереджуйте про їх наявність завчасно та узгоджуйте це питання з нами.</li>
-                        <li>Відверті зйомки — це добре, але категорично заборонені зйомки порнографічного характеру.</li>
-                    </ol>
-                    <h3 id="skystudio">Дякуємо за розуміння! З радістю чекаємо вас в Sky Studio.</h3><!-- HTML_TAG_END -->
-                </div>
-                <div class="image svelte-wwjqoz">
-                    <picture class="svelte-wwjqoz">
-                        <source type="image/avif" srcset="https://cdn.skystudio.uz.ua/old/i/home/avif/home1-1x.avif 1x, https://cdn.skystudio.uz.ua/old/i/home/avif/home1.avif 2x">
-                        <source type="image/webp" srcset="https://cdn.skystudio.uz.ua/old/i/home/webp/home1-1x.webp 1x, https://cdn.skystudio.uz.ua/old/i/home/webp/home1.webp 2x">
-                        <img alt="SkyStudio фотостудія в Ужгороді" src="https://cdn.skystudio.uz.ua/old/i/home/jpg/home1.jpg" srcset="https://cdn.skystudio.uz.ua/old/i/home/jpg/home1-1x.jpg 1x, https://cdn.skystudio.uz.ua/old/i/home/jpg/home1.jpg 2x" width="800" height="1199" loading="lazy" decoding="async" class="svelte-wwjqoz">
-                    </picture>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section" id="section-f61b7893">
-        <div class="section-container"><iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FKiev&mode=MONTH&showTitle=0&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&title=SkyStudio%20%D0%91%D1%80%D0%BE%D0%BD%D1%8C&src=c2t5c3R1ZGlvLnV6QGdtYWlsLmNvbQ&color=%234285F4" style="border: 0" width="800" height="600" frameborder="0" scrolling="no" title="Google Calendar" class="svelte-fkbfxf"></iframe></div>
-    </div>
-    <div class="section" id="section-647dd1a5">
-        <div class="section-container">
-            <div class="contactUsLine svelte-sabpsk">
-                <div class="text svelte-sabpsk">Для бронювання фотостудії звʼяжіться з нами:</div>
-                <div class="contactUs svelte-sabpsk"><a rel="noreferrer" href="tel:+380950889787" class="svelte-sabpsk"><img alt="phone" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 36 36'%3E%3Cpath fill='%23ffffff' d='M15.22 20.64a20.37 20.37 0 0 0 7.4 4.79l3.77-3a.67.67 0 0 1 .76 0l7 4.51a2 2 0 0 1 .33 3.18l-3.28 3.24a4 4 0 0 1-3.63 1.07a35.09 35.09 0 0 1-17.15-9A33.79 33.79 0 0 1 1.15 8.6a3.78 3.78 0 0 1 1.1-3.55l3.4-3.28a2 2 0 0 1 3.12.32L13.43 9a.63.63 0 0 1 0 .75l-3.07 3.69a19.75 19.75 0 0 0 4.86 7.2Z' class='clr-i-solid clr-i-solid-path-1'/%3E%3Cpath fill='none' d='M0 0h36v36H0z'/%3E%3C/svg%3E" class="svelte-sabpsk"></a>
-                    <a target="_blank" rel="noreferrer" href="https://www.instagram.com/sky_studio_uzh/" class="svelte-sabpsk"><img alt="instagram icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M13.028 2.001a78.82 78.82 0 0 1 2.189.022l.194.007c.224.008.445.018.712.03c1.064.05 1.79.218 2.427.465c.66.254 1.216.598 1.772 1.154a4.908 4.908 0 0 1 1.153 1.771c.247.637.415 1.364.465 2.428c.012.266.022.488.03.712l.006.194a79 79 0 0 1 .023 2.188l.001.746v1.31a78.836 78.836 0 0 1-.023 2.189l-.006.194c-.008.224-.018.445-.03.712c-.05 1.064-.22 1.79-.466 2.427a4.884 4.884 0 0 1-1.153 1.772a4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-.267.012-.488.022-.712.03l-.194.006a79 79 0 0 1-2.189.023l-.746.001h-1.309a78.836 78.836 0 0 1-2.189-.023l-.194-.006a60.64 60.64 0 0 1-.712-.03c-1.064-.05-1.79-.22-2.428-.466a4.89 4.89 0 0 1-1.771-1.153a4.904 4.904 0 0 1-1.154-1.772c-.247-.637-.415-1.363-.465-2.427a74.367 74.367 0 0 1-.03-.712l-.005-.194A79.053 79.053 0 0 1 2 13.028v-2.056a78.82 78.82 0 0 1 .022-2.188l.007-.194c.008-.224.018-.446.03-.712c.05-1.065.218-1.79.465-2.428A4.88 4.88 0 0 1 3.68 3.68a4.897 4.897 0 0 1 1.77-1.155c.638-.247 1.363-.415 2.428-.465l.712-.03l.194-.005A79.053 79.053 0 0 1 10.972 2h2.056Zm-1.028 5A5 5 0 1 0 12 17a5 5 0 0 0 0-10Zm0 2A3 3 0 1 1 12.001 15a3 3 0 0 1 0-6Zm5.25-3.5a1.25 1.25 0 0 0 0 2.498a1.25 1.25 0 0 0 0-2.5Z'/%3E%3C/svg%3E" class="svelte-sabpsk" style="--size: 1.5rem;"></a>
-                    <a target="_blank" rel="noreferrer" href="https://t.me/macwings" class="svelte-sabpsk"><img alt="telegram icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 48 48'%3E%3Cpath fill='white' d='M41.42 7.309s3.885-1.515 3.56 2.164c-.107 1.515-1.078 6.818-1.834 12.553l-2.59 16.99s-.216 2.489-2.159 2.922c-1.942.432-4.856-1.515-5.396-1.948c-.432-.325-8.094-5.195-10.792-7.575c-.756-.65-1.62-1.948.108-3.463L33.648 18.13c1.295-1.298 2.59-4.328-2.806-.649l-15.11 10.28s-1.727 1.083-4.964.109l-7.016-2.165s-2.59-1.623 1.835-3.246c10.793-5.086 24.068-10.28 35.831-15.15Z'/%3E%3C/svg%3E" class="svelte-sabpsk" style="--size: 1.4rem;"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section" id="section-051b42c3">
-        <footer class="svelte-b63oz0">
-            <div class="container svelte-b63oz0">
-                <div class="logo"><a href="/" class="svelte-b63oz0"><img src="https://cdn.skystudio.uz.ua/old/skystudio_logo.svg" alt="Logo SkyStudio" class="svelte-b63oz0"></a></div>
-                <div class="nav svelte-b63oz0"><a class="lighter svelte-b63oz0" href="/" title="Головна">Головна</a><a class="lighter svelte-b63oz0 current" href="/fotozony" title="Фотозони">Фотозони</a><a class="lighter svelte-b63oz0" href="/" title="Техніка">Техніка</a><a class="lighter svelte-b63oz0" href="/" title="Крила">Крила</a><a class="lighter svelte-b63oz0" href="/" title="Сукні">Сукні</a><a class="lighter svelte-b63oz0" href="/" title="Про нас">Про нас</a></div>
-                <div class="info svelte-b63oz0"><a href="mailto:contact@skystudio.uz.ua" class="svelte-b63oz0">contact@skystudio.uz.ua</a><br>
-                    &quot;Sky Studio – Фотостудія з крилами в Ужгороді&quot;<br>
-                    При копіюванні матеріалів із сайту посилання обов&#39;язкове. Усі права захищені © 2023</div>
-            </div>
-        </footer>
-    </div>
-
-    <script type="module">
-        const path = window.location.pathname === '/' ? '' : window.location.pathname
-        const [{
-            default: App
-        }] = await Promise.all([
-            import(path + '/_module.js')
-        ]).catch(e => console.error(e))
-        new App({
-            target: document.querySelector('body'),
-            hydrate: true,
-        })
+  --color-accent: #FEC93C;
+  --box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.2);
+  --border-radius: 0;
+  --border-color: #294c80;
+
+  --darkColor: #294c80;
+  --lightColor: #2d8fc5;
+  --accentColor: #FEC93C;
+  --accentDarkerColor: #FEC93C;
+  --font1: "ProximaNova", sans-serif;
+  --font2: "NotoSerif", serif;
+
+  --color: #0f0f16;
+  --colorGray: #b6b6d2;
+  --zoom: 0.9;
+}
+
+html {
+  /* zoom: var(--zoom); */
+}
+
+html,
+body {
+  background-color: var(--darkColor);
+}
+
+
+.noscroll {
+  overflow: hidden;
+}
+
+
+
+/* Root element (use instead of `body`) */
+#page {
+  zoom: var(--zoom);
+  scroll-behavior: smooth;
+  scroll-padding: 6em;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  font-size: 16px;
+
+
+  color: var(--color);
+
+
+  font-size: 16px;
+  font-family: var(--font1);
+  font-weight: 300;
+}
+#page a {
+    text-decoration: none;
+  }
+@media (hover: hover) and (pointer: fine) {
+    #page a:hover {
+      text-decoration: none;
+    }
+  }
+
+/* Elements */
+.section {
+  background-color: white;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: auto;
+  padding-bottom: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+
+.section-container {
+    width: calc(100% - 2rem)
+}
+  }
+
+.section-container.no-bottom-padding {
+    padding-bottom: 0;
+  }
+
+a.link {
+  line-height: 1.3;
+
+  border-bottom: 2px solid var(--color-accent);
+  transform: translateY(-2px);
+  /* move link back into place */
+  transition: var(--transition, 0.1s border);
+}
+
+a.link:hover {
+    border-color: transparent;
+  }
+
+.heading {
+  font-size: 2.5rem;
+  line-height: 1.15;
+
+}
+
+.button {
+  color: white;
+  background: var(--color-accent, rebeccapurple);
+  border-radius: 0;
+  padding: 18px 24px;
+  transition: var(--transition, 0.1s box-shadow);
+  border: 0;
+}
+
+/* reset */
+
+.button:hover {
+    box-shadow: 0 0 0 2px var(--color-accent, rebeccapurple);
+  }
+
+.button.inverted {
+    background: transparent;
+    color: var(--color-accent, rebeccapurple);
+  }
+
+/* Content Section */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.content p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+.content img {
+    width: 100%;
+    margin: 2rem 0;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+  }
+.content a.link {
+    line-height: 1.3;
+    font-weight: 500;
+    border-bottom: 2px solid var(--color-accent);
+    transform: translateY(-2px);
+    /* move link back into place */
+    transition: var(--transition, 0.1s border);
+  }
+.content a.link:hover {
+      border-color: transparent;
+    }
+.content h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+.content h2 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+.content h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+.content ul {
+    list-style: disc;
+    padding: 0.5rem 0;
+    padding-left: 1.25rem;
+  }
+.content ol {
+    list-style: decimal;
+    padding: 0.5rem 0;
+    padding-left: 1.25rem;
+  }
+.content blockquote {
+    padding: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--color-accent);
+  }</style><!-- HEAD_svelte-1g4smfr_END -->
+      <style>header.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{color:white;background-color:var(--darkColor);transition:all 0.2s ease-in-out;width:100%}@media screen and (min-width: 768px){header.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{position:fixed;top:0;left:0;width:100%;z-index:12;background-color:transparent;background:unset
+	}header.scrolled.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{background-color:#294c80;background:radial-gradient(circle at 5vw 20vw, #2d8fc5, #294c80, #294c80, #294c80)}header.scrolled.svelte-5fxekz .container.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{height:5rem}header.scrolled.svelte-5fxekz .logo.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz{align-items:end;align-items:flex-end}header.scrolled.svelte-5fxekz .logo.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz{-o-object-position:50% 100%;object-position:50% 100%;transform:translate(0, 1px)}}header.svelte-5fxekz .container.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:grid;grid-template-columns:2fr 5fr 2.7fr;margin:0;width:100%;height:6.5rem;transition:all 0.2s ease-in-out}@media screen and (min-width: 768px){header.svelte-5fxekz .container.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{height:8.5rem;margin:0 auto;grid-template-columns:2.2fr 5.5fr 2fr 0.05fr;width:calc(100% - 2rem);max-width:1200px
+		}}header.svelte-5fxekz .logo.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz{display:flex;height:100%;align-items:center}header.svelte-5fxekz .logo.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz{display:block;-o-object-fit:contain;object-fit:contain;width:15rem;height:3.5rem;margin:0 auto 0 0}@media screen and (min-width: 768px){header.svelte-5fxekz .logo.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz{height:4.05rem;width:15rem}}header.svelte-5fxekz .burger.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:flex;justify-content:flex-end;align-items:center}@media screen and (min-width: 768px){header.svelte-5fxekz .burger.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:none
+		}}header.svelte-5fxekz .burger button.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{background:none;border:none}header.svelte-5fxekz .burger button.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz{--size:clamp(3rem, 12vw, 4rem);height:var(--size);width:var(--size)}header.svelte-5fxekz .nav.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:none}@media screen and (min-width: 768px){header.svelte-5fxekz .nav.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:flex;height:100%;align-items:center;justify-content:space-around
+		}}header.svelte-5fxekz .nav a.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{color:white;font-size:1.05rem;transition:color 0.3s ease-in-out}header.svelte-5fxekz .nav a.current.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{color:var(--accentColor);font-weight:600}@media(hover: hover) and (pointer: fine){header.svelte-5fxekz .nav a.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz:hover{color:var(--accentColor)}}header.svelte-5fxekz .social.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:none}@media screen and (min-width: 768px){header.svelte-5fxekz .social.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:flex;align-items:center;justify-content:space-around;gap:0.25rem;padding:0 clamp(1.5rem, 3vw, 3rem)
+		}header.svelte-5fxekz .social.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz{display:flex;height:2.7rem;width:2.7rem;justify-content:center;background-color:#ffffff;border-radius:50%;align-items:center;transform:scale(1);transform-origin:center;transition:all 0.2s ease-in-out}@media(hover: hover) and (pointer: fine){header.svelte-5fxekz .social.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz:hover{transform:scale(1.1)}}header.svelte-5fxekz .social.svelte-5fxekz a.svelte-5fxekz img.svelte-5fxekz{--size:1.3rem;height:var(--size);width:var(--size)}}.mobileMenu.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{background-color:var(--darkColor);position:fixed;left:0;right:0;bottom:0;top:0;color:white;height:100vh;height:calc(100vh / var(--zoom));z-index:101;display:grid;grid-template-columns:1fr;grid-template-rows:auto;grid-auto-flow:row}.mobileMenu.svelte-5fxekz .cross.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:flex;justify-content:flex-end;align-items:center}.mobileMenu.svelte-5fxekz .cross button.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{background:none;border:none}.mobileMenu.svelte-5fxekz .cross button.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz{--size:clamp(3rem, 12vw, 4rem);height:var(--size);width:var(--size)}.mobileMenu.svelte-5fxekz .main.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{overflow:scroll}.mobileMenu.svelte-5fxekz .main .logo.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{padding-bottom:1rem}.mobileMenu.svelte-5fxekz .main .logo.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz{display:flex;width:12rem;height:3.5rem;margin:0 auto;align-items:center}.mobileMenu.svelte-5fxekz .main .logo.svelte-5fxekz img.svelte-5fxekz.svelte-5fxekz{display:block;-o-object-fit:contain;object-fit:contain;width:12rem;height:3.5rem;margin:0 auto 0}.mobileMenu.svelte-5fxekz .main ul.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{list-style:none;display:flex;flex-direction:column;gap:clamp(1rem, 3vh, 2rem);padding:0 clamp(2rem, 8vw, 4rem)}.mobileMenu.svelte-5fxekz .main ul li.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{width:100%;display:block}.mobileMenu.svelte-5fxekz .main ul li.svelte-5fxekz a{display:block;width:100%;color:white;font-size:1.5rem;text-decoration:none;font-family:var(--font1);border-bottom:1px dashed white}.mobileMenu.svelte-5fxekz .main ul li a.current.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{pointer-events:none;cursor:default;color:var(--accentDarkerColor)}.mobileMenu.svelte-5fxekz .main .social.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:flex;align-items:center;justify-content:space-around;padding:2rem clamp(1.5rem, 3vw, 3rem) 0}.mobileMenu.svelte-5fxekz .main .social.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz{display:flex;height:3rem;width:3rem;justify-content:center;background-color:#ffffff;border-radius:50%;align-items:center;transform:scale(1);transform-origin:center;transition:all 0.2s ease-in-out}@media(hover: hover) and (pointer: fine){.mobileMenu.svelte-5fxekz .main .social.svelte-5fxekz a.svelte-5fxekz.svelte-5fxekz:hover{transform:scale(1.2)}}.mobileMenu.svelte-5fxekz .main .social.svelte-5fxekz a.svelte-5fxekz img.svelte-5fxekz{--size:1.5rem;height:var(--size);width:var(--size)}.mobileMenu.svelte-5fxekz .main .phone.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{padding:2rem 0 0}.mobileMenu.svelte-5fxekz .main .phone a.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{display:block;width:100%;text-align:center;color:white;font-size:clamp(1.5rem, 7vw, 3rem);text-decoration:none;font-family:var(--font1)}.mobileMenu.svelte-5fxekz .footer.svelte-5fxekz.svelte-5fxekz.svelte-5fxekz{min-height:5.5rem}
+.infoLine.svelte-1p505uh.svelte-1p505uh.svelte-1p505uh{border:2px solid var(--lightColor);border-radius:3rem;display:flex;justify-content:space-between;flex-direction:column;align-items:center;padding:1rem}@media screen and (min-width: 870px){.infoLine.svelte-1p505uh.svelte-1p505uh.svelte-1p505uh{flex-direction:row;padding:1rem 1.2rem 1rem 3rem
+}}.infoLine.toRight.svelte-1p505uh.svelte-1p505uh.svelte-1p505uh{padding:1rem}@media screen and (min-width: 870px){.infoLine.toRight.svelte-1p505uh.svelte-1p505uh.svelte-1p505uh{justify-content:flex-end
+	}}@media screen and (min-width: 870px){}@media screen and (min-width: 870px){}.infoLine.svelte-1p505uh .info a.svelte-1p505uh.svelte-1p505uh,.infoLine.svelte-1p505uh .info span.svelte-1p505uh.svelte-1p505uh{padding:0.5rem 0;color:var(--color1);transition:all 0.2s ease-in-out}@media screen and (min-width: 870px){.infoLine.svelte-1p505uh .info a.svelte-1p505uh.svelte-1p505uh,.infoLine.svelte-1p505uh .info span.svelte-1p505uh.svelte-1p505uh{padding:0 0.5rem}}@media(hover: hover) and (pointer: fine){.infoLine.svelte-1p505uh .info a.svelte-1p505uh.svelte-1p505uh:hover{color:var(--accentDarkerColor)}}.infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh.svelte-1p505uh{display:flex;width:100%;flex-direction:column;align-items:center}@media screen and (min-width: 870px){.infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh.svelte-1p505uh{width:500px;flex-direction:row;justify-content:space-evenly
+	}}.infoLine.svelte-1p505uh .buttonWrapper.spacy .text.svelte-1p505uh.svelte-1p505uh{min-width:200px;text-align:left;font-size:1rem}@media screen and (min-width: 870px){.infoLine.svelte-1p505uh .buttonWrapper.spacy .text.svelte-1p505uh.svelte-1p505uh{min-width:300px;font-size:1.2rem;text-align:right}}@media screen and (min-width: 870px){}.infoLine.svelte-1p505uh .buttonWrapper .text.svelte-1p505uh.svelte-1p505uh{font-weight:600;font-size:1.2rem;padding-bottom:0.5rem}@media screen and (min-width: 870px){.infoLine.svelte-1p505uh .buttonWrapper .text.svelte-1p505uh.svelte-1p505uh{padding-bottom:0
+		}}.infoLine.svelte-1p505uh .buttonWrapper .text a.svelte-1p505uh.svelte-1p505uh{color:var(--darkColor);font-weight:normal}.infoLine.svelte-1p505uh .buttonWrapper .phonesWrapper a.svelte-1p505uh.svelte-1p505uh{white-space:nowrap}.infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh>a.svelte-1p505uh{padding:1rem 2rem;color:white;background-color:var(--darkColor);border-radius:30px;transition:all 0.2s ease-in-out}@media screen and (min-width: 870px){.infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh>a.svelte-1p505uh{margin-left:2rem;padding:1rem 3rem
+		}}.infoLine.svelte-1p505uh .buttonWrapper>a span.svelte-1p505uh.svelte-1p505uh,.infoLine.svelte-1p505uh .buttonWrapper .phonesWrapper>a span.svelte-1p505uh.svelte-1p505uh{transform:scale(1);transition:all 0.2s ease-in-out;transform-origin:center;display:inline-block}@media(hover: hover) and (pointer: fine){.infoLine.svelte-1p505uh .buttonWrapper.svelte-1p505uh>a.svelte-1p505uh:hover{background-color:var(--lightColor)}.infoLine.svelte-1p505uh .buttonWrapper>a:hover span.svelte-1p505uh.svelte-1p505uh,.infoLine.svelte-1p505uh .buttonWrapper .phonesWrapper>a:hover span.svelte-1p505uh.svelte-1p505uh{transform:scale(1.1)}}
+.block2Columns.svelte-kwgaw5.svelte-kwgaw5{margin:0}@media screen and (min-width: 768px){.block2Columns.svelte-kwgaw5.svelte-kwgaw5{display:grid;row-gap:1rem;grid:'title secondColumn'
+			'text secondColumn'
+			/ 66.6666% 33.3333%;grid-template-rows:-webkit-min-content 1fr;grid-template-rows:min-content 1fr
+}}.block2Columns.svelte-kwgaw5 .title.svelte-kwgaw5{grid-area:title;position:relative;padding:0 0 0.7rem 0.5rem}.block2Columns.svelte-kwgaw5 .title h3.svelte-kwgaw5{font-size:1.7rem;padding:0;margin:0;font-weight:600}.block2Columns.svelte-kwgaw5 .title.svelte-kwgaw5:after{content:'';display:block;height:2.5px;background-color:var(--accentColor);width:37%;left:0;bottom:0;position:absolute}.block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5{grid-area:text;padding:1rem 2rem 0.5rem 1rem}@media screen and (min-width: 768px){.block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5{padding:0 2rem 0 1rem
+	}}.block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 strong{font-weight:600}.block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 h3{font-size:1.3rem;font-weight:600}.block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 p{font-size:1.1rem;line-height:1.35;margin:1rem 0 .25rem 0;padding:0}.block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 ul,.block2Columns.svelte-kwgaw5 .text.svelte-kwgaw5 ol{font-size:1.1rem;line-height:1.5;margin-top:0}.block2Columns.svelte-kwgaw5 .secondColumn.svelte-kwgaw5{grid-area:secondColumn}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper.svelte-kwgaw5{--fontSize:1rem;--imageWidth:100px;overflow:hidden;transition:max-height 0.3s ease-in-out;position:relative}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .fader.svelte-kwgaw5{z-index:2;height:5rem;background:linear-gradient(to bottom, transparent, white, white);left:0;right:0;bottom:0;position:absolute}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper a.more.svelte-kwgaw5{background:none;border:0;color:var(--accentColor);font-size:var(--fontSize);font-weight:600;padding:1rem 0;display:block;position:absolute;bottom:0;left:0;right:0;text-align:center;cursor:pointer;z-index:10}@media(hover: hover) and (pointer: fine){.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper a.more.svelte-kwgaw5:hover{text-decoration:underline}}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-header.svelte-kwgaw5{position:relative;padding:0.5rem 0;text-transform:uppercase;font-size:calc(var(--fontSize) * 1.2);letter-spacing:4px}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-header.svelte-kwgaw5::after{content:'';display:block;height:2.5px;background-color:var(--accentColor);width:37%;left:0;bottom:0;position:absolute}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news.svelte-kwgaw5{margin:1rem 0;display:grid;grid:'. date'
+				'image title'
+				'image text'
+				/ var(--imageWidth) 1fr;grid-template-rows:-webkit-min-content -webkit-min-content 1fr;grid-template-rows:min-content min-content 1fr;-moz-column-gap:0.5rem;column-gap:0.5rem;width:100%}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-date.svelte-kwgaw5{grid-area:date;color:var(--colorGray)}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-title.svelte-kwgaw5{grid-area:title;font-size:var(--fontSize);font-weight:600;margin-bottom:10px}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-text.svelte-kwgaw5{grid-area:text;font-size:var(--fontSize);font-weight:400;margin-bottom:10px}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-text.svelte-kwgaw5 a{color:var(--accentDarkerColor);font-weight:600}@media(hover: hover) and (pointer: fine){.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-text.svelte-kwgaw5 a:hover{text-decoration:underline}}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-image.svelte-kwgaw5{grid-area:image}.block2Columns.svelte-kwgaw5 .news-wrapper .wrapper .news-image.svelte-kwgaw5 img{-o-object-position:top center;object-position:top center;display:block;height:100%;width:100%;-o-object-fit:contain;object-fit:contain}.block2Columns.svelte-kwgaw5 .news-wrapper .title.svelte-kwgaw5{position:relative;padding:0 0 0.7rem 0.5rem}.block2Columns.svelte-kwgaw5 .news-wrapper .title h3.svelte-kwgaw5{font-size:1.7rem;padding:0;margin:0;font-weight:600}.block2Columns.svelte-kwgaw5 .news-wrapper .title.svelte-kwgaw5:after{content:'';display:block;height:2.5px;background-color:var(--accentColor);width:37%;left:0;bottom:0;position:absolute}
+.cover.svelte-18ae490.svelte-18ae490{position:fixed;left:0;right:0;bottom:0;top:0;background-color:rgba(0, 0, 0, 0.9);z-index:100}.poster:not(.expanded) > *{transition:filter 0.3s ease-in-out;cursor:pointer}@media(hover: hover) and (pointer: fine){.poster:not(.expanded) > *:hover{filter:brightness(1.1)}}.expanded.svelte-18ae490.svelte-18ae490{position:fixed;left:0;right:0;bottom:0;top:0;z-index:101;transition:all 0.2s ease}@media screen and (min-width: 768px){.expanded.svelte-18ae490.svelte-18ae490{left:3rem;right:3rem;bottom:3rem;top:3rem}}.videoIFrame.svelte-18ae490.svelte-18ae490{position:absolute;top:0;left:0;right:0;bottom:0;z-index:200;width:100%;height:100%}.closeButton.svelte-18ae490.svelte-18ae490{position:absolute;top:0;right:0;z-index:300}.closeButton.svelte-18ae490 button.svelte-18ae490{--size:4rem;background-color:var(--darkColor);border:4px solid white;box-shadow:0 0 10px black;transition:transform 0.3s ease-out;transform-origin:center;transform:scale(1);cursor:pointer}.closeButton.svelte-18ae490 button img.svelte-18ae490{--size:clamp(3rem, 12vw, 4rem);height:var(--size);width:var(--size)}@media(hover: hover) and (pointer: fine){.closeButton.svelte-18ae490 button.svelte-18ae490:hover{transform:scale(1.1)}}
+.blockWithImageAndButton.svelte-wwjqoz.svelte-wwjqoz{row-gap:1rem}@media screen and (min-width: 768px){.blockWithImageAndButton.svelte-wwjqoz.svelte-wwjqoz{display:grid;grid:'title image'
+			'text image'
+			'button image'
+			/ 2fr 1fr;grid-template-rows:-webkit-min-content 1fr;grid-template-rows:min-content 1fr
+}}.blockWithImageAndButton.svelte-wwjqoz .title.svelte-wwjqoz{grid-area:title;position:relative;padding:0 0 0.7rem 0.5rem}.blockWithImageAndButton.svelte-wwjqoz .title h3.svelte-wwjqoz{font-size:1.7rem;padding:0;margin:0;font-weight:600}.blockWithImageAndButton.svelte-wwjqoz .title.svelte-wwjqoz:after{content:'';display:block;height:2.5px;background-color:var(--accentColor);width:37%;left:0;bottom:0;position:absolute}.blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz{grid-area:text;padding:1rem 2rem 0.5rem 1rem}@media screen and (min-width: 768px){.blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz{padding:0 2rem 0 1rem
+	}}.blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz strong{font-weight:600}.blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz h3{font-size:1.3rem;font-weight:600}.blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz p{font-size:1.1rem;line-height:1.35;margin:1rem 0 .25rem 0;padding:0}.blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz ul,.blockWithImageAndButton.svelte-wwjqoz .text.svelte-wwjqoz ol{font-size:1.1rem;line-height:1.5;margin-top:0}.blockWithImageAndButton.svelte-wwjqoz .image.svelte-wwjqoz{grid-area:image}.blockWithImageAndButton.svelte-wwjqoz .image picture.svelte-wwjqoz{display:block;height:100%;width:100%}.blockWithImageAndButton.svelte-wwjqoz .image picture img.svelte-wwjqoz{display:block;height:100%;width:100%;-o-object-fit:contain;object-fit:contain}@media screen and (min-width: 768px){}@media screen and (min-width: 768px){}@media(hover: hover) and (pointer: fine){}
+iframe.svelte-fkbfxf{width:100%;height:auto;min-height:400px;max-height:800px;border-radius:10px}
+.contactUsLine.svelte-sabpsk.svelte-sabpsk{border:2px solid var(--lightColor);border-radius:3rem;display:flex;justify-content:space-around;flex-direction:column;align-items:center;padding:1rem;min-height:4rem}@media screen and (min-width: 768px){.contactUsLine.svelte-sabpsk.svelte-sabpsk{flex-direction:row;padding:1rem 1.2rem 1rem 3rem
+}}.contactUsLine.svelte-sabpsk .text.svelte-sabpsk{font-weight:600;font-size:1.1rem;padding:1rem 0.5rem;text-align:center}@media screen and (min-width: 768px){.contactUsLine.svelte-sabpsk .text.svelte-sabpsk{padding:1rem;font-size:1.2rem
+	}}.contactUsLine.svelte-sabpsk .text a.svelte-sabpsk{color:var(--darkColor);font-weight:normal}.contactUs.svelte-sabpsk.svelte-sabpsk{display:flex;align-items:center;justify-content:space-around;gap:0.5rem;margin:1rem;padding:0 clamp(1.5rem, 3vw, 3rem);min-width:10rem}.contactUs.svelte-sabpsk a.svelte-sabpsk{display:flex;height:2.7rem;width:2.7rem;justify-content:center;background-color:var(--darkColor);border-radius:50%;align-items:center;transform:scale(1);transform-origin:center;transition:all 0.2s ease-in-out}@media(hover: hover) and (pointer: fine){.contactUs.svelte-sabpsk a.svelte-sabpsk:hover{transform:scale(1.2)}}.contactUs.svelte-sabpsk a img.svelte-sabpsk{--size:1.3rem;height:var(--size);width:var(--size)}
+footer.svelte-b63oz0.svelte-b63oz0{color:white;width:100%;background-color:#294c80;padding:0}footer.svelte-b63oz0 .container.svelte-b63oz0{display:grid;margin:0 auto;max-width:820px;width:calc(100% - 2rem);min-height:5.5rem;transition:all 0.2s ease-in-out;grid-template-columns:1fr 2fr;grid-auto-flow:column}@media screen and (min-width: 768px){footer.svelte-b63oz0 .container.svelte-b63oz0{grid-template-columns:2fr 5fr 3fr;width:calc(100% - 3rem);max-width:1200px
+		}}footer.svelte-b63oz0 .logo a.svelte-b63oz0{display:flex;height:100%;align-items:center}footer.svelte-b63oz0 .logo img.svelte-b63oz0{display:block;-o-object-fit:contain;object-fit:contain;height:4.05rem;width:12rem;margin:0 auto 0}footer.svelte-b63oz0 .nav.svelte-b63oz0{display:none}@media screen and (min-width: 768px){footer.svelte-b63oz0 .nav.svelte-b63oz0{display:flex;height:100%;align-items:center;justify-content:space-around
+		}}footer.svelte-b63oz0 .nav a.svelte-b63oz0{color:white;font-size:1.05rem;transition:color 0.3s ease-in-out}footer.svelte-b63oz0 .nav a.lighter.svelte-b63oz0{color:#eaeaea}footer.svelte-b63oz0 .nav a.lighter.current.svelte-b63oz0{font-weight:normal}footer.svelte-b63oz0 .nav a.current.svelte-b63oz0{color:var(--accentColor);font-weight:600}@media(hover: hover) and (pointer: fine){footer.svelte-b63oz0 .nav a.svelte-b63oz0:hover{color:var(--accentColor)}}footer.svelte-b63oz0 .info.svelte-b63oz0{--color:#e2dfd9;padding:1rem 0 1rem 0.5rem}footer.svelte-b63oz0 .info a.svelte-b63oz0{font-weight:600;text-decoration:none;color:var(--color)}footer.svelte-b63oz0 .info.svelte-b63oz0{line-height:1.2;color:var(--color);align-self:center;font-size:0.6rem}@media screen and (min-width: 768px){footer.svelte-b63oz0 .info.svelte-b63oz0{font-size:0.7rem
+		}}</style>
+    </head>
+    <body id="page">
+       
+<div class="section" id="section-d2e0b991">
+<header class="svelte-5fxekz"><div class="container svelte-5fxekz"><div class="logo svelte-5fxekz"><a href="/" class="svelte-5fxekz"><img src="https://cdn.skystudio.uz.ua/old/skystudio_logo.svg" alt="Logo SkyStudio" class="svelte-5fxekz"></a></div>
+		<div class="nav svelte-5fxekz"><a href="/" title="Головна" class="svelte-5fxekz">Головна</a><a href="/fotozony" title="Фотозони" class="svelte-5fxekz">Фотозони</a><a href="/" title="Техніка" class="svelte-5fxekz">Техніка</a><a href="/" title="Крила" class="svelte-5fxekz">Крила</a><a href="/" title="Сукні" class="svelte-5fxekz">Сукні</a><a href="/" title="Про нас" class="svelte-5fxekz">Про нас</a></div>
+		<div class="social svelte-5fxekz"><a rel="noreferrer" href="tel:+380950889787" class="svelte-5fxekz"><img alt="fb icon" src="https://cdn.skystudio.uz.ua/old/icons/phone.svg" class="svelte-5fxekz"></a>
+			<a target="_blank" rel="noreferrer" href="https://www.instagram.com/sky_studio_uzh/" class="svelte-5fxekz"><img alt="instagram icon" src="https://cdn.skystudio.uz.ua/old/icons/insta.svg" class="svelte-5fxekz" style="--size: 1.5rem;"></a>
+			<a target="_blank" rel="noreferrer" href="https://www.facebook.com/skystudio.uz" class="svelte-5fxekz"><img alt="fb icon" src="https://cdn.skystudio.uz.ua/old/icons/fb.svg" class="svelte-5fxekz"></a>
+			<a target="_blank" rel="noreferrer" href="https://youtube.com/@sky_studio_uzh" class="svelte-5fxekz"><img alt="youtube icon" src="https://cdn.skystudio.uz.ua/old/icons/youtube.svg" class="svelte-5fxekz"></a></div>
+		<div class="langs"></div>
+		<div class="burger svelte-5fxekz"><button class="svelte-5fxekz"><img alt="burger icon" src="https://cdn.skystudio.uz.ua/old/icons/hamburger.svg" class="svelte-5fxekz"></button></div></div></header> 
+          </div> 
+<div class="section" id="section-f93d8656"><div class="section-container" id="mainContent"></div></div> 
+<div class="section" id="section-6ac3a884"><div class="section-container"><div class="infoLine toRight svelte-1p505uh">
+			<div class="buttonWrapper svelte-1p505uh"><div class="text svelte-1p505uh"><!-- HTML_TAG_START -->Переглянути&nbsp;фотозони<!-- HTML_TAG_END --></div>
+				<a href="/fotozony#mainContent" class="svelte-1p505uh"><span class="svelte-1p505uh">Переглянути</span></a></div></div></div></div> 
+<div class="section" id="section-432b303e"><div class="section-container"><div class="block2Columns svelte-kwgaw5"><div class="title svelte-kwgaw5"><h3 class="svelte-kwgaw5">Sky Studio</h3></div>
+			<div class="text svelte-kwgaw5"><!-- HTML_TAG_START --><p>це фотостудія в Ужгороді, де ви можете орендувати крила янгола для зйомки. Ми працюємо з 1 грудня 2022 року. Засновниця студії Євгенія своїми руками створює крила янгола і робить все можливе для того, щоб ваша зйомка була на висоті. В нас є все необхідне для ідеальних фото. Переконайтеся самі 🙂</p>
+<h3 id="h3">Студія пропонує до ваших послуг:</h3></h3>
+<ul>
+<li>4 фотозони</li>
+<li>циклорама 3х6м</li>
+<li>вінілові фотофони</li>
+<li>світло Godox</li>
+<li>гнучкі дзеркала</li>
+<li>вентилятор</li>
+<li>кольорові фільтри</li>
+<li>пілон</li>
+<li>інше</li>
+</ul>
+<h3 id="h3-1">Додатково є можливість орендувати:</h3></h3>
+<ul>
+<li>крила янгола різних кольорів і розмірів</li>
+<li>вечірні сукні</li>
+<li>аксесуари</li>
+</ul><!-- HTML_TAG_END --></div>
+			<div class="secondColumn svelte-kwgaw5"><div class="news-wrapper"><div class="wrapper svelte-kwgaw5"><div class="news-header svelte-kwgaw5">Новини</div>
+		<div class="news svelte-kwgaw5"><div class="news-title svelte-kwgaw5">Нова фотозона</div>
+				<div class="news-date svelte-kwgaw5">22.07.2023</div>
+				<div class="news-text svelte-kwgaw5" data-sveltekit-reload><!-- HTML_TAG_START -->Зона для немовлят з фруктами - вже доступна до бронювання. Зазвичай дітки люблять бавитися в воді, тому ми організували цю зону саме для них👼🏻<!-- HTML_TAG_END --></div>
+				<div class="news-image svelte-kwgaw5">
+                  <picture><source type="image/avif" srcset="https://cdn.skystudio.uz.ua/old/i/news/22.07.2023/avif/photo1.avif">
+			<source type="image/webp" srcset="https://cdn.skystudio.uz.ua/old/i/news/22.07.2023/webp/photo1.webp">
+			<img alt="placeholder" src="https://cdn.skystudio.uz.ua/old/i/news/22.07.2023/jpg/photo1.jpg" srcset="https://cdn.skystudio.uz.ua/old/i/news/22.07.2023/jpg/photo1.jpg" height="200" width="960" loading="eager" decoding="async">
+			</picture>
+                  
+					</div>
+			</div><div class="news svelte-kwgaw5"><div class="news-title svelte-kwgaw5">Нове кольорове світло</div>
+				<div class="news-date svelte-kwgaw5">20.07.2023</div>
+				<div class="news-text svelte-kwgaw5" data-sveltekit-reload><!-- HTML_TAG_START -->Це справжня новинка для фотографів - постійне кольорове світло Godox🔥 Можна виставити будь-який колір спектру для вашої зйомки. Входить у вартість оренди😉<!-- HTML_TAG_END --></div>
+				<div class="news-image svelte-kwgaw5">
+                  <picture><source type="image/avif" srcset="https://cdn.skystudio.uz.ua/old/i/news/20.07.2023/avif/photo1.avif">
+			<source type="image/webp" srcset="https://cdn.skystudio.uz.ua/old/i/news/20.07.2023/webp/photo1.webp">
+			<img alt="placeholder" src="https://cdn.skystudio.uz.ua/old/i/news/20.07.2023/jpg/photo1.jpg" srcset="https://cdn.skystudio.uz.ua/old/i/news/20.07.2023/jpg/photo1.jpg" height="200" width="960" loading="eager" decoding="async">
+			</picture>
+                  
+					</div>
+			</div><div class="news svelte-kwgaw5"><div class="news-title svelte-kwgaw5">Барбі</div>
+				<div class="news-date svelte-kwgaw5">18.07.2023</div>
+				<div class="news-text svelte-kwgaw5" data-sveltekit-reload><!-- HTML_TAG_START -->В нашій студії зʼявились сукні на маму і дитину в стилі Барбі. Також маємо дві пари жіночих босоніжок в рожевому кольорі. Образи вже доступні до оренди<!-- HTML_TAG_END --></div>
+				<div class="news-image svelte-kwgaw5">
+                  <picture><source type="image/avif" srcset="https://cdn.skystudio.uz.ua/old/i/news/18.07.2023/avif/photo1.avif">
+			<source type="image/webp" srcset="https://cdn.skystudio.uz.ua/old/i/news/18.07.2023/webp/photo1.webp">
+			<img alt="placeholder" src="https://cdn.skystudio.uz.ua/old/i/news/18.07.2023/jpg/photo1.jpg" srcset="https://cdn.skystudio.uz.ua/old/i/news/18.07.2023/jpg/photo1.jpg" height="200" width="960" loading="eager" decoding="async">
+			</picture>
+                  
+					</div>
+			</div>
+  			<div class="fader svelte-kwgaw5"></div>
+			<a href="/novyny#mainContent" class="more svelte-kwgaw5">Всі новини</a></div></div></div></div></div></div> 
+<div class="section" id="section-05292821"><div class="section-container"><div class="blockWithImageAndButton svelte-wwjqoz"><div class="title svelte-wwjqoz"><h3 class="svelte-wwjqoz">Правила оренди студії</h3></div>
+			<div class="text svelte-wwjqoz"><!-- HTML_TAG_START --><ol>
+<li>Оренда студії відбувається без передоплати. Будь ласка, про зміни попереджуйте заздалегідь.</li>
+<li>У студії є змінне взуття на 6 людей. Якщо людей буде більше, вам треба подбати про своє змінне взуття. У нас на підлозі коврове покриття, тому спокійно можна бути в шкарпетках.</li>
+<li>Якщо ви будете фотографуватись у взутті, воно обовʼязково має бути чистим!</li>
+<li>Вся студія бронюється за вами лише за умови роботи одного фотографа. Якщо працює два фотографа паралельно на різних зонах, оплата подвоюється.</li>
+<li>Чай, кава - безкоштовні. Капучино - за наявності молока :)</li>
+<li>В разі пошкодження майна вам необхідно повністю компенсувати збитки. Витрати оплачуються вами відразу. Шукаємо ринкову ціну пошкодженої речі при вас.</li>
+<li>Якщо ви плануєте зйомку з тваринами чи просто приходите з ними, попереджуйте про їх наявність завчасно та узгоджуйте це питання з нами.</li>
+<li>Відверті зйомки — це добре, але категорично заборонені зйомки порнографічного характеру.</li>
+</ol>
+<h3 id="skystudio">Дякуємо за розуміння! З радістю чекаємо вас в Sky Studio.</h3><!-- HTML_TAG_END --></div>
+			<div class="image svelte-wwjqoz"><picture class="svelte-wwjqoz"><source type="image/avif" srcset="https://cdn.skystudio.uz.ua/old/i/home/avif/home1-1x.avif 1x, https://cdn.skystudio.uz.ua/old/i/home/avif/home1.avif 2x">
+					<source type="image/webp" srcset="https://cdn.skystudio.uz.ua/old/i/home/webp/home1-1x.webp 1x, https://cdn.skystudio.uz.ua/old/i/home/webp/home1.webp 2x">
+					<img alt="SkyStudio фотостудія в Ужгороді" src="https://cdn.skystudio.uz.ua/old/i/home/jpg/home1.jpg" srcset="https://cdn.skystudio.uz.ua/old/i/home/jpg/home1-1x.jpg 1x, https://cdn.skystudio.uz.ua/old/i/home/jpg/home1.jpg 2x" width="800" height="1199" loading="lazy" decoding="async" class="svelte-wwjqoz"></picture></div></div></div></div> 
+<div class="section" id="section-f61b7893"><div class="section-container"><iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FKiev&mode=MONTH&showTitle=0&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0&title=SkyStudio%20%D0%91%D1%80%D0%BE%D0%BD%D1%8C&src=c2t5c3R1ZGlvLnV6QGdtYWlsLmNvbQ&color=%234285F4" style="border: 0" width="800" height="600" frameborder="0" scrolling="no" title="Google Calendar" class="svelte-fkbfxf"></iframe></div></div> 
+<div class="section" id="section-647dd1a5"><div class="section-container"><div class="contactUsLine svelte-sabpsk"><div class="text svelte-sabpsk">Для бронювання фотостудії звʼяжіться з нами:</div>
+	<div class="contactUs svelte-sabpsk"><a rel="noreferrer" href="tel:+380950889787" class="svelte-sabpsk"><img alt="phone" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 36 36'%3E%3Cpath fill='%23ffffff' d='M15.22 20.64a20.37 20.37 0 0 0 7.4 4.79l3.77-3a.67.67 0 0 1 .76 0l7 4.51a2 2 0 0 1 .33 3.18l-3.28 3.24a4 4 0 0 1-3.63 1.07a35.09 35.09 0 0 1-17.15-9A33.79 33.79 0 0 1 1.15 8.6a3.78 3.78 0 0 1 1.1-3.55l3.4-3.28a2 2 0 0 1 3.12.32L13.43 9a.63.63 0 0 1 0 .75l-3.07 3.69a19.75 19.75 0 0 0 4.86 7.2Z' class='clr-i-solid clr-i-solid-path-1'/%3E%3Cpath fill='none' d='M0 0h36v36H0z'/%3E%3C/svg%3E" class="svelte-sabpsk"></a>
+		<a target="_blank" rel="noreferrer" href="https://www.instagram.com/sky_studio_uzh/" class="svelte-sabpsk"><img alt="instagram icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M13.028 2.001a78.82 78.82 0 0 1 2.189.022l.194.007c.224.008.445.018.712.03c1.064.05 1.79.218 2.427.465c.66.254 1.216.598 1.772 1.154a4.908 4.908 0 0 1 1.153 1.771c.247.637.415 1.364.465 2.428c.012.266.022.488.03.712l.006.194a79 79 0 0 1 .023 2.188l.001.746v1.31a78.836 78.836 0 0 1-.023 2.189l-.006.194c-.008.224-.018.445-.03.712c-.05 1.064-.22 1.79-.466 2.427a4.884 4.884 0 0 1-1.153 1.772a4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.427.465c-.267.012-.488.022-.712.03l-.194.006a79 79 0 0 1-2.189.023l-.746.001h-1.309a78.836 78.836 0 0 1-2.189-.023l-.194-.006a60.64 60.64 0 0 1-.712-.03c-1.064-.05-1.79-.22-2.428-.466a4.89 4.89 0 0 1-1.771-1.153a4.904 4.904 0 0 1-1.154-1.772c-.247-.637-.415-1.363-.465-2.427a74.367 74.367 0 0 1-.03-.712l-.005-.194A79.053 79.053 0 0 1 2 13.028v-2.056a78.82 78.82 0 0 1 .022-2.188l.007-.194c.008-.224.018-.446.03-.712c.05-1.065.218-1.79.465-2.428A4.88 4.88 0 0 1 3.68 3.68a4.897 4.897 0 0 1 1.77-1.155c.638-.247 1.363-.415 2.428-.465l.712-.03l.194-.005A79.053 79.053 0 0 1 10.972 2h2.056Zm-1.028 5A5 5 0 1 0 12 17a5 5 0 0 0 0-10Zm0 2A3 3 0 1 1 12.001 15a3 3 0 0 1 0-6Zm5.25-3.5a1.25 1.25 0 0 0 0 2.498a1.25 1.25 0 0 0 0-2.5Z'/%3E%3C/svg%3E" class="svelte-sabpsk" style="--size: 1.5rem;"></a>
+		<a target="_blank" rel="noreferrer" href="https://t.me/macwings" class="svelte-sabpsk"><img alt="telegram icon" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 48 48'%3E%3Cpath fill='white' d='M41.42 7.309s3.885-1.515 3.56 2.164c-.107 1.515-1.078 6.818-1.834 12.553l-2.59 16.99s-.216 2.489-2.159 2.922c-1.942.432-4.856-1.515-5.396-1.948c-.432-.325-8.094-5.195-10.792-7.575c-.756-.65-1.62-1.948.108-3.463L33.648 18.13c1.295-1.298 2.59-4.328-2.806-.649l-15.11 10.28s-1.727 1.083-4.964.109l-7.016-2.165s-2.59-1.623 1.835-3.246c10.793-5.086 24.068-10.28 35.831-15.15Z'/%3E%3C/svg%3E" class="svelte-sabpsk" style="--size: 1.4rem;"></a></div></div></div></div> 
+<div class="section" id="section-051b42c3"><footer class="svelte-b63oz0"><div class="container svelte-b63oz0"><div class="logo"><a href="/" class="svelte-b63oz0"><img src="https://cdn.skystudio.uz.ua/old/skystudio_logo.svg" alt="Logo SkyStudio" class="svelte-b63oz0"></a></div>
+		<div class="nav svelte-b63oz0"><a class="lighter svelte-b63oz0" href="/" title="Головна">Головна</a><a class="lighter svelte-b63oz0" href="/fotozony" title="Фотозони">Фотозони</a><a class="lighter svelte-b63oz0" href="/" title="Техніка">Техніка</a><a class="lighter svelte-b63oz0" href="/" title="Крила">Крила</a><a class="lighter svelte-b63oz0" href="/" title="Сукні">Сукні</a><a class="lighter svelte-b63oz0" href="/" title="Про нас">Про нас</a></div>
+		<div class="info svelte-b63oz0"><a href="mailto:contact@skystudio.uz.ua" class="svelte-b63oz0">contact@skystudio.uz.ua</a><br>
+			&quot;Sky Studio – Фотостудія з крилами в Ужгороді&quot;<br>
+			При копіюванні матеріалів із сайту посилання обов&#39;язкове. Усі права захищені © 2023</div></div></footer></div> 
+
+      <script type="module">
+      import('/_symbols/839d3df3-c35b-4b68-8cc3-3a09369dceba.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-d2e0b991'),
+              hydrate: true,
+              props: {"links":[{"item":{"url":"/","label":"Головна"}},{"item":{"url":"/fotozony","label":"Фотозони"}},{"item":{"url":"/","label":"Техніка"}},{"item":{"url":"/","label":"Крила"}},{"item":{"url":"/","label":"Сукні"}},{"item":{"url":"/","label":"Про нас"}}]}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/6e6daab9-efd0-4aeb-b66f-4ac0a3c273af.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-051b42c3'),
+              hydrate: true,
+              props: {"email":"contact@skystudio.uz.ua","title":"Sky Studio – Фотостудія з крилами в Ужгороді","links":[{"item":{"url":"/","label":"Головна"}},{"item":{"url":"/fotozony","label":"Фотозони"}},{"item":{"url":"/","label":"Техніка"}},{"item":{"url":"/","label":"Крила"}},{"item":{"url":"/","label":"Сукні"}},{"item":{"url":"/","label":"Про нас"}}]}
+            })
+          
+      })
+      .catch(e => console.error(e))
+    
+
+      import('/_symbols/2bd18c21-94d5-4fd6-92dc-091f92c2919e.js')
+      .then(({default:App}) => {
+        
+            new App({
+              target: document.querySelector('#section-432b303e'),
+              hydrate: true,
+              props: {"news":[{"date":"22.07.2023","text":"Зона для немовлят з фруктами - вже доступна до бронювання. Зазвичай дітки люблять бавитися в воді, тому ми організували цю зону саме для них👼🏻","title":"Нова фотозона","picture":"photo1.jpg"},{"date":"20.07.2023","text":"Це справжня новинка для фотографів - постійне кольорове світло Godox🔥 Можна виставити будь-який колір спектру для вашої зйомки. Входить у вартість оренди😉","title":"Нове кольорове світло","picture":"photo1.jpg"},{"date":"18.07.2023","text":"В нашій студії зʼявились сукні на маму і дитину в стилі Барбі. Також маємо дві пари жіночих босоніжок в рожевому кольорі. Образи вже доступні до оренди","title":"Барбі","picture":"photo1.jpg"}],"text":{"html":"<p>це фотостудія в Ужгороді, де ви можете орендувати крила янгола для зйомки. Ми працюємо з 1 грудня 2022 року. Засновниця студії Євгенія своїми руками створює крила янгола і робить все можливе для того, щоб ваша зйомка була на висоті. В нас є все необхідне для ідеальних фото. Переконайтеся самі 🙂</p>\n<h3 id=\"h3\">Студія пропонує до ваших послуг:</h3></h3>\n<ul>\n<li>4 фотозони</li>\n<li>циклорама 3х6м</li>\n<li>вінілові фотофони</li>\n<li>світло Godox</li>\n<li>гнучкі дзеркала</li>\n<li>вентилятор</li>\n<li>кольорові фільтри</li>\n<li>пілон</li>\n<li>інше</li>\n</ul>\n<h3 id=\"h3-1\">Додатково є можливість орендувати:</h3></h3>\n<ul>\n<li>крила янгола різних кольорів і розмірів</li>\n<li>вечірні сукні</li>\n<li>аксесуари</li>\n</ul>","markdown":"це фотостудія в Ужгороді, де ви можете орендувати крила янгола для зйомки. Ми працюємо з 1 грудня 2022 року. Засновниця студії Євгенія своїми руками створює крила янгола і робить все можливе для того, щоб ваша зйомка була на висоті. В нас є все необхідне для ідеальних фото. Переконайтеся самі 🙂\n\n### Студія пропонує до ваших послуг:</h3>\n\n* 4 фотозони\n* циклорама 3х6м\n* вінілові фотофони\n* світло Godox\n* гнучкі дзеркала\n* вентилятор\n* кольорові фільтри\n* пілон\n* інше\n\n### Додатково є можливість орендувати:</h3>\n\n* крила янгола різних кольорів і розмірів\n* вечірні сукні\n* аксесуари\n"}}
+            })
+          
+      })
+      .catch(e => console.error(e))
     </script>
-</body>
-
-</html>
+    </body>
+  </html>
+  
