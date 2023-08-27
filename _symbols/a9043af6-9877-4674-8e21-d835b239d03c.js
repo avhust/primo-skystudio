@@ -924,12 +924,17 @@ function create_if_block$3(ctx) {
 		c() {
 			picture = element("picture");
 			if_block.c();
+			this.h();
 		},
 		l(nodes) {
-			picture = claim_element(nodes, "PICTURE", {});
+			picture = claim_element(nodes, "PICTURE", { class: true });
 			var picture_nodes = children(picture);
 			if_block.l(picture_nodes);
 			picture_nodes.forEach(detach);
+			this.h();
+		},
+		h() {
+			attr(picture, "class", "svelte-ltrm5y");
 		},
 		m(target, anchor) {
 			insert_hydration(target, picture, anchor);
@@ -989,7 +994,8 @@ function create_else_block$1(ctx) {
 				height: true,
 				width: true,
 				loading: true,
-				decoding: true
+				decoding: true,
+				class: true
 			});
 
 			this.h();
@@ -1006,6 +1012,7 @@ function create_else_block$1(ctx) {
 			attr(img, "width", /*width*/ ctx[5]);
 			attr(img, "loading", /*loading*/ ctx[7]);
 			attr(img, "decoding", "async");
+			attr(img, "class", "svelte-ltrm5y");
 		},
 		m(target, anchor) {
 			insert_hydration(target, source0, anchor);
@@ -1091,7 +1098,8 @@ function create_if_block_1$3(ctx) {
 				height: true,
 				width: true,
 				loading: true,
-				decoding: true
+				decoding: true,
+				class: true
 			});
 
 			this.h();
@@ -1108,6 +1116,7 @@ function create_if_block_1$3(ctx) {
 			attr(img, "width", /*width*/ ctx[5]);
 			attr(img, "loading", /*loading*/ ctx[7]);
 			attr(img, "decoding", "async");
+			attr(img, "class", "svelte-ltrm5y");
 		},
 		m(target, anchor) {
 			insert_hydration(target, source0, anchor);
@@ -2998,13 +3007,13 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "svelte-1ihjbz9");
-			attr(h4, "class", "svelte-1ihjbz9");
-			attr(div0, "class", "title svelte-1ihjbz9");
-			attr(p, "class", "svelte-1ihjbz9");
-			attr(div1, "class", "text svelte-1ihjbz9");
-			attr(div2, "class", "image svelte-1ihjbz9");
-			attr(div3, "class", "blockWithImage svelte-1ihjbz9");
+			attr(h3, "class", "svelte-cx557");
+			attr(h4, "class", "svelte-cx557");
+			attr(div0, "class", "title svelte-cx557");
+			attr(p, "class", "svelte-cx557");
+			attr(div1, "class", "text svelte-cx557");
+			attr(div2, "class", "image svelte-cx557");
+			attr(div3, "class", "blockWithImage svelte-cx557");
 			attr(div4, "class", "section-container");
 		},
 		m(target, anchor) {
