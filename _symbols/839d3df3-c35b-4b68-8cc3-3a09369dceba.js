@@ -923,7 +923,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (360:0) {#if openMenu}
+// (362:0) {#if openMenu}
 function create_if_block_1(ctx) {
 	let div6;
 	let div0;
@@ -1278,7 +1278,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (376:7) {#each links as {item}
+// (378:7) {#each links as {item}
 function create_each_block_1(ctx) {
 	let li;
 	let a;
@@ -1350,7 +1350,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (419:4) {:else}
+// (421:4) {:else}
 function create_else_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1378,7 +1378,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (413:4) {#if scrollY > scrollTrigger}
+// (415:4) {#if scrollY > scrollTrigger}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1406,7 +1406,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (425:13) {#each links as {item}
+// (427:13) {#each links as {item}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[12].label + "";
@@ -1832,7 +1832,9 @@ function instance($$self, $$props, $$invalidate) {
 	let current_url = page ? new URL(page.baseURI) : window.location;
 
 	onMount(() => {
-		page ? new URL(page.baseURI) : window.location;
+		let current_test = page ? new URL(page.baseURI) : window.location;
+		console.log(current_test);
+		console.log(window.location);
 	});
 
 	function checkCurrent(item_url) {
