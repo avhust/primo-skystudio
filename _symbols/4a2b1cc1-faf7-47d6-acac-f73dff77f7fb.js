@@ -1,4 +1,4 @@
-// Fotozona - Updated August 27, 2023
+// Fotozona (copy) - Updated August 27, 2023
 function noop() { }
 const identity = x => x;
 function assign(tar, src) {
@@ -2998,13 +2998,13 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "svelte-1ihjbz9");
-			attr(h4, "class", "svelte-1ihjbz9");
-			attr(div0, "class", "title svelte-1ihjbz9");
-			attr(p, "class", "svelte-1ihjbz9");
-			attr(div1, "class", "text svelte-1ihjbz9");
-			attr(div2, "class", "image svelte-1ihjbz9");
-			attr(div3, "class", "blockWithImage svelte-1ihjbz9");
+			attr(h3, "class", "svelte-41efe9");
+			attr(h4, "class", "svelte-41efe9");
+			attr(div0, "class", "title svelte-41efe9");
+			attr(p, "class", "svelte-41efe9");
+			attr(div1, "class", "text svelte-41efe9");
+			attr(div2, "class", "image svelte-41efe9");
+			attr(div3, "class", "blockWithImage svelte-41efe9");
 			attr(div4, "class", "section-container");
 		},
 		m(target, anchor) {
