@@ -906,7 +906,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (355:0) {#if openMenu}
+// (356:0) {#if openMenu}
 function create_if_block_1(ctx) {
 	let div6;
 	let div0;
@@ -1261,7 +1261,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (371:7) {#each links as {item}
+// (372:7) {#each links as {item}
 function create_each_block_1(ctx) {
 	let li;
 	let a;
@@ -1333,7 +1333,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (414:4) {:else}
+// (415:4) {:else}
 function create_else_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1361,7 +1361,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (408:4) {#if scrollY > scrollTrigger}
+// (409:4) {#if scrollY > scrollTrigger}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1389,7 +1389,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (420:13) {#each links as {item}
+// (421:13) {#each links as {item}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[12].label + "";
@@ -1812,10 +1812,11 @@ function instance($$self, $$props, $$invalidate) {
 	let { links } = $$props;
 	let scrollY = 0;
 	let openMenu = false;
-	const current_url = page ? new URL(page.baseURI) : new URL(window.location);
+	const current_url = page ? new URL(page.baseURI) : window.location;
 
 	function checkCurrent(item_url) {
 		const current = current_url.pathname.split("/").slice(-1).pop();
+		console.log(current, item_url);
 		if (item_url === `/${current === 'index' ? '' : current}`) return true;
 		return false;
 	}
