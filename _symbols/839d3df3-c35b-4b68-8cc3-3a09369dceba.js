@@ -886,19 +886,19 @@ function fly(node, { delay = 0, duration = 400, easing = cubicOut, x = 0, y = 0,
 
 function get_each_context(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i].item;
-	child_ctx[12] = i;
+	child_ctx[12] = list[i].item;
+	child_ctx[14] = i;
 	return child_ctx;
 }
 
 function get_each_context_1(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[10] = list[i].item;
-	child_ctx[12] = i;
+	child_ctx[12] = list[i].item;
+	child_ctx[14] = i;
 	return child_ctx;
 }
 
-// (353:0) {#if openMenu}
+// (355:0) {#if openMenu}
 function create_if_block_1(ctx) {
 	let div6;
 	let div0;
@@ -1185,9 +1185,9 @@ function create_if_block_1(ctx) {
 
 			if (!mounted) {
 				dispose = [
-					listen(button, "click", /*click_handler*/ ctx[7]),
-					action_destroyer(/*swipeToClose*/ ctx[3].call(null, div6)),
-					listen(div6, "swiperight", /*swiperight_handler*/ ctx[8])
+					listen(button, "click", /*click_handler*/ ctx[8]),
+					action_destroyer(/*swipeToClose*/ ctx[4].call(null, div6)),
+					listen(div6, "swiperight", /*swiperight_handler*/ ctx[9])
 				];
 
 				mounted = true;
@@ -1196,7 +1196,7 @@ function create_if_block_1(ctx) {
 		p(new_ctx, dirty) {
 			ctx = new_ctx;
 
-			if (dirty & /*checkCurrent, links*/ 1) {
+			if (dirty & /*checkCurrent, links*/ 9) {
 				each_value_1 = /*links*/ ctx[0];
 				let i;
 
@@ -1253,12 +1253,13 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (369:7) {#each links as {item}
+// (371:7) {#each links as {item}
 function create_each_block_1(ctx) {
 	let li;
 	let a;
-	let t_value = /*item*/ ctx[10].label + "";
+	let t_value = /*item*/ ctx[12].label + "";
 	let t;
+	let a_aria_current_value;
 	let a_href_value;
 	let a_title_value;
 
@@ -1287,11 +1288,11 @@ function create_each_block_1(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "aria-current", checkCurrent(/*index*/ ctx[12]));
-			attr(a, "href", a_href_value = /*item*/ ctx[10].url);
-			attr(a, "title", a_title_value = /*item*/ ctx[10].label);
+			attr(a, "aria-current", a_aria_current_value = /*checkCurrent*/ ctx[3](/*item*/ ctx[12].url));
+			attr(a, "href", a_href_value = /*item*/ ctx[12].url);
+			attr(a, "title", a_title_value = /*item*/ ctx[12].label);
 			attr(a, "class", "svelte-u4p3nq");
-			toggle_class(a, "current", checkCurrent(/*index*/ ctx[12]));
+			toggle_class(a, "current", /*checkCurrent*/ ctx[3](/*item*/ ctx[12].url));
 			attr(li, "class", "svelte-u4p3nq");
 		},
 		m(target, anchor) {
@@ -1300,14 +1301,22 @@ function create_each_block_1(ctx) {
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[12].label + "")) set_data(t, t_value);
 
-			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[10].url)) {
+			if (dirty & /*links*/ 1 && a_aria_current_value !== (a_aria_current_value = /*checkCurrent*/ ctx[3](/*item*/ ctx[12].url))) {
+				attr(a, "aria-current", a_aria_current_value);
+			}
+
+			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[10].label)) {
+			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[12].label)) {
 				attr(a, "title", a_title_value);
+			}
+
+			if (dirty & /*checkCurrent, links*/ 9) {
+				toggle_class(a, "current", /*checkCurrent*/ ctx[3](/*item*/ ctx[12].url));
 			}
 		},
 		d(detaching) {
@@ -1316,7 +1325,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (412:4) {:else}
+// (414:4) {:else}
 function create_else_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1344,7 +1353,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (406:4) {#if scrollY > scrollTrigger}
+// (408:4) {#if scrollY > scrollTrigger}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1372,10 +1381,10 @@ function create_if_block(ctx) {
 	};
 }
 
-// (418:13) {#each links as {item}
+// (420:13) {#each links as {item}
 function create_each_block(ctx) {
 	let a;
-	let t_value = /*item*/ ctx[10].label + "";
+	let t_value = /*item*/ ctx[12].label + "";
 	let t;
 	let a_href_value;
 	let a_title_value;
@@ -1394,24 +1403,28 @@ function create_each_block(ctx) {
 			this.h();
 		},
 		h() {
-			attr(a, "href", a_href_value = /*item*/ ctx[10].url);
-			attr(a, "title", a_title_value = /*item*/ ctx[10].label);
+			attr(a, "href", a_href_value = /*item*/ ctx[12].url);
+			attr(a, "title", a_title_value = /*item*/ ctx[12].label);
 			attr(a, "class", "svelte-u4p3nq");
-			toggle_class(a, "current", checkCurrent(/*index*/ ctx[12]));
+			toggle_class(a, "current", /*checkCurrent*/ ctx[3](/*item*/ ctx[12].url));
 		},
 		m(target, anchor) {
 			insert_hydration(target, a, anchor);
 			append_hydration(a, t);
 		},
 		p(ctx, dirty) {
-			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[10].label + "")) set_data(t, t_value);
+			if (dirty & /*links*/ 1 && t_value !== (t_value = /*item*/ ctx[12].label + "")) set_data(t, t_value);
 
-			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[10].url)) {
+			if (dirty & /*links*/ 1 && a_href_value !== (a_href_value = /*item*/ ctx[12].url)) {
 				attr(a, "href", a_href_value);
 			}
 
-			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[10].label)) {
+			if (dirty & /*links*/ 1 && a_title_value !== (a_title_value = /*item*/ ctx[12].label)) {
 				attr(a, "title", a_title_value);
+			}
+
+			if (dirty & /*checkCurrent, links*/ 9) {
+				toggle_class(a, "current", /*checkCurrent*/ ctx[3](/*item*/ ctx[12].url));
 			}
 		},
 		d(detaching) {
@@ -1462,7 +1475,7 @@ function create_fragment(ctx) {
 	let current;
 	let mounted;
 	let dispose;
-	add_render_callback(/*onwindowscroll*/ ctx[6]);
+	add_render_callback(/*onwindowscroll*/ ctx[7]);
 	let if_block0 = /*openMenu*/ ctx[2] && create_if_block_1(ctx);
 
 	function select_block_type(ctx, dirty) {
@@ -1687,9 +1700,9 @@ function create_fragment(ctx) {
 						scrolling = true;
 						clearTimeout(scrolling_timeout);
 						scrolling_timeout = setTimeout(clear_scrolling, 100);
-						/*onwindowscroll*/ ctx[6]();
+						/*onwindowscroll*/ ctx[7]();
 					}),
-					listen(button, "click", /*click_handler_1*/ ctx[9])
+					listen(button, "click", /*click_handler_1*/ ctx[10])
 				];
 
 				mounted = true;
@@ -1736,7 +1749,7 @@ function create_fragment(ctx) {
 				}
 			}
 
-			if (dirty & /*links, checkCurrent*/ 1) {
+			if (dirty & /*links, checkCurrent*/ 9) {
 				each_value = /*links*/ ctx[0];
 				let i;
 
@@ -1786,16 +1799,17 @@ function create_fragment(ctx) {
 
 const scrollTrigger = 200;
 
-function checkCurrent(index) {
-	if (typeof slide_number !== 'undefined' && parseInt(slide_number) === index) return true;
-	return false;
-}
-
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
 	let { links } = $$props;
 	let scrollY = 0;
 	let openMenu = false;
+	const url = new URL(page.baseURI);
+
+	function checkCurrent(item_url) {
+		if (item_url === `/${url.pathname.split("/").slice(-1).pop()}`) return true;
+		return false;
+	}
 
 	const swipeToClose = node => {
 		let touchStart, touchEnd;
@@ -1874,7 +1888,7 @@ function instance($$self, $$props, $$invalidate) {
 	const click_handler_1 = () => $$invalidate(2, openMenu = true);
 
 	$$self.$$set = $$props => {
-		if ('props' in $$props) $$invalidate(4, props = $$props.props);
+		if ('props' in $$props) $$invalidate(5, props = $$props.props);
 		if ('links' in $$props) $$invalidate(0, links = $$props.links);
 	};
 
@@ -1882,6 +1896,7 @@ function instance($$self, $$props, $$invalidate) {
 		links,
 		scrollY,
 		openMenu,
+		checkCurrent,
 		swipeToClose,
 		props,
 		swipable,
@@ -1895,11 +1910,11 @@ function instance($$self, $$props, $$invalidate) {
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { props: 4, links: 0, swipable: 5 });
+		init(this, options, instance, create_fragment, safe_not_equal, { props: 5, links: 0, swipable: 6 });
 	}
 
 	get swipable() {
-		return this.$$.ctx[5];
+		return this.$$.ctx[6];
 	}
 }
 

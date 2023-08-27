@@ -814,19 +814,19 @@ function create_fragment(ctx) {
 			attr(div3, "class", "premenu svelte-xt9fw9");
 			attr(a0, "href", "/fotozony");
 			attr(a0, "class", "svelte-xt9fw9");
-			toggle_class(a0, "active", /*slideno*/ ctx[0] === 1);
+			toggle_class(a0, "active", /*slideno*/ ctx[0] === "1");
 			attr(a1, "href", "/tekhnika");
 			attr(a1, "class", "svelte-xt9fw9");
-			toggle_class(a1, "active", /*slideno*/ ctx[0] === 2);
+			toggle_class(a1, "active", /*slideno*/ ctx[0] === "2");
 			attr(a2, "href", "/kryla");
 			attr(a2, "class", "svelte-xt9fw9");
-			toggle_class(a2, "active", /*slideno*/ ctx[0] === 3);
+			toggle_class(a2, "active", /*slideno*/ ctx[0] === "3");
 			attr(a3, "href", "/sukni");
 			attr(a3, "class", "svelte-xt9fw9");
-			toggle_class(a3, "active", /*slideno*/ ctx[0] === 4);
+			toggle_class(a3, "active", /*slideno*/ ctx[0] === "4");
 			attr(a4, "href", "/pro");
 			attr(a4, "class", "svelte-xt9fw9");
-			toggle_class(a4, "active", /*slideno*/ ctx[0] === 5);
+			toggle_class(a4, "active", /*slideno*/ ctx[0] === "5");
 			attr(div4, "class", "menu svelte-xt9fw9");
 			attr(div5, "class", "texts svelte-xt9fw9");
 			attr(section, "class", "svelte-xt9fw9");
@@ -937,23 +937,23 @@ function create_fragment(ctx) {
 			}
 
 			if (dirty & /*slideno*/ 1) {
-				toggle_class(a0, "active", /*slideno*/ ctx[0] === 1);
+				toggle_class(a0, "active", /*slideno*/ ctx[0] === "1");
 			}
 
 			if (dirty & /*slideno*/ 1) {
-				toggle_class(a1, "active", /*slideno*/ ctx[0] === 2);
+				toggle_class(a1, "active", /*slideno*/ ctx[0] === "2");
 			}
 
 			if (dirty & /*slideno*/ 1) {
-				toggle_class(a2, "active", /*slideno*/ ctx[0] === 3);
+				toggle_class(a2, "active", /*slideno*/ ctx[0] === "3");
 			}
 
 			if (dirty & /*slideno*/ 1) {
-				toggle_class(a3, "active", /*slideno*/ ctx[0] === 4);
+				toggle_class(a3, "active", /*slideno*/ ctx[0] === "4");
 			}
 
 			if (dirty & /*slideno*/ 1) {
-				toggle_class(a4, "active", /*slideno*/ ctx[0] === 5);
+				toggle_class(a4, "active", /*slideno*/ ctx[0] === "5");
 			}
 		},
 		i: noop,
