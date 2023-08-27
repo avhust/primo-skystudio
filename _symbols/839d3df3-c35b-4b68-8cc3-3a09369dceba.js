@@ -898,7 +898,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (348:0) {#if openMenu}
+// (353:0) {#if openMenu}
 function create_if_block_1(ctx) {
 	let div6;
 	let div0;
@@ -1089,58 +1089,58 @@ function create_if_block_1(ctx) {
 		h() {
 			attr(img0, "alt", "burger icon");
 			if (!src_url_equal(img0.src, img0_src_value = "https://cdn.skystudio.uz.ua/old/icons/cross.svg")) attr(img0, "src", img0_src_value);
-			attr(img0, "class", "svelte-5fxekz");
-			attr(button, "class", "svelte-5fxekz");
-			attr(div0, "class", "cross svelte-5fxekz");
+			attr(img0, "class", "svelte-u4p3nq");
+			attr(button, "class", "svelte-u4p3nq");
+			attr(div0, "class", "cross svelte-u4p3nq");
 			if (!src_url_equal(img1.src, img1_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo.svg")) attr(img1, "src", img1_src_value);
 			attr(img1, "alt", "Logo SkyStudio");
-			attr(img1, "class", "svelte-5fxekz");
+			attr(img1, "class", "svelte-u4p3nq");
 			attr(a0, "href", "/");
-			attr(a0, "class", "svelte-5fxekz");
-			attr(div1, "class", "logo svelte-5fxekz");
-			attr(ul, "class", "svelte-5fxekz");
+			attr(a0, "class", "svelte-u4p3nq");
+			attr(div1, "class", "logo svelte-u4p3nq");
+			attr(ul, "class", "svelte-u4p3nq");
 			attr(img2, "alt", "fb icon");
 			if (!src_url_equal(img2.src, img2_src_value = "https://cdn.skystudio.uz.ua/old/icons/phone.svg")) attr(img2, "src", img2_src_value);
-			attr(img2, "class", "svelte-5fxekz");
+			attr(img2, "class", "svelte-u4p3nq");
 			attr(a1, "rel", "noreferrer");
 			attr(a1, "href", "tel:+380950889787");
-			attr(a1, "class", "svelte-5fxekz");
+			attr(a1, "class", "svelte-u4p3nq");
 			attr(img3, "alt", "instagram icon");
 			if (!src_url_equal(img3.src, img3_src_value = "https://cdn.skystudio.uz.ua/old/icons/insta.svg")) attr(img3, "src", img3_src_value);
-			attr(img3, "class", "svelte-5fxekz");
+			attr(img3, "class", "svelte-u4p3nq");
 			set_style(img3, "--size", `1.7rem`);
 			attr(a2, "target", "_blank");
 			attr(a2, "rel", "noreferrer");
 			attr(a2, "href", "https://www.instagram.com/sky_studio_uzh/");
-			attr(a2, "class", "svelte-5fxekz");
+			attr(a2, "class", "svelte-u4p3nq");
 			attr(img4, "alt", "fb icon");
 			if (!src_url_equal(img4.src, img4_src_value = "https://cdn.skystudio.uz.ua/old/icons/fb.svg")) attr(img4, "src", img4_src_value);
-			attr(img4, "class", "svelte-5fxekz");
+			attr(img4, "class", "svelte-u4p3nq");
 			attr(a3, "target", "_blank");
 			attr(a3, "rel", "noreferrer");
 			attr(a3, "href", "https://www.facebook.com/skystudio.uz");
-			attr(a3, "class", "svelte-5fxekz");
+			attr(a3, "class", "svelte-u4p3nq");
 			attr(img5, "alt", "telegram icon");
 			if (!src_url_equal(img5.src, img5_src_value = "https://cdn.skystudio.uz.ua/old/icons/telegram.svg")) attr(img5, "src", img5_src_value);
-			attr(img5, "class", "svelte-5fxekz");
+			attr(img5, "class", "svelte-u4p3nq");
 			set_style(img5, "--size", `1.4rem`);
 			attr(a4, "target", "_blank");
 			attr(a4, "rel", "noreferrer");
 			attr(a4, "href", "https://t.me/macwings");
-			attr(a4, "class", "svelte-5fxekz");
+			attr(a4, "class", "svelte-u4p3nq");
 			attr(img6, "alt", "youtube icon");
 			if (!src_url_equal(img6.src, img6_src_value = "https://cdn.skystudio.uz.ua/old/icons/youtube.svg")) attr(img6, "src", img6_src_value);
-			attr(img6, "class", "svelte-5fxekz");
+			attr(img6, "class", "svelte-u4p3nq");
 			set_style(img6, "--size", `1.4rem`);
 			attr(a5, "target", "_blank");
 			attr(a5, "rel", "noreferrer");
 			attr(a5, "href", "https://youtube.com/@sky_studio_uzh");
-			attr(a5, "class", "svelte-5fxekz");
-			attr(div2, "class", "social svelte-5fxekz");
-			attr(div3, "class", "phone svelte-5fxekz");
-			attr(div4, "class", "main svelte-5fxekz");
-			attr(div5, "class", "footer svelte-5fxekz");
-			attr(div6, "class", "mobileMenu svelte-5fxekz");
+			attr(a5, "class", "svelte-u4p3nq");
+			attr(div2, "class", "social svelte-u4p3nq");
+			attr(div3, "class", "phone svelte-u4p3nq");
+			attr(div4, "class", "main svelte-u4p3nq");
+			attr(div5, "class", "footer svelte-u4p3nq");
+			attr(div6, "class", "mobileMenu svelte-u4p3nq");
 		},
 		m(target, anchor) {
 			insert_hydration(target, div6, anchor);
@@ -1253,7 +1253,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (364:7) {#each links as {item}
+// (369:7) {#each links as {item}
 function create_each_block_1(ctx) {
 	let li;
 	let a;
@@ -1290,9 +1290,9 @@ function create_each_block_1(ctx) {
 			attr(a, "aria-current", checkCurrent(/*index*/ ctx[12]));
 			attr(a, "href", a_href_value = /*item*/ ctx[10].url);
 			attr(a, "title", a_title_value = /*item*/ ctx[10].label);
-			attr(a, "class", "svelte-5fxekz");
+			attr(a, "class", "svelte-u4p3nq");
 			toggle_class(a, "current", checkCurrent(/*index*/ ctx[12]));
-			attr(li, "class", "svelte-5fxekz");
+			attr(li, "class", "svelte-u4p3nq");
 		},
 		m(target, anchor) {
 			insert_hydration(target, li, anchor);
@@ -1316,7 +1316,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (407:4) {:else}
+// (412:4) {:else}
 function create_else_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1333,7 +1333,7 @@ function create_else_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo.svg")) attr(img, "src", img_src_value);
 			attr(img, "alt", "Logo SkyStudio");
-			attr(img, "class", "svelte-5fxekz");
+			attr(img, "class", "svelte-u4p3nq");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1344,7 +1344,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (401:4) {#if scrollY > scrollTrigger}
+// (406:4) {#if scrollY > scrollTrigger}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1361,7 +1361,7 @@ function create_if_block(ctx) {
 		h() {
 			if (!src_url_equal(img.src, img_src_value = "https://cdn.skystudio.uz.ua/old/skystudio_logo_scrolled.svg")) attr(img, "src", img_src_value);
 			attr(img, "alt", "Logo SkyStudio");
-			attr(img, "class", "svelte-5fxekz");
+			attr(img, "class", "svelte-u4p3nq");
 		},
 		m(target, anchor) {
 			insert_hydration(target, img, anchor);
@@ -1372,7 +1372,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (413:13) {#each links as {item}
+// (418:13) {#each links as {item}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[10].label + "";
@@ -1396,7 +1396,7 @@ function create_each_block(ctx) {
 		h() {
 			attr(a, "href", a_href_value = /*item*/ ctx[10].url);
 			attr(a, "title", a_title_value = /*item*/ ctx[10].label);
-			attr(a, "class", "svelte-5fxekz");
+			attr(a, "class", "svelte-u4p3nq");
 			toggle_class(a, "current", checkCurrent(/*index*/ ctx[12]));
 		},
 		m(target, anchor) {
@@ -1601,46 +1601,46 @@ function create_fragment(ctx) {
 		},
 		h() {
 			attr(a0, "href", "/");
-			attr(a0, "class", "svelte-5fxekz");
-			attr(div0, "class", "logo svelte-5fxekz");
-			attr(div1, "class", "nav svelte-5fxekz");
+			attr(a0, "class", "svelte-u4p3nq");
+			attr(div0, "class", "logo svelte-u4p3nq");
+			attr(div1, "class", "nav svelte-u4p3nq");
 			attr(img0, "alt", "fb icon");
 			if (!src_url_equal(img0.src, img0_src_value = "https://cdn.skystudio.uz.ua/old/icons/phone.svg")) attr(img0, "src", img0_src_value);
-			attr(img0, "class", "svelte-5fxekz");
+			attr(img0, "class", "svelte-u4p3nq");
 			attr(a1, "rel", "noreferrer");
 			attr(a1, "href", "tel:+380950889787");
-			attr(a1, "class", "svelte-5fxekz");
+			attr(a1, "class", "svelte-u4p3nq");
 			attr(img1, "alt", "instagram icon");
 			if (!src_url_equal(img1.src, img1_src_value = "https://cdn.skystudio.uz.ua/old/icons/insta.svg")) attr(img1, "src", img1_src_value);
-			attr(img1, "class", "svelte-5fxekz");
+			attr(img1, "class", "svelte-u4p3nq");
 			set_style(img1, "--size", `1.5rem`);
 			attr(a2, "target", "_blank");
 			attr(a2, "rel", "noreferrer");
 			attr(a2, "href", "https://www.instagram.com/sky_studio_uzh/");
-			attr(a2, "class", "svelte-5fxekz");
+			attr(a2, "class", "svelte-u4p3nq");
 			attr(img2, "alt", "fb icon");
 			if (!src_url_equal(img2.src, img2_src_value = "https://cdn.skystudio.uz.ua/old/icons/fb.svg")) attr(img2, "src", img2_src_value);
-			attr(img2, "class", "svelte-5fxekz");
+			attr(img2, "class", "svelte-u4p3nq");
 			attr(a3, "target", "_blank");
 			attr(a3, "rel", "noreferrer");
 			attr(a3, "href", "https://www.facebook.com/skystudio.uz");
-			attr(a3, "class", "svelte-5fxekz");
+			attr(a3, "class", "svelte-u4p3nq");
 			attr(img3, "alt", "youtube icon");
 			if (!src_url_equal(img3.src, img3_src_value = "https://cdn.skystudio.uz.ua/old/icons/youtube.svg")) attr(img3, "src", img3_src_value);
-			attr(img3, "class", "svelte-5fxekz");
+			attr(img3, "class", "svelte-u4p3nq");
 			attr(a4, "target", "_blank");
 			attr(a4, "rel", "noreferrer");
 			attr(a4, "href", "https://youtube.com/@sky_studio_uzh");
-			attr(a4, "class", "svelte-5fxekz");
-			attr(div2, "class", "social svelte-5fxekz");
+			attr(a4, "class", "svelte-u4p3nq");
+			attr(div2, "class", "social svelte-u4p3nq");
 			attr(div3, "class", "langs");
 			attr(img4, "alt", "burger icon");
 			if (!src_url_equal(img4.src, img4_src_value = "https://cdn.skystudio.uz.ua/old/icons/hamburger.svg")) attr(img4, "src", img4_src_value);
-			attr(img4, "class", "svelte-5fxekz");
-			attr(button, "class", "svelte-5fxekz");
-			attr(div4, "class", "burger svelte-5fxekz");
-			attr(div5, "class", "container svelte-5fxekz");
-			attr(header, "class", "svelte-5fxekz");
+			attr(img4, "class", "svelte-u4p3nq");
+			attr(button, "class", "svelte-u4p3nq");
+			attr(div4, "class", "burger svelte-u4p3nq");
+			attr(div5, "class", "container svelte-u4p3nq");
+			attr(header, "class", "svelte-u4p3nq");
 			toggle_class(header, "scrolled", /*scrollY*/ ctx[1] > scrollTrigger);
 		},
 		m(target, anchor) {

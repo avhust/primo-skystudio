@@ -271,6 +271,12 @@ function claim_text(nodes, data) {
 function claim_space(nodes) {
     return claim_text(nodes, ' ');
 }
+function set_data(text, data) {
+    data = '' + data;
+    if (text.data === data)
+        return;
+    text.data = data;
+}
 function set_style(node, key, value, important) {
     if (value == null) {
         node.style.removeProperty(key);
@@ -599,18 +605,21 @@ function create_fragment(ctx) {
 	let section;
 	let picture;
 	let source0;
+	let source0_srcset_value;
 	let t0;
 	let source1;
+	let source1_srcset_value;
 	let t1;
 	let img;
 	let img_src_value;
+	let img_srcset_value;
 	let t2;
 	let div5;
 	let div0;
-	let raw_value = /*texts*/ ctx[1][/*slideno*/ ctx[2]].first + "";
+	let raw_value = /*texts*/ ctx[2][/*slideno*/ ctx[0]].first + "";
 	let t3;
 	let div1;
-	let t4_value = /*texts*/ ctx[1][/*slideno*/ ctx[2]].second + "";
+	let t4_value = /*texts*/ ctx[2][/*slideno*/ ctx[0]].second + "";
 	let t4;
 	let t5;
 	let div2;
@@ -642,8 +651,8 @@ function create_fragment(ctx) {
 	let t20;
 	let br4;
 	let t21;
-	let if_block0 = /*texts*/ ctx[1][/*slideno*/ ctx[2]].button && create_if_block_1();
-	let if_block1 = /*slideno*/ ctx[2] === 0 && create_if_block();
+	let if_block0 = /*texts*/ ctx[2][/*slideno*/ ctx[0]].button && create_if_block_1();
+	let if_block1 = /*slideno*/ ctx[0] === 0 && create_if_block();
 
 	return {
 		c() {
@@ -782,42 +791,42 @@ function create_fragment(ctx) {
 		h() {
 			attr(source0, "type", "image/avif");
 			attr(source0, "sizes", "100vw");
-			attr(source0, "srcset", "\n\t\t\t  " + cdn + /*slides*/ ctx[0][/*slideno*/ ctx[2]].src + "-2x.avif 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[0][/*slideno*/ ctx[2]].src + "-1x.avif 1419w");
+			attr(source0, "srcset", source0_srcset_value = "\n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-2x.avif 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-1x.avif 1419w");
 			attr(source1, "type", "image/webp");
 			attr(source1, "sizes", "100vw");
-			attr(source1, "srcset", "\n\t\t\t  " + cdn + /*slides*/ ctx[0][/*slideno*/ ctx[2]].src + "-2x.webp 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[0][/*slideno*/ ctx[2]].src + "-1x.webp 1419w");
+			attr(source1, "srcset", source1_srcset_value = "\n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-2x.webp 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-1x.webp 1419w");
 			attr(img, "alt", "hero");
-			if (!src_url_equal(img.src, img_src_value = "" + (cdn + /*slides*/ ctx[0][/*slideno*/ ctx[2]].src + "-1x.jpg"))) attr(img, "src", img_src_value);
-			attr(img, "srcset", "\n\t\t\t  " + cdn + /*slides*/ ctx[0][/*slideno*/ ctx[2]].src + "-2x.jpg 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[0][/*slideno*/ ctx[2]].src + "-1x.jpg 1419w");
+			if (!src_url_equal(img.src, img_src_value = "" + (cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-1x.jpg"))) attr(img, "src", img_src_value);
+			attr(img, "srcset", img_srcset_value = "\n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-2x.jpg 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-1x.jpg 1419w");
 			attr(img, "sizes", "100vw");
 			attr(img, "height", "1061");
 			attr(img, "width", "2126");
 			set_style(img, "content-visibility", "auto");
 			attr(img, "class", "svelte-xt9fw9");
-			set_style(img, "--moveX", /*slides*/ ctx[0][/*slideno*/ ctx[2]].moveMobile.x);
-			set_style(img, "--scale", /*slides*/ ctx[0][/*slideno*/ ctx[2]].moveMobile.scale);
+			set_style(img, "--moveX", /*slides*/ ctx[1][/*slideno*/ ctx[0]].moveMobile.x);
+			set_style(img, "--scale", /*slides*/ ctx[1][/*slideno*/ ctx[0]].moveMobile.scale);
 			attr(picture, "class", "svelte-xt9fw9");
-			set_style(picture, "--brightness", /*slides*/ ctx[0][/*slideno*/ ctx[2]].brightness || '');
+			set_style(picture, "--brightness", /*slides*/ ctx[1][/*slideno*/ ctx[0]].brightness || '');
 			attr(div0, "class", "first svelte-xt9fw9");
 			attr(div1, "class", "second svelte-xt9fw9");
-			set_style(div1, "--length", /*texts*/ ctx[1][/*slideno*/ ctx[2]].second.length);
+			set_style(div1, "--length", /*texts*/ ctx[2][/*slideno*/ ctx[0]].second.length);
 			attr(div2, "class", "buttonHero svelte-xt9fw9");
 			attr(div3, "class", "premenu svelte-xt9fw9");
 			attr(a0, "href", "/fotozony");
 			attr(a0, "class", "svelte-xt9fw9");
-			toggle_class(a0, "active", /*slideno*/ ctx[2] === 1);
+			toggle_class(a0, "active", /*slideno*/ ctx[0] === 1);
 			attr(a1, "href", "/tekhnika");
 			attr(a1, "class", "svelte-xt9fw9");
-			toggle_class(a1, "active", /*slideno*/ ctx[2] === 2);
+			toggle_class(a1, "active", /*slideno*/ ctx[0] === 2);
 			attr(a2, "href", "/kryla");
 			attr(a2, "class", "svelte-xt9fw9");
-			toggle_class(a2, "active", /*slideno*/ ctx[2] === 3);
+			toggle_class(a2, "active", /*slideno*/ ctx[0] === 3);
 			attr(a3, "href", "/sukni");
 			attr(a3, "class", "svelte-xt9fw9");
-			toggle_class(a3, "active", /*slideno*/ ctx[2] === 4);
+			toggle_class(a3, "active", /*slideno*/ ctx[0] === 4);
 			attr(a4, "href", "/pro");
 			attr(a4, "class", "svelte-xt9fw9");
-			toggle_class(a4, "active", /*slideno*/ ctx[2] === 5);
+			toggle_class(a4, "active", /*slideno*/ ctx[0] === 5);
 			attr(div4, "class", "menu svelte-xt9fw9");
 			attr(div5, "class", "texts svelte-xt9fw9");
 			attr(section, "class", "svelte-xt9fw9");
@@ -870,7 +879,83 @@ function create_fragment(ctx) {
 			append_hydration(a4, br4);
 			append_hydration(a4, t21);
 		},
-		p: noop,
+		p(ctx, [dirty]) {
+			if (dirty & /*slideno*/ 1 && source0_srcset_value !== (source0_srcset_value = "\n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-2x.avif 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-1x.avif 1419w")) {
+				attr(source0, "srcset", source0_srcset_value);
+			}
+
+			if (dirty & /*slideno*/ 1 && source1_srcset_value !== (source1_srcset_value = "\n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-2x.webp 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-1x.webp 1419w")) {
+				attr(source1, "srcset", source1_srcset_value);
+			}
+
+			if (dirty & /*slideno*/ 1 && !src_url_equal(img.src, img_src_value = "" + (cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-1x.jpg"))) {
+				attr(img, "src", img_src_value);
+			}
+
+			if (dirty & /*slideno*/ 1 && img_srcset_value !== (img_srcset_value = "\n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-2x.jpg 2128w, \n\t\t\t  " + cdn + /*slides*/ ctx[1][/*slideno*/ ctx[0]].src + "-1x.jpg 1419w")) {
+				attr(img, "srcset", img_srcset_value);
+			}
+
+			if (dirty & /*slideno*/ 1) {
+				set_style(img, "--moveX", /*slides*/ ctx[1][/*slideno*/ ctx[0]].moveMobile.x);
+			}
+
+			if (dirty & /*slideno*/ 1) {
+				set_style(img, "--scale", /*slides*/ ctx[1][/*slideno*/ ctx[0]].moveMobile.scale);
+			}
+
+			if (dirty & /*slideno*/ 1) {
+				set_style(picture, "--brightness", /*slides*/ ctx[1][/*slideno*/ ctx[0]].brightness || '');
+			}
+
+			if (dirty & /*slideno*/ 1 && raw_value !== (raw_value = /*texts*/ ctx[2][/*slideno*/ ctx[0]].first + "")) div0.innerHTML = raw_value;			if (dirty & /*slideno*/ 1 && t4_value !== (t4_value = /*texts*/ ctx[2][/*slideno*/ ctx[0]].second + "")) set_data(t4, t4_value);
+
+			if (dirty & /*slideno*/ 1) {
+				set_style(div1, "--length", /*texts*/ ctx[2][/*slideno*/ ctx[0]].second.length);
+			}
+
+			if (/*texts*/ ctx[2][/*slideno*/ ctx[0]].button) {
+				if (if_block0) ; else {
+					if_block0 = create_if_block_1();
+					if_block0.c();
+					if_block0.m(div2, null);
+				}
+			} else if (if_block0) {
+				if_block0.d(1);
+				if_block0 = null;
+			}
+
+			if (/*slideno*/ ctx[0] === 0) {
+				if (if_block1) ; else {
+					if_block1 = create_if_block();
+					if_block1.c();
+					if_block1.m(div3, null);
+				}
+			} else if (if_block1) {
+				if_block1.d(1);
+				if_block1 = null;
+			}
+
+			if (dirty & /*slideno*/ 1) {
+				toggle_class(a0, "active", /*slideno*/ ctx[0] === 1);
+			}
+
+			if (dirty & /*slideno*/ 1) {
+				toggle_class(a1, "active", /*slideno*/ ctx[0] === 2);
+			}
+
+			if (dirty & /*slideno*/ 1) {
+				toggle_class(a2, "active", /*slideno*/ ctx[0] === 3);
+			}
+
+			if (dirty & /*slideno*/ 1) {
+				toggle_class(a3, "active", /*slideno*/ ctx[0] === 4);
+			}
+
+			if (dirty & /*slideno*/ 1) {
+				toggle_class(a4, "active", /*slideno*/ ctx[0] === 5);
+			}
+		},
 		i: noop,
 		o: noop,
 		d(detaching) {
@@ -885,6 +970,7 @@ const cdn = 'https://cdn.skystudio.uz.ua/old';
 
 function instance($$self, $$props, $$invalidate) {
 	let { props } = $$props;
+	let { slideno } = $$props;
 
 	const slides = [
 		{
@@ -964,22 +1050,18 @@ function instance($$self, $$props, $$invalidate) {
 		}
 	];
 
-	//let slideno=select_slide ? parseInt(select_slide) : 0
-	let slideno = typeof slide_number !== 'undefined'
-	? parseInt(slide_number)
-	: 0;
-
 	$$self.$$set = $$props => {
 		if ('props' in $$props) $$invalidate(3, props = $$props.props);
+		if ('slideno' in $$props) $$invalidate(0, slideno = $$props.slideno);
 	};
 
-	return [slides, texts, slideno, props];
+	return [slideno, slides, texts, props];
 }
 
 class Component extends SvelteComponent {
 	constructor(options) {
 		super();
-		init(this, options, instance, create_fragment, safe_not_equal, { props: 3 });
+		init(this, options, instance, create_fragment, safe_not_equal, { props: 3, slideno: 0 });
 	}
 }
 
