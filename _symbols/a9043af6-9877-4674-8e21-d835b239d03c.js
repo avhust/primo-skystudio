@@ -2915,8 +2915,8 @@ function create_default_slot(ctx) {
 }
 
 function create_fragment(ctx) {
-	let div4;
 	let div3;
+	let section;
 	let div0;
 	let h3;
 	let t0;
@@ -2947,8 +2947,8 @@ function create_fragment(ctx) {
 
 	return {
 		c() {
-			div4 = element("div");
 			div3 = element("div");
+			section = element("section");
 			div0 = element("div");
 			h3 = element("h3");
 			t0 = text("Зона №1");
@@ -2969,11 +2969,11 @@ function create_fragment(ctx) {
 			this.h();
 		},
 		l(nodes) {
-			div4 = claim_element(nodes, "DIV", { class: true });
-			var div4_nodes = children(div4);
-			div3 = claim_element(div4_nodes, "DIV", { class: true });
+			div3 = claim_element(nodes, "DIV", { class: true });
 			var div3_nodes = children(div3);
-			div0 = claim_element(div3_nodes, "DIV", { class: true });
+			section = claim_element(div3_nodes, "SECTION", { class: true });
+			var section_nodes = children(section);
+			div0 = claim_element(section_nodes, "DIV", { class: true });
 			var div0_nodes = children(div0);
 			h3 = claim_element(div0_nodes, "H3", { class: true });
 			var h3_nodes = children(h3);
@@ -2985,8 +2985,8 @@ function create_fragment(ctx) {
 			t2 = claim_text(h4_nodes, "Циклорама");
 			h4_nodes.forEach(detach);
 			div0_nodes.forEach(detach);
-			t3 = claim_space(div3_nodes);
-			div1 = claim_element(div3_nodes, "DIV", { class: true });
+			t3 = claim_space(section_nodes);
+			div1 = claim_element(section_nodes, "DIV", { class: true });
 			var div1_nodes = children(div1);
 			p = claim_element(div1_nodes, "P", { class: true });
 			var p_nodes = children(p);
@@ -2997,44 +2997,44 @@ function create_fragment(ctx) {
 			t6 = claim_text(p_nodes, "Розмір циклорами - 6х3х3 метри");
 			p_nodes.forEach(detach);
 			div1_nodes.forEach(detach);
-			t7 = claim_space(div3_nodes);
-			div2 = claim_element(div3_nodes, "DIV", { class: true });
+			t7 = claim_space(section_nodes);
+			div2 = claim_element(section_nodes, "DIV", { class: true });
 			var div2_nodes = children(div2);
 			claim_component(oldexpandable.$$.fragment, div2_nodes);
 			div2_nodes.forEach(detach);
+			section_nodes.forEach(detach);
 			div3_nodes.forEach(detach);
-			div4_nodes.forEach(detach);
 			this.h();
 		},
 		h() {
-			attr(h3, "class", "svelte-cx557");
-			attr(h4, "class", "svelte-cx557");
-			attr(div0, "class", "title svelte-cx557");
-			attr(p, "class", "svelte-cx557");
-			attr(div1, "class", "text svelte-cx557");
-			attr(div2, "class", "image svelte-cx557");
-			attr(div3, "class", "blockWithImage svelte-cx557");
-			attr(div4, "class", "section-container");
+			attr(h3, "class", "svelte-1hv6qff");
+			attr(h4, "class", "svelte-1hv6qff");
+			attr(div0, "class", "title svelte-1hv6qff");
+			attr(p, "class", "svelte-1hv6qff");
+			attr(div1, "class", "text svelte-1hv6qff");
+			attr(div2, "class", "image svelte-1hv6qff");
+			attr(section, "class", "svelte-1hv6qff");
+			attr(div3, "class", "section-container");
 		},
 		m(target, anchor) {
-			insert_hydration(target, div4, anchor);
-			append_hydration(div4, div3);
-			append_hydration(div3, div0);
+			insert_hydration(target, div3, anchor);
+			append_hydration(div3, section);
+			append_hydration(section, div0);
 			append_hydration(div0, h3);
 			append_hydration(h3, t0);
 			append_hydration(div0, t1);
 			append_hydration(div0, h4);
 			append_hydration(h4, t2);
-			append_hydration(div3, t3);
-			append_hydration(div3, div1);
+			append_hydration(section, t3);
+			append_hydration(section, div1);
 			append_hydration(div1, p);
 			append_hydration(p, t4);
 			append_hydration(p, br0);
 			append_hydration(p, t5);
 			append_hydration(p, br1);
 			append_hydration(p, t6);
-			append_hydration(div3, t7);
-			append_hydration(div3, div2);
+			append_hydration(section, t7);
+			append_hydration(section, div2);
 			mount_component(oldexpandable, div2, null);
 			current = true;
 		},
@@ -3057,7 +3057,7 @@ function create_fragment(ctx) {
 			current = false;
 		},
 		d(detaching) {
-			if (detaching) detach(div4);
+			if (detaching) detach(div3);
 			destroy_component(oldexpandable);
 		}
 	};
