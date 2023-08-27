@@ -443,6 +443,23 @@ let current_component;
 function set_current_component(component) {
     current_component = component;
 }
+function get_current_component() {
+    if (!current_component)
+        throw new Error('Function called outside component initialization');
+    return current_component;
+}
+/**
+ * The `onMount` function schedules a callback to run as soon as the component has been mounted to the DOM.
+ * It must be called during the component's initialisation (but doesn't need to live *inside* the component;
+ * it can be called from an external module).
+ *
+ * `onMount` does not run inside a [server-side component](/docs#run-time-server-side-component-api).
+ *
+ * https://svelte.dev/docs#run-time-svelte-onmount
+ */
+function onMount(fn) {
+    get_current_component().$$.on_mount.push(fn);
+}
 
 const dirty_components = [];
 const binding_callbacks = [];
@@ -906,7 +923,7 @@ function get_each_context_1(ctx, list, i) {
 	return child_ctx;
 }
 
-// (356:0) {#if openMenu}
+// (364:0) {#if openMenu}
 function create_if_block_1(ctx) {
 	let div6;
 	let div0;
@@ -1261,7 +1278,7 @@ function create_if_block_1(ctx) {
 	};
 }
 
-// (372:7) {#each links as {item}
+// (380:7) {#each links as {item}
 function create_each_block_1(ctx) {
 	let li;
 	let a;
@@ -1333,7 +1350,7 @@ function create_each_block_1(ctx) {
 	};
 }
 
-// (415:4) {:else}
+// (423:4) {:else}
 function create_else_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1361,7 +1378,7 @@ function create_else_block(ctx) {
 	};
 }
 
-// (409:4) {#if scrollY > scrollTrigger}
+// (417:4) {#if scrollY > scrollTrigger}
 function create_if_block(ctx) {
 	let img;
 	let img_src_value;
@@ -1389,7 +1406,7 @@ function create_if_block(ctx) {
 	};
 }
 
-// (421:13) {#each links as {item}
+// (429:13) {#each links as {item}
 function create_each_block(ctx) {
 	let a;
 	let t_value = /*item*/ ctx[12].label + "";
@@ -1812,7 +1829,14 @@ function instance($$self, $$props, $$invalidate) {
 	let { links } = $$props;
 	let scrollY = 0;
 	let openMenu = false;
-	const current_url = page ? new URL(page.baseURI) : window.location;
+	let current_url = page ? new URL(page.baseURI) : window.location;
+
+	onMount(() => {
+		console.log(page, 'page');
+		console.log(window, 'window');
+		let current_test = page ? new URL(page.baseURI) : window.location;
+		console.log(current_test);
+	});
 
 	function checkCurrent(item_url) {
 		const current = current_url.pathname.split("/").slice(-1).pop();
